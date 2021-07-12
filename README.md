@@ -1,2 +1,2 @@
-# sfhsbeta.com
-South Forsyth Beta Club Website
+# South Forsyth Beta Club Website
+[Official Website Link](https://www.sfhsbeta.com)
