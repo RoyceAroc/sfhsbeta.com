@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 
 * {
     font-family: 'Roboto', sans-serif;  
@@ -16,15 +17,17 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+body{
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
 
 .nav-link {
     font-size: 18px;
-    border: 2px solid transparent;
 }
 
 .nav-link:hover {
     color: 	#FFD700!important;
-    border-bottom: 2px solid #FFD700;
 }
 
 .active {
@@ -100,6 +103,9 @@ footer .row div a:hover {
     .contact-icons {
         display: none!important;
     }
+    .hide {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -107,6 +113,8 @@ footer .row div a:hover {
         padding-left: 10%;
     }
 }
+
+
 
 @media all and (min-width: 992px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }
@@ -182,3 +190,13 @@ footer {
     }
 }
 
+.power-link {
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 30%;
+    color: #aa6c39;
+}
+
+.power-link:hover {
+    color:  #885830 !important;
+}
