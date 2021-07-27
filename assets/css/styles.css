@@ -79,7 +79,7 @@ footer .row {
 
 }
 
-footer .row div h2 {
+footer .row div h1 {
     color: #FFD700;
 }
 
@@ -106,6 +106,9 @@ footer .row div a:hover {
     .hide {
         display: none;
     }
+    #desp {
+        padding-top: 50px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -121,6 +124,9 @@ footer .row div a:hover {
 	.navbar .nav-item:hover .nav-link{   }
 	.navbar .nav-item:hover .dropdown-menu{ display: block; }
 	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+    #desp {
+        padding: 50px;
+    }
 }
 
 #main-header {
@@ -194,9 +200,10 @@ footer {
     text-decoration: none;
     font-size: 18px;
     border-radius: 30%;
-    color: #aa6c39;
+    color: #e7d155;
 }
 
 .power-link:hover {
-    color:  #885830 !important;
+    color:  #f3d00b !important;
 }
+
