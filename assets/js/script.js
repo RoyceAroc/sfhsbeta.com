@@ -58,7 +58,7 @@ function setAlert(title, body, buttons) {
 }
 
 function authScreen() {
-    window.location.href = googleAuthLink;
+   // window.location.href = googleAuthLink;
 }
 
 $(window).on('load', function () {

@@ -22,6 +22,31 @@ body{
     scrollbar-width: none; 
 }
 
+::selection {
+    background-color: #352e7e;
+    color: #fff;
+}
+
+::-moz-selection {
+    background-color: #352e7e;
+    color: #fff;
+}
+
+::-o-selection {
+    background-color: #352e7e;
+    color: #fff;
+}
+
+::-ms-selection {
+    background-color: #352e7e;
+    color: #fff;
+}
+
+::-webkit-selection {
+    background-color: #352e7e;
+    color: #fff;
+}
+
 .nav-link {
     font-size: 18px;
 }
@@ -109,15 +134,21 @@ footer .row div a:hover {
     #desp {
         padding-top: 50px;
     }
+    
 }
 
 @media only screen and (max-width: 768px) {
     footer {
         padding-left: 10%;
     }
+
 }
 
-
+@media all and (min-width: 768px) {
+    #map-iframe {
+        height: 470px;
+    }
+}
 
 @media all and (min-width: 992px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }
@@ -200,10 +231,11 @@ footer {
     text-decoration: none;
     font-size: 18px;
     border-radius: 30%;
-    color: #e7d155;
+    color: grey;
+    font-weight: bold;
 }
 
 .power-link:hover {
-    color:  #f3d00b !important;
+    color:  black !important;
 }
 
