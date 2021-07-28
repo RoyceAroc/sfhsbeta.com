@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://sfhsbeta.com</loc>
+        <changefreq>daily</changefreq>
+        <lastmod>2021-07-27</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sfhsbeta.com/about.html</loc>
+        <changefreq>daily</changefreq>
+        <lastmod>2021-07-27</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sfhsbeta.com/apply-now.html</loc>
+        <changefreq>daily</changefreq>
+        <lastmod>2021-07-27</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sfhsbeta.com/volunteer-opportunities.html</loc>
+        <changefreq>daily</changefreq>
+        <lastmod>2021-07-27</lastmod>
+        <priority>1.0</priority>
+    </url>
+</urlset>
