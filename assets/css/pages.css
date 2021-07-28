@@ -1,0 +1,59 @@
+#content {
+    min-height:100%;
+    position: relative;
+}
+
+@media all and (min-width: 1000px) {
+    footer {
+        position: absolute; 
+        bottom: 0;
+    }
+}
+
+.about-beta .col h1 {
+    color: #e8b923;
+}
+
+.about-beta .col .row {
+    text-align: center;
+}
+
+.about-beta .col .row .col {
+    border: 3px solid gold;
+    margin: 20px;
+    padding: 20px;
+}
+
+.about-beta .col .row .col img{
+    width: 50%;
+}
+
+.about-beta .col .row .col .position {
+    font-style: italic;
+    zoom: 80%;
+}
+.about-beta .col .row .col .name {
+    color: gold;
+}
+
+.about-beta .col .row .col .description {
+    zoom: 80%;
+}
+
+.about-beta .col .row .col description{
+    zoom: 90%;
+}
+.container {
+    width: 100%!important;
+}
+
+.shadow {
+    background-color: #212529;
+    color: white;
+}
+.cont {
+    padding: 50px 0;
+}
+.qna .question {
+    font-weight: bold;
+}
