@@ -101,34 +101,7 @@
                     </div>
                 </header>
             </header>
-            <div class="body-content">
-                <div style="padding-top: 50px;" class="container">
-                    <div class="row">
-                        <h1 class="display-4 lh-1 mb-3" style="font-family: 'Luckiest Guy', cursive;color: black;">What is Beta Club?</h1>
-                        <div class="lead col">
-                            Beta Club is a nationwide service organization that seeks to lead in the community by giving back through service projects. National Beta Club is the largest independent, non-profit, educational youth organization in America. And for more than 80 years, it has prepared today's students to be tomorrow's leaders. There are now more than 500,000 active members and more than 8,750 clubs nationally and internationally. Members are selected in their sophomore year through meeting overall GPA requirements (3.7 GPA). If a student does not qualify in their sophomore year, they can reapply later and join the club. Every member is expect to do 7 service hours per semester. Hours are logged on a sheet and submitted at the end of the semester via a Google Form. There are monthly meetings that each member is expected to attend. Meetings are the first Thursday of the month unless otherwise stated. The meetings will be posted on the Beta Club Itslearning page. To check for attendance, members must complete a quiz within one week of the meeting being posted.
-                        </div>
-                    </div>
-                </div>
-                <div style="border-left: 7px solid #FFD700; border-right: 7px solid #FFD700; margin-top: 50px;">
-                    <div id="desp" style="background-color: black;" class="text-center">
-                            <h1 style="font-family: 'Luckiest Guy', cursive;color: #FFD700;" class="display-4">Our sponsor & officers</h1>
-                            <div class="col-lg-6 mx-auto">
-                                    <p style="color: white; padding-top: 30px;" class="lead mb-4">
-                                        More information coming soon
-                                    </p>
-                            </div>
-                    </div>
-                </div>
-                <div style="padding-top: 50px;" class="container">
-                    <div class="row">
-                        <h1 class="display-4 lh-1 mb-3" style="font-family: 'Luckiest Guy', cursive;color: black;">Frequently Asked Questions (FAQs)</h1>
-                        <div class="lead col">
-                            More information coming soon
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="body-content"></div>
             <img src="assets/images/intro-hp.png" style="width: 100%"></img>
             <footer>
                 <div class="row">
@@ -178,6 +151,8 @@
                     darkSchemeIcon.remove();
                 }
             }
+
+            updateBody("web/data/content/files/about.json");
 
             if(getCookie("email") != undefined || getCookie("email") == "") {
                 $("#navbar-login").html("Logout");

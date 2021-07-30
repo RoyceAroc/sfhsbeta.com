@@ -8,15 +8,8 @@ function updateBody(path) {
 
 function createRow(json) {
     let parent = document.createElement("div"); 
-    parent.classList.add("row");
-    // Add Styles To Parent
-    for (var style in json.styles) {
-        parent.style[style] = json.styles[style];
-    }
-
-    for(let i=0; i<json.children.length; i++) {
-        parent.appendChild(createChild(json.children[i]));
-    }
+    
+    addComponents(parent, json);
 
     return parent;
 }
@@ -24,51 +17,67 @@ function createRow(json) {
 function createChild(json) {
     var child;
     switch (json.type) {
-        case "col": /* Add a column into parent */
+        case "div":
             child = document.createElement("div");
-            child.classList.add(`col-${json["size-s"]}`); 
-            child.classList.add(`col-md-${json["size-l"]}`); 
-            for (var style in json.styles) {
-                child.style[style] = json.styles[style];
-            }
-            for(let i=0; i<json.children.length; i++) {
-                child.appendChild(createChild(json.children[i]));
-            }
         break;
         case "img":
             child = document.createElement("img");
-            child.src = json.src;
-            for (var style in json.styles) {
-                child.style[style] = json.styles[style];
-            }
         break;
         case "code":
             child = document.createElement("div");
-            child.innerHTML = json.code;
-            for (var style in json.styles) {
-                child.style[style] = json.styles[style];
-            }
         break;
         case "button":
             child = document.createElement("button");
-            child.innerHTML = json.text;
-            const listener = child.addEventListener('click',function(event){                          
-                eval(json.click);
-            }); 
-            for (var style in json.styles) {
-                child.style[style] = json.styles[style];
-            }
         break;
         case "text":
             child = document.createElement("p");
-            child.innerHTML = json.text;
-            for(let j=0; j<json.classes.length; j++) {
-                child.classList.add(json.classes[j]);
-            }
-            for (var style in json.styles) {
-                child.style[style] = json.styles[style];
-            }
         break;
     }
+    addComponents(child, json);
     return child;
+}
+
+function addComponents(obj, json) {
+    /* Add CSS styles to parent */
+    if(json.styles) {
+        for (var style in json.styles) {
+            obj.style[style] = json.styles[style];
+        }
+    }
+    
+    /* Add classes to parent */
+    if(json.classes) {
+        for(let j=0; j<json.classes.length; j++) {
+            obj.classList.add(json.classes[j]);
+        }
+    }
+
+    /* Add click listener to parent */
+    if(json.click) {
+        const listener = obj.addEventListener('click',function(event){                          
+            eval(json.click);
+        }); 
+    }
+
+    /* Add text to parent */
+    if(json.text) {
+        obj.innerHTML = json.text;
+    }
+
+    /* Add src to parent */
+    if(json.src) {
+        obj.src = json.src;
+    }
+
+    /* Add code to parent */
+    if(json.code) {
+        obj.innerHTML = json.code;
+    }
+
+    /* Add children to parent (LAST statement) */
+    if(json.children) {
+        for(let i=0; i<json.children.length; i++) {
+            obj.appendChild(createChild(json.children[i]));
+        }
+    }
 }

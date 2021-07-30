@@ -1,0 +1,120 @@
+[
+    {
+        "styles": {
+            "backgroundColor": "white",
+            "padding-top": "20px"
+        },
+        "children": [
+            {
+                "type": "div",
+                "styles": {
+                    "padding-top": "20px"
+                },
+                "classes": ["container"],
+                "children": [
+                    {
+                        "type": "div",
+                        "classes": ["row"],
+                        "children": [
+                            {
+                                "type": "text",
+                                "classes": ["display-4", "lh-1", "mb-3"],
+                                "styles": {
+                                    "font-family": "'Luckiest Guy', cursive",
+                                    "color": "black"
+                                },
+                                "text": "What is Beta Club?"
+                            },
+                            {
+                                "type": "div",
+                                "classes": ["lead", "col"],
+                                "text": "Beta Club is a nationwide service organization that seeks to lead in the community by giving back through service projects. National Beta Club is the largest independent, non-profit, educational youth organization in America. And for more than 80 years, it has prepared today's students to be tomorrow's leaders. There are now more than 500,000 active members and more than 8,750 clubs nationally and internationally. Members are selected in their sophomore year through meeting overall GPA requirements (3.7 GPA). If a student does not qualify in their sophomore year, they can reapply later and join the club. Every member is expect to do 7 service hours per semester. Hours are logged on a sheet and submitted at the end of the semester via a Google Form. There are monthly meetings that each member is expected to attend. Meetings are the first Thursday of the month unless otherwise stated. The meetings will be posted on the Beta Club Itslearning page. To check for attendance, members must complete a quiz within one week of the meeting being posted." 
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "div",
+        "styles": {
+            "border-left": "7px solid #FFD700",
+            "border-right": "7px solid #FFD700",
+            "margin-top": "50px"
+        },
+        "children": [
+            {
+                "type": "div",
+                "styles": {
+                    "background-color": "black",
+                    "padding": "50px"
+                },
+                "classes": ["text-center"],
+                "children": [
+                    {
+                        "type": "text",
+                        "classes": ["display-4"],
+                        "styles": {
+                            "font-family": "'Luckiest Guy', cursive",
+                            "color": "#FFD700"
+                        },
+                        "text": "Our sponsor & officers"
+                    },
+                    {
+                        "type": "div",
+                        "classes": ["col-lg-6", "mx-auto"],
+                        "children": [
+                            {
+                                "type": "text",
+                                "styles": {
+                                    "padding-top": "30px",
+                                    "color": "white"
+                                },
+                                "classes": ["lead", "mb-4"],
+                                "text": "More information coming soon More information coming soon More information coming soon More information coming soon"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "styles": {
+            "backgroundColor": "white",
+            "padding-top": "20px"
+        },
+        "children": [
+            {
+                "type": "div",
+                "styles": {
+                    "padding-top": "20px"
+                },
+                "classes": ["container"],
+                "children": [
+                    {
+                        "type": "div",
+                        "classes": ["row"],
+                        "children": [
+                            {
+                                "type": "text",
+                                "classes": ["display-4", "lh-1", "mb-3"],
+                                "styles": {
+                                    "font-family": "'Luckiest Guy', cursive",
+                                    "color": "black"
+                                },
+                                "text": "Frequently Asked Questions (FAQs)"
+                            },
+                            {
+                                "type": "div",
+                                "classes": ["lead", "col"],
+                                "text": "More information coming soon" 
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
