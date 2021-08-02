@@ -59,20 +59,596 @@
                             "font-family": "'Luckiest Guy', cursive",
                             "color": "#FFD700"
                         },
-                        "text": "Our sponsor & officers"
+                        "text": "Our sponsor"
                     },
                     {
                         "type": "div",
-                        "classes": ["col-lg-6", "mx-auto"],
+                        "classes": ["col"],
+                        "styles": {
+                            "padding": "15px 0"
+                        },
                         "children": [
                             {
-                                "type": "text",
+                                "type": "img",
+                                "src": "web/data/content/media/client/cook.jpg",
                                 "styles": {
-                                    "padding-top": "30px",
-                                    "color": "white"
+                                    "border-radius": "10px",
+                                    "width": "350px",
+                                    "object-fit": "cover"
                                 },
-                                "classes": ["lead", "mb-4"],
-                                "text": "More information coming soon"
+                                "classes": ["img-fluid", "img-officers"]
+                            },
+                            {
+                                "type": "h3",
+                                "text": "Ms. Cook (Room 1318)",
+                                "styles": {
+                                    "margin-top": "11px",
+                                    "color": "white"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "classes": ["display-4"],
+                        "styles": {
+                            "font-family": "'Luckiest Guy', cursive",
+                            "color": "#FFD700"
+                        },
+                        "text": "Our officers"
+                    },
+                    {
+                        "type": "div",
+                        "classes": ["container"],
+                        "children": [
+                            {
+                                "type": "div",
+                                "classes": ["row"],
+                                "children": [
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/swetha.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "President",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Swetha Pendela",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/tarita.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Vice President",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Tarita Jakobs",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/royce.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Secretary",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Royce Arockiasamy",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/shree.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Director of Member Relations",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Shree Delwadia",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "div",
+                                "classes": ["row"],
+                                "children": [
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/maya.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Director of Community Connections",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Maya Muniganti",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/sristi.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Communications Officer",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Sristi Karamchandani",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/elisabeth.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Communications Officer",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Elisabeth Moreau",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/kaylan.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Kaylan Son",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "div",
+                                "classes": ["row"],
+                                "children": [
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/stephanie.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Stephanie Cummings",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/christina.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Christina Huang",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/annabelle.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Annabelle Irwin",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/neeti.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Neeti Jain",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "div",
+                                "classes": ["row"],
+                                "children": [
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-4"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/donovan.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Donovan D’Silva",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-4"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/sree.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Sree Pamulapati",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-4"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/nina.jpg",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Service Project Manager",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Nina Thakur",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }

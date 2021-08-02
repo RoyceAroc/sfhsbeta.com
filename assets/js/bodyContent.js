@@ -31,6 +31,11 @@ function createChild(json) {
         break;
         case "text":
             child = document.createElement("p");
+        case "h3":
+            child = document.createElement("h3");
+        break;
+        case "h5":
+            child = document.createElement("h5");
         break;
     }
     addComponents(child, json);

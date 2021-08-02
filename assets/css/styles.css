@@ -150,6 +150,12 @@ footer .row div a:hover {
     }
 }
 
+@media all and (min-width: 576px) {
+    .img-officers {
+        height: 350px!important;
+    }
+}
+
 @media all and (min-width: 992px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }
 	.navbar .nav-item:hover .nav-link{   }
