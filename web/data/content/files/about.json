@@ -70,7 +70,7 @@
                         "children": [
                             {
                                 "type": "img",
-                                "src": "web/data/content/media/client/cook.jpg",
+                                "src": "web/data/content/media/client/cook.JPG",
                                 "styles": {
                                     "border-radius": "10px",
                                     "width": "350px",
@@ -149,7 +149,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/tarita.jpg",
+                                                "src": "web/data/content/media/client/tarita.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -184,7 +184,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/royce.jpg",
+                                                "src": "web/data/content/media/client/royce.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -219,7 +219,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/shree.jpg",
+                                                "src": "web/data/content/media/client/shree.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -260,7 +260,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/maya.jpg",
+                                                "src": "web/data/content/media/client/maya.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -295,7 +295,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/sristi.jpg",
+                                                "src": "web/data/content/media/client/sristi.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -330,7 +330,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/elisabeth.jpg",
+                                                "src": "web/data/content/media/client/elisabeth.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -365,7 +365,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/kaylan.jpg",
+                                                "src": "web/data/content/media/client/kaylan.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -406,7 +406,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/stephanie.jpg",
+                                                "src": "web/data/content/media/client/stephanie.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -441,7 +441,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/christina.jpg",
+                                                "src": "web/data/content/media/client/christina.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -476,7 +476,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/annabelle.jpg",
+                                                "src": "web/data/content/media/client/annabelle.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -511,7 +511,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/neeti.jpg",
+                                                "src": "web/data/content/media/client/neeti.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -552,7 +552,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/donovan.jpg",
+                                                "src": "web/data/content/media/client/donovan.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -587,7 +587,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/sree.jpg",
+                                                "src": "web/data/content/media/client/sree.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -622,7 +622,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/nina.jpg",
+                                                "src": "web/data/content/media/client/nina.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
