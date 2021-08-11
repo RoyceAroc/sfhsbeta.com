@@ -125,6 +125,10 @@ footer .row div a:hover {
         padding-bottom: 20px;
         border-bottom: 1px solid  #FFD700;
     }
+    #dashboardNavbar {
+        padding-bottom: 0px;
+        border: none;
+    }
     .contact-icons {
         display: none!important;
     }
@@ -164,6 +168,9 @@ footer .row div a:hover {
     #desp {
         padding: 50px;
     }
+    .hideOnBig {
+        display: none;
+    }
 }
 
 #main-header {
@@ -190,6 +197,7 @@ footer .row div a:hover {
     #main-content {
         padding-bottom: 300px;
     }
+    
 }
 
 .dropdown-item:hover {
@@ -245,3 +253,12 @@ footer {
     color:  black !important;
 }
 
+.btn-main-elem {
+    padding: 5px!important;
+    background-color: white;
+    border: 2px solid black!important;
+}
+
+.btn-main-elem:hover {
+    background-color: #FFD700;
+}

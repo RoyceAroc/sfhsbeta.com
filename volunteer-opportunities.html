@@ -102,15 +102,55 @@
                 </header>
             </header>
             <div class="body-content">
-                <div style="padding-top: 50px;" class="container">
+                <div class="container">
                     <div class="row">
-                        <h1 class="display-4 lh-1 mb-3" style="font-family: 'Luckiest Guy', cursive;color: black;">Volunteering Opportunities</h1>
-                        <div class="lead col">
-                            Information on local volunteering opportunities will be made available soon
-                        </div>
+                        <div class="container">
+                            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                              <div style="text-align: center;" class="col-10 col-sm-8 col-lg-4 align-items-center">
+                                <img src="web/data/content/media/client/creekside-volunteering.JPG" class="d-block mx-lg-auto img-fluid" style="width: 300px;" loading="lazy">
+                              </div>
+                              <div class="col-lg-8">
+                                <h1 class="display-5 fw-bold lh-1 mb-3">Creekside MOPS Consignment Sale - Friends & Family Sign Up</h1>
+                                <p class="lead">
+                                    The Fall 2021 Creekside MOPS Consignment Sale is coming up on August 12-14. By volunteering (and shopping) you help support the Creekside MOPS group, and you also receive:
+                                    <br>
+                                    <ul class="lead">
+                                        <li>Free (and early!) entry into our Preview Sale on Thursday night</li>
+                                        <li>Early entry to Saturday's half off sale</li>
+                                        <li>Students can earn community service hours</li>
+                                        <li>Yummy food</li>
+                                        <li>Free T-shirt (while supplies last)</li>
+                                    </ul>
+                                </p>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                    <a class="btn btn-lg px-4 me-sm-3 btn-main-elem" target="_blank" href="https://www.signupgenius.com/go/4090f4bacae23a13-ccaand">SignUpGenius Link</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                                <div class="col-lg-8">
+                                  <h1 class="display-5 fw-bold lh-1 mb-3">South Strong Dental Drive</h1>
+                                  <p class="lead">
+                                    South Strong is doing a dental supply drive! Donating 4 items will earn you 1 hour, and you can earn a maximum of 2 hours from this opportunity. The following items can be donated:
+                                    <ul class="lead">
+                                        <li> Toothbrushes</li>
+                                        <li> Large toothpaste</li>
+                                        <li> Dental Floss </li>
+                                    </ul>
+                                  </p>
+                                  <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                      <a class="btn btn-lg px-4 me-sm-3 btn-main-elem" target="_blank" href="https://www.forsyth.k12.ga.us/cms/lib/GA01000373/Centricity/ModuleInstance/8652/South%20Strong%20Dental%20Drive.pdf">Learn More</a>
+                                  </div>
+                                </div>
+                                <div style="text-align: center;" class="col-10 col-sm-8 col-lg-4 align-items-center">
+                                    <img src="web/data/content/media/client/volunteering-dental.JPG" class="d-block mx-lg-auto img-fluid" style="width: 300px;" loading="lazy">
+                                </div>
+                              </div>
+                          </div>
                     </div>
                 </div>
             </div>
+
             <img src="assets/images/intro-hp.png" style="width: 100%"></img>
             <footer>
                 <div class="row">
@@ -166,7 +206,7 @@
                 $("#navbar-login").attr("href","javascript:logout()");
             } else {
                 $("#navbar-login").html("Login");
-                // $("#navbar-login").attr("href", googleAuthLink);
+               // $("#navbar-login").attr("href", googleAuthLink);
             }
 
             AOS.init({duration:1000});
