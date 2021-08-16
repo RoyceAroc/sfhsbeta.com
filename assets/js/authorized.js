@@ -177,7 +177,8 @@ function data_setup(obj) {
            document.getElementById("past_submissions").appendChild(main_div);
         }
     } else {
-        document.getElementById("past_submissions").innerHTML = "You haven't submitted any non-signature projects yet!"
+        document.getElementById("past_submissions").innerHTML = "You haven't submitted any non-signature projects yet!";
+        document.getElementById("past_submissions").style.marginLeft = "0px";
     }
 
     /* Account Tab */
