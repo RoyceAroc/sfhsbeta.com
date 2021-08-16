@@ -1,0 +1,15 @@
+#portal {
+    opacity: 0;
+    padding-top: 78px;
+    height: 100%;
+    position: relative;
+}
+
+
+#portal-content section {
+    display: none;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}

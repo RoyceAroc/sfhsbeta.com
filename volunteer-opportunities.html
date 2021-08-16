@@ -127,7 +127,10 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                            <div class="row flex-lg-row-reverse align-items-center g-5 ">
+                                <div style="text-align: center;" class="col-10 col-sm-8 col-lg-4 align-items-center">
+                                    <img src="web/data/content/media/client/volunteering-dental.JPG" class="d-block mx-lg-auto img-fluid" style="width: 300px;" loading="lazy">
+                                </div>
                                 <div class="col-lg-8">
                                   <h1 class="display-5 fw-bold lh-1 mb-3">South Strong Dental Drive</h1>
                                   <p class="lead">
@@ -142,9 +145,7 @@
                                       <a class="btn btn-lg px-4 me-sm-3 btn-main-elem" target="_blank" href="https://www.forsyth.k12.ga.us/cms/lib/GA01000373/Centricity/ModuleInstance/8652/South%20Strong%20Dental%20Drive.pdf">Learn More</a>
                                   </div>
                                 </div>
-                                <div style="text-align: center;" class="col-10 col-sm-8 col-lg-4 align-items-center">
-                                    <img src="web/data/content/media/client/volunteering-dental.JPG" class="d-block mx-lg-auto img-fluid" style="width: 300px;" loading="lazy">
-                                </div>
+
                               </div>
                           </div>
                     </div>
@@ -206,7 +207,7 @@
                 $("#navbar-login").attr("href","javascript:logout()");
             } else {
                 $("#navbar-login").html("Login");
-               // $("#navbar-login").attr("href", googleAuthLink);
+                $("#navbar-login").attr("href", googleAuthLink);
             }
 
             AOS.init({duration:1000});

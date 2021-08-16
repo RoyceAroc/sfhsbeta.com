@@ -1,4 +1,14 @@
-var googleAuthLink = 'https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.me%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=79115833877-9luor8cigdt8n4qfk3rb49nqt0og2ict.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fgoogle-auth&flowName=GeneralOAuthFlow';
+var googleAuthLink;
+var productionLink;
+var testing = false; // Set to false before deployment
+
+if(testing) {
+    googleAuthLink = 'https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.me%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=111902926359-qrt4s7bebpvin1st81vpn6rnh1hv5n1o.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fgoogle-auth';
+    productionLink = 'http://localhost:3000';
+} else {
+    googleAuthLink = 'https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.me%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=111902926359-qrt4s7bebpvin1st81vpn6rnh1hv5n1o.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fserver.sfhsbeta.com%2Fgoogle-auth';
+    productionLink = 'https://server.sfhsbeta.com';
+}
 
 function setCookie(name, value, days) {
     var expires = "";
@@ -44,10 +54,20 @@ function logout() {
 }
 
 function setAlert(title, body, buttons) {
+    $('#modal-title').text(title);
+    $('#modal-body').text(body);
+    for(let i=0; i<buttons.labels.length; i+=2) {
+        var div = document.createElement("div");
+        div.innerHTML = `<button type="button" class="btn btn-secondary" onclick="${buttons.labels[i+1]}" data-bs-dismiss="modal">${buttons.labels[i]}</button>`;
+        document.getElementById("modal-footer").appendChild(div);
+    }
+    $('#setModal').modal('show');
+}
+
+function setErrorAlert(title, body, buttons) {
     $(window).on('load', function () {
         $('#modal-title').text(title);
         $('#modal-body').text(body);
-        console.log(buttons.labels.length);
         for(let i=0; i<buttons.labels.length; i+=2) {
             var div = document.createElement("div");
             div.innerHTML = `<button type="button" class="btn btn-secondary" onclick="${buttons.labels[i+1]}" data-bs-dismiss="modal">${buttons.labels[i]}</button>`;
@@ -57,8 +77,15 @@ function setAlert(title, body, buttons) {
     });
 }
 
+function hideAlertModal() {
+    $('#setModal').modal('hide');
+    $('#modal-title').text('');
+    $('#modal-body').text('');
+    document.getElementById("modal-footer").innerHTML = '';
+}
+
 function authScreen() {
-   // window.location.href = googleAuthLink;
+    window.location.href = googleAuthLink;
 }
 
 $(window).on('load', function () {

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Dashboard - SFHS Beta Club</title>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta property="og:url" content="https://sfhsbeta.com/">
+        <meta property="og:title" content="Dashboard - SFHS Beta Club">
+        <meta property="og:image" content="../assets/images/favicon.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta property="og:description" content="Official Page of South Forsyth High School's Beta Club. Let Us Lead by Serving Others">
+
+        <link rel="icon" href="assets/images/favicon-dark.png" id="light-scheme-icon">
+        <link rel="icon" href="assets/images/favicon-white.png" id="dark-scheme-icon">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+        <link rel="stylesheet" href="assets/css/styles.css"></link>
+        <link rel="stylesheet" href="assets/css/dashboard.css"></link>
+        <link rel="stylesheet" href="modules/bootstrap.min.css"></link>
+        <link rel="apple-touch-icon" href="assets/images/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch-icon-ipad-retina.png">
+
+        <script src="modules/jquery.min.js"></script>
+        <script src="modules/bootstrap.min.js"></script>
+        <script src="modules/jquery-canvas-sparkles.js"></script>
+        <script src="modules/jquery-canvas-sparkles.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/authorized.js"></script>
+        <script src="modules/aos.js"></script>
+        <script src='modules/font-awesome.js'></script>
+
+        <style>
+            /** File upload **/
+
+
+            .file-upload-btn {
+            width: 100%;
+            margin: 0;
+            color: #fff;
+            background: black;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            border-bottom: 4px solid black;
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            }
+
+            .file-upload-btn:hover {
+            background: #212529;
+            color: #ffffff;
+            transition: all .2s ease;
+            cursor: pointer;
+            }
+
+            .file-upload-btn:active {
+            border: 0;
+            transition: all .2s ease;
+            }
+
+            .file-upload-content {
+            display: none;
+            text-align: center;
+            }
+
+            .file-upload-input {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            opacity: 0;
+            cursor: pointer;
+            }
+
+            .image-upload-wrap {
+            margin-top: 20px;
+            border: 4px dashed black;
+            position: relative;
+            }
+
+            .image-dropping,
+            .image-upload-wrap {
+            background-color: #2e3338;
+            border: 4px dashed #FFD700;
+            }
+            .image-dropping,
+            .image-upload-wrap:hover {
+            background-color: #212529;
+            border: 4px dashed #FFD700;
+            }
+            .image-title-wrap {
+            padding: 0 15px 15px 15px;
+            color: #FFD700;
+            }
+
+            .drag-text {
+            text-align: center;
+            }
+
+            .drag-text h3 {
+           
+            color: #FFD700;
+            font-size: 2rem;
+            padding: 60px 0;
+            }
+
+            .file-upload-image {
+            max-height: 100%;
+            max-width: 100%;
+            margin: auto;
+            padding: 20px;
+            }
+
+            .remove-image {
+            width: 100%;
+            margin: 0;
+            color: #fff;
+            background: #cd4535;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            border-bottom: 4px solid #b02818;
+            transition: all .2s ease;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            }
+
+            .remove-image:hover {
+            background: #c13b2a;
+            color: #ffffff;
+            transition: all .2s ease;
+            cursor: pointer;
+            }
+
+            .remove-image:active {
+            border: 0;
+            transition: all .2s ease;
+            }
+        </style>
+    </head>
+    
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand"  href="/">
+                <img  src="assets/images/logo.svg" alt="" width="50" height="50" class="d-inline-block align-text-top">
+              </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#ham" aria-controls="ham" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="ham">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../apply-now.html">Apply now!</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../volunteer-opportunities.html">Volunteer Opportunities</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Conventions
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../conventions/state-convention/index.html">State Convention</a></li>
+                            <li><a class="dropdown-item" href="../conventions/national-convention/index.html">National Convention</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../conventions/events/index.html">Events</a></li>
+                          </ul>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../dashboard.html">Dashboard</a>
+                    </li>
+                </ul>
+                <a target="_blank" href="https://www.instagram.com/sfhsbeta/"><i class="fab fa-instagram contact-icons"></i></a>
+                <a target="_blank" href="mailto:sfhsbeta@gmail.com"><i class="fas fa-envelope contact-icons"></i></a>
+                <a id="navbar-login"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </div>      
+        </div>
+    </nav>
+
+    <div class="modal fade" id="setModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="modal-body" class="modal-body">
+                </div>
+                <div id="modal-footer" class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <body>
+        <div id="content"> 
+            <div id="portal">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark"  aria-label="Tenth navbar example">
+                    <div class="container-fluid">
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <h1 class="hideOnBig" style="color: #FFD700; margin-top: 5px;"> Dashboard</h1>
+                      <div class="collapse navbar-collapse justify-content-md-center" id="dashboardNavbar">
+                        <ul class="navbar-nav">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" onclick="switchSect(1)" id="1">Log Attendance</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" onclick="switchSect(2)" id="2">Past Attendance</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" onclick="switchSect(3)" id="3">Non-Signature Service Projects</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" onclick="switchSect(4)" id="4">Account</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
+                  <div id="portal-content" style="padding: 20px; position: relative;" class="container">
+                    <section style="display: block;" id="section-1">
+                        <h1 >Log Attendance</h1>
+                        <hr></hr>
+                        <p class="lead">The first meeting will be posted on September 2nd. Check back later to log your attendance!</p>
+                    </section>
+                    <section id="section-2">
+                        <h1>Past Attendance</h1>
+                        <hr></hr>
+                        <p class="lead">No meetings have been completed yet. </p>
+                        <div class="row" id="past_attendance"></div>
+                    </section>
+                    <section id="section-3">
+                        <h1> Submit Non-Signature Service Projects</h1>
+                        <hr></hr>
+                        <form id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
+                            <div class="mb-3">
+                                <label for="description_nonsignature" class="form-label lead">Please describe your service project below. If you donated or made items, please say what they were and how many of them you donated/produced <span style="color: red;">*</span> </label>
+                                <textarea name="description" style="resize: none;margin-top: 5px;" class="form-control lead" id="description_nonsignature" rows="5"></textarea>
+                            </div>
+                            <label class="lead">If you participated in a virtual service opportunity or a donation drive, how many hours did you earn? <span style="color: red;">*</span></label>
+                            <input type="hidden" id="userID" name="userID" value=""/>
+                            <div style="max-width: 500px; margin-top: 5px;" class="row g-3">
+                                <div class="col">
+                                    <select name="hours" style="width: 200px;" class="form-select">
+                                        <option selected value="0">0 Hours</option>
+                                        <option value="1">One Hour</option>
+                                        <option value="2">Two Hours</option>
+                                        <option value="3">Three Hours</option>
+                                        <option value="4">Four Hours</option>
+                                        <option value="5">Five Hours</option>
+                                        <option value="6">Six Hours</option>
+                                        <option value="7">Seven Hours</option>
+                                        <option value="8">Eight Hours</option>
+                                        <option value="9">Nine Hours</option>
+                                        <option value="10">Ten Hours</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <select name="minutes" style="width: 200px;" class="form-select">
+                                        <option selected value="1">0 Minutes</option>
+                                        <option value="2">15 Minutes</option>
+                                        <option value="3">30 Minutes</option>
+                                        <option value="4">45 Minutes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label style="margin-top: 20px;" class="lead"> Please upload some sort of proof that you participated in your service project/opportunity (Accepted files: images & pdf) <span style="color: red;">*</span></label>
+                            <div class="container">
+                                <div class="col file-upload">
+                                    <div class="image-upload-wrap">
+                                    <input id="document_file" name="document_file" class="file-upload-input" type='file' onchange="readURL(this);" accept=".jpeg,.jpg,.png,.pdf" />
+                                    <div class="drag-text">
+                                        <h3 class='lead'>Upload document</h3>
+                                    </div>
+                                    </div>
+                                    <div class="file-upload-content">
+                                    <img id="uploaded_img" class="file-upload-image" src="#" alt="your image"></img>
+                                    <div class="image-title-wrap">
+                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 10px;">
+                                <button class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Service Project for Review</button>
+                            </div>
+                        </form>
+                        <h1 style="margin-top: 30px;">View Submissions</h1>
+                        <hr></hr>
+                        <p id="past_submissions" class="lead row"></p>
+                    </section>
+                    <section style="text-align: center;" id="section-4">
+                        <h1>Member Information</h1>
+                        <hr></hr>
+                        <img id="user_img" style="height: 200px; border-radius: 100%; padding-bottom: 20px;"></img>
+                        <h3 id="user_name"></h3>
+                        <h3 id="user_email"></h3>
+                        <h3 id="user_id"></h3>
+                    </section>
+                </div>
+            </div>  
+        </div>
+        <script>
+            lightSchemeIcon = document.querySelector('link#light-scheme-icon');
+            darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
+
+            matcher = window.matchMedia('(prefers-color-scheme: dark)');
+            matcher.addListener(onUpdate);
+
+            onUpdate();
+            
+            function onUpdate() {
+                if (matcher.matches) {
+                    lightSchemeIcon.remove();
+                    document.head.append(darkSchemeIcon);
+                } else {
+                    document.head.append(lightSchemeIcon);
+                    darkSchemeIcon.remove();
+                }
+            }
+
+            if(getCookie("email") != undefined) {
+                $("#navbar-login").html("Logout");
+                $("#navbar-login").attr("href","javascript:logout()");
+            } else {
+                $("#navbar-login").html("Login");
+                $("#navbar-login").attr("href", googleAuthLink);
+            }
+            AOS.init({duration:1000});
+
+        </script>
+    </body>
+</html>
