@@ -1,8 +1,9 @@
 #portal {
     opacity: 0;
     padding-top: 78px;
-    height: 100%;
-    position: relative;
+    max-height: 100%;
+    min-height: 500px;
+    position: static;
 }
 
 
