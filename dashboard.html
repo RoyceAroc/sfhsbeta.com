@@ -207,9 +207,9 @@
     <body>
         <div id="content"> 
             <div id="portal">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark"  aria-label="Tenth navbar example">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark"  aria-label="dashboardNavbar">
                     <div class="container-fluid">
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-expanded="false" aria-label="dashboardNavbar">
                         <span class="navbar-toggler-icon"></span>
                       </button>
                       <h1 class="hideOnBig" style="color: #FFD700; margin-top: 5px;"> Dashboard</h1>
@@ -237,13 +237,13 @@
                         <hr></hr>
                         <p class="lead">The first meeting will be posted on September 2nd. Check back later to log your attendance!</p>
                     </section>
-                    <section id="section-2">
+                    <section style="display: none;" id="section-2">
                         <h1>Past Attendance</h1>
                         <hr></hr>
                         <p class="lead">No meetings have been completed yet. </p>
                         <div class="row" id="past_attendance"></div>
                     </section>
-                    <section id="section-3">
+                    <section style="display: none;" id="section-3">
                         <h1> Submit Non-Signature Service Projects</h1>
                         <hr></hr>
                         <form id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
@@ -303,7 +303,7 @@
                         <hr></hr>
                         <p id="past_submissions" class="lead row"></p>
                     </section>
-                    <section style="text-align: center;" id="section-4">
+                    <section  style="text-align: center;display: none;" id="section-4">
                         <h1>Member Information</h1>
                         <hr></hr>
                         <img id="user_img" style="height: 200px; border-radius: 100%; padding-bottom: 20px;"></img>

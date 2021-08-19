@@ -81,7 +81,6 @@ document.addEventListener('visibilitychange', function() {
 var current_display = 1;
 
 function switchSect(i) {
-    environmentConstant();
     if(current_display != i) {
         document.getElementById(current_display).classList.remove("active");
         document.getElementById(i).classList.add("active");
