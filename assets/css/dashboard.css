@@ -1,7 +1,7 @@
 #portal {
     opacity: 0;
     max-height: 100%;
-    min-height: 500px;
+    min-height: 300px;
     position: static;
 }
 
