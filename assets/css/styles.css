@@ -286,3 +286,7 @@ footer {
 .btn-main-elem:hover {
     background-color: #FFD700;
 }
+
+b, strong {
+    font-weight: 900!important;
+}
