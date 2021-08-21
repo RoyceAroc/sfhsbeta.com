@@ -217,22 +217,45 @@ footer .row div a:hover {
 footer {
     position: relative;
 }
-
-
-
-@media only screen and (max-width: 475px) {
-    .intro-text-small {
-        font-size: 25px!important;
-    }
+@media only screen and (min-width:0px) {
     .intro-text-big {
-        font-size:50px!important;
+        font-size:10vw;
     }
-    .intro-text-ss {
-        font-size: 20px!important;
+}
+@media only screen and (min-width:200px) {
+    .intro-text-big {
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width:220px) {
+    .intro-text-big {
+        font-size: 24px;
+    }
+}
+@media only screen and (min-width: 275px) {
+    .intro-text-big {
+        font-size: 12vw;
+    }
+}
+@media only screen and (min-width: 475px) {
+    .intro-text-big {
+        font-size: 60px;
     }
 }
 
-@media only screen and (min-width: 475px) {
+@media only screen and (min-width: 400px) {
+    .intro-text-small {
+        font-size: 25px;
+    }
+    .intro-text-big {
+        font-size:50px;
+    }
+    .intro-text-ss {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
     .intro-text-small {
         font-size: 40px;
     }
@@ -240,6 +263,7 @@ footer {
         font-size: 80px;
     }
 }
+
 
 .power-link {
     text-decoration: none;

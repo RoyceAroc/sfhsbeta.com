@@ -9,18 +9,116 @@
     <url>
         <loc>https://sfhsbeta.com/about.html</loc>
         <changefreq>daily</changefreq>
-        <lastmod>2021-07-27</lastmod>
+        <lastmod>2021-08-21</lastmod>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/cook.JPG</image:loc>
+            <image:caption> Ms.Cook </image:caption>
+            <image:title> Ms.Cook </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/swetha.jpg</image:loc>
+            <image:caption> Swetha Pendela </image:caption>
+            <image:title> Swetha Pendela </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/tarita.JPG</image:loc>
+            <image:caption> Tarita Jakobs </image:caption>
+            <image:title> Tarita Jakobs </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/royce.JPG</image:loc>
+            <image:caption> Royce Arockiasamy </image:caption>
+            <image:title> Royce Arockiasamy </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/shree.JPG</image:loc>
+            <image:caption> Shree Delwadia </image:caption>
+            <image:title> Shree Delwadia </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/maya.JPG</image:loc>
+            <image:caption> Maya Muniganti </image:caption>
+            <image:title> Maya Muniganti </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/sristi.JPG</image:loc>
+            <image:caption> Sristi Karamchandani </image:caption>
+            <image:title> Sristi Karamchandani </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/elisabeth.JPG</image:loc>
+            <image:caption> Elisabeth Moreau </image:caption>
+            <image:title> Elisabeth Moreau </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/kaylan.JPG</image:loc>
+            <image:caption> Kaylan Son </image:caption>
+            <image:title> Kaylan Son </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/stephanie.JPG</image:loc>
+            <image:caption> Stephanie Cummings </image:caption>
+            <image:title> Stephanie Cummings </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/christina.JPG</image:loc>
+            <image:caption> Christina Huang </image:caption>
+            <image:title> Christina Huang </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/annabelle.JPG</image:loc>
+            <image:caption> Annabelle Irwin </image:caption>
+            <image:title> Annabelle Irwin </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/neeti.JPG</image:loc>
+            <image:caption> Neeti Jain </image:caption>
+            <image:title> Neeti Jain </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/donovan.JPG</image:loc>
+            <image:caption> Donovan D’Silva </image:caption>
+            <image:title> Donovan D’Silva </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/sree.JPG</image:loc>
+            <image:caption> Sree Pamulapati </image:caption>
+            <image:title> Sree Pamulapati </image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://sfhsbeta.com/web/data/content/media/client/nina.JPG</image:loc>
+            <image:caption> Nina Thakur </image:caption>
+            <image:title> Nina Thakur </image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://sfhsbeta.com/apply-now.html</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>monthly</changefreq>
         <lastmod>2021-07-27</lastmod>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>https://sfhsbeta.com/volunteer-opportunities.html</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>monthly</changefreq>
+        <lastmod>2021-08-21</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sfhsbeta.com/conventions/state-convention/index.html</loc>
+        <changefreq>monthly</changefreq>
+        <lastmod>2021-07-27</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sfhsbeta.com/conventions/national-convention/index.html</loc>
+        <changefreq>monthly</changefreq>
+        <lastmod>2021-07-27</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://sfhsbeta.com/conventions/events/index.html</loc>
+        <changefreq>monthly</changefreq>
         <lastmod>2021-07-27</lastmod>
         <priority>1.0</priority>
     </url>
