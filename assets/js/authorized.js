@@ -262,16 +262,21 @@ $('.image-upload-wrap').bind('dragleave', function () {
 function validateNonSignatureForm() {
     let upload_image = document.getElementById("document_file").files.length;
     let description = document.getElementById("description_nonsignature").value;
-    if(description != "") {
-        if(upload_image != 0) {
-            document.getElementById("userID").value = email;
-            return true;
-        } else {
-            setAlert("Incomplete field", "Please upload some sort of proof that you participated in your service project/opportunity", {"labels":["Add Proof", 'hideAlertModal();']});
-        }
+    let s_hours = document.getElementById("s_hours").value;
+    let s_minutes = document.getElementById("s_minutes").value;
+    if(s_hours == "0" && s_minutes == "1") {
+        setAlert("Select your project hours", "How many hours/minutes did your project take? Please select the appropriate fields. ", {"labels":["Add Hours", 'hideAlertModal();']});
     } else {
-        setAlert("Incomplete field", "Don't forget to describe your service project!", {"labels":["Add Description", 'hideAlertModal();']});
+        if(description != "") {
+            if(upload_image != 0) {
+                document.getElementById("userID").value = email;
+                return true;
+            } else {
+                setAlert("Incomplete field", "Please upload some sort of proof that you participated in your service project/opportunity", {"labels":["Add Proof", 'hideAlertModal();']});
+            }
+        } else {
+            setAlert("Incomplete field", "Don't forget to describe your service project!", {"labels":["Add Description", 'hideAlertModal();']});
+        }
     }
-   
     return false;
 }
