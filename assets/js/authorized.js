@@ -113,20 +113,23 @@ function timeConvert(n) {
 
 function data_setup(obj) {
     /* Past Attendance Tab */
+    console.log(obj.attendance.past_attendance.length);
     for(let i=0; i<obj.attendance.past_attendance.length; i++) {
-        let main_div = document.createElement("div");
+        let main_div = document.createElement("li");
         main_div.innerHTML = 
         `
-        <div style="background-color: ${obj.attendance.past_attendance[i].completed ? "green": "red"}; padding: 20px; height: 430px; border-radius: 10px; text-align: center; color: white; margin-bottom: 30px;">
-            <h2> ${obj.attendance.past_attendance[i].completed ? "COMPLETED": "ABSENT"}</h2>
-            <h5> Deadline: ${obj.attendance.past_attendance[i].end} </h5>
-            <iframe frameborder="0" style="width: 100%; height: 300px;" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" src="${obj.attendance.past_attendance[i].slideshow_url}"></iframe>
-        </div>
+        ${obj.attendance.past_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for ${obj.attendance.past_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].video_url}"> Meeting Video</a> . View the <a target="_blank"  href="${obj.attendance.past_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a> . 
         `;
-        main_div.classList.add("col-12"); main_div.classList.add("col-md-6"); main_div.classList.add("col-lg-4");
-       document.getElementById("past_attendance").appendChild(main_div);
+       document.getElementById("p_attendance").appendChild(main_div);
     }
-    
+    for(let i=0; i<obj.attendance.current_attendance.length; i++) {
+        let main_div = document.createElement("li");
+        main_div.innerHTML = 
+        `
+        ${obj.attendance.current_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for ${obj.attendance.current_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.current_attendance[i].video_url}"> Meeting Video</a> . View the <a target="_blank"  href="${obj.attendance.current_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a> . 
+        `;
+       document.getElementById("p_attendance").appendChild(main_div);
+    }
     /* NonSignatureService Project Tab */
     document.getElementById("nonSignatureForm").action = `${productionLink}/submitNonSignatureServiceProject`;
     let token = 0; 
@@ -280,3 +283,4 @@ function validateNonSignatureForm() {
     }
     return false;
 }
+

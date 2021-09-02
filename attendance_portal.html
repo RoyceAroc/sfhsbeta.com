@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Attendance Portal </title>
+  <!--
+    If you are looking at the code, trust me I rushed, so it's not written or indented well xd
+
+    ...
+
+    ANYWAYS
+    Why are you looking at this code?
+    There are no hacks LOL
+  -->
+    <link href="//vjs.zencdn.net/7.10.2/video-js.min.css" rel="stylesheet">
+<script src="assets/js/video.min.js"></script>
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<link rel="icon" href="assets/images/favicon-dark.png" id="light-scheme-icon">
+        <link rel="icon" href="assets/images/favicon-white.png" id="dark-scheme-icon">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+        <link rel="apple-touch-icon" href="assets/images/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/images/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/images/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/images/touch-icon-ipad-retina.png">
+        <script src="modules/jquery.min.js"></script>
+        <script src='modules/font-awesome.js'></script>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;  
+}
+body {
+  background-color: black;
+}
+
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #FFD700;
+  outline: 1px solid #FFD700;
+}
+
+    /* Change all text and icon colors in the player. */
+.vjs-matrix.video-js {
+  color: #FFD700!important;
+}
+
+/* Change the border of the big play button. */
+.vjs-matrix .vjs-big-play-button {
+  border-color: #FFD700!important;
+}
+
+/* Change the color of various "bars". */
+.vjs-matrix .vjs-volume-level,
+.vjs-matrix .vjs-play-progress,
+.vjs-matrix .vjs-slider-bar {
+  background: #FFD700!important;
+}
+
+
+.vjs-fullscreen-control  {
+    display: none!important;
+}
+
+.vjs-picture-in-picture-control {
+    display: none!important;
+}
+
+.question_div {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        z-index: 100000000000000000000000000000!important;
+        zoom: 20050%!important;
+    }
+  
+
+
+
+    @media only screen and (min-width:0px) {
+      #zero {
+      zoom: 200%;
+      padding-left: 10%;
+    }
+}
+@media only screen and (min-width:1080px) {
+  #zero {
+      zoom: 100%;
+      padding-left: 0%;
+    }
+}
+  @media (min-width: 980px) {
+
+    .question_div {
+        width: 1100px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;        
+        height: 45rem;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        z-index: 100000000000000000000000000000!important;
+        zoom: 100%!important;
+    }
+  
+}
+
+ul{
+  list-style-type: none;
+  width: 100%;
+  margin: auto;
+}
+
+li {
+    zoom: 90%;
+  position: relative;
+  padding: 10px;
+  padding-left: 40px;
+  height:30px;
+}
+
+li label {
+    font-size: 20px;
+    bottom: 20px;
+}
+label:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    position: absolute;
+    left: 7px;
+    top: calc(50% - 13px);
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  -webkit-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 15px);
+  cursor: pointer;
+}
+
+.bullet {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    left: -3px;
+    top: 2px;
+    border: 5px solid #fff;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked ~ .bullet {
+  position:absolute;
+  opacity: 1;
+  animation-name: explode;
+  animation-duration: 0.350s;
+}
+
+.line {
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background-color: #fff;
+  opacity:0;
+}
+
+.line.zero {
+  left: 11px;
+  top: -21px;
+  transform: translateY(20px);
+  width: 2px;
+  height: 10px;
+}
+
+.line.one {
+  right: -7px;
+  top: -11px;
+  transform: rotate(-55deg) translate(-9px);
+}
+
+.line.two {
+  right: -20px;
+  top: 11px;
+  transform: translate(-9px);
+}
+
+.line.three {
+  right: -8px;
+  top: 35px;
+  transform: rotate(55deg) translate(-9px);
+}
+
+.line.four {
+  left: -8px;
+  top: -11px;
+  transform: rotate(55deg) translate(9px);
+}
+
+.line.five {
+  left: -20px;
+  top: 11px;
+  transform: translate(9px);
+}
+
+.line.six {
+  left: -8px;
+  top: 35px;
+  transform: rotate(-55deg) translate(9px);
+}
+
+.line.seven {
+  left: 11px;
+  bottom: -21px;
+  transform: translateY(-20px);
+  width: 2px;
+  height: 10px;
+}
+
+input[type="radio"]:checked ~ .bullet .line.zero{
+  animation-name:drop-zero;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.one{
+  animation-name:drop-one;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.two{
+  animation-name:drop-two;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.three{
+  animation-name:drop-three;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.four{
+  animation-name:drop-four;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.five{
+  animation-name:drop-five;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.six{
+  animation-name:drop-six;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+input[type="radio"]:checked ~ .bullet .line.seven{
+  animation-name:drop-seven;
+  animation-delay: 0.100s;
+  animation-duration: 0.9s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes explode {
+  0%{
+    opacity: 0;
+    transform: scale(10);
+  }
+  60%{
+    opacity: 1;
+    transform: scale(0.5);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drop-zero {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    height: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translateY(-2px);
+    height: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-one {
+  0% {
+    opacity: 0;
+    transform: rotate(-55deg) translate(-20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(-55deg) translate(9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-two {
+  0% {
+    opacity: 0;
+    transform: translate(-20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translate(9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-three {
+  0% {
+    opacity: 0;
+    transform: rotate(55deg) translate(-20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(55deg) translate(9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-four {
+  0% {
+    opacity: 0;
+    transform: rotate(55deg) translate(20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(55deg) translate(-9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-five {
+  0% {
+    opacity: 0;
+    transform: translate(20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translate(-9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-six {
+  0% {
+    opacity: 0;
+    transform: rotate(-55deg) translate(20px);
+    width: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: rotate(-55deg) translate(-9px);
+    width: 0px;
+    opacity:0;
+  }
+}
+
+@keyframes drop-seven {
+0% {
+    opacity: 0;
+    transform: translateY(-20px);
+    height: 10px;
+  }
+  20% {
+    opacity:1;
+  }
+  100% {
+    transform: translateY(2px);
+    height: 0px;
+    opacity:0;
+  }
+}
+
+.video-js.vjs-has-started .vjs-tech {
+  pointer-events: none;
+}
+
+.video-js .vjs-big-play-button {
+  font-size: 5rem;
+    border-radius: 30% 0%;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  top: 0; 
+  bottom: 0; 
+  margin-top: auto; 
+  margin-bottom: auto;
+  background-color:#7c877f; 
+}
+
+
+</style>
+</head>
+<body>
+  <div id="main_aa" style="display: none;text-align: center;" >
+    <p  style="color: white; text-align: center; font-size: 50px;"> You have already completed your attendance for the month of September. Have a great day! </p> <a style="color:#FFD700;text-decoration: none; font-size: 30px; text-align: center; margin:auto; left:0; right:0;" href="dashboard.html">Click here to go to the Dashboard!</a>
+  </div>
+ 
+  <div id="main_area" style="width: 100%; position: relative; top: 10px;display: none;"> 
+  
+    <div id="zero">
+      <h1 style="font-size: 50px;text-align: center; color: #FFD700 "> September Meeting </h1>
+      <h2 class="lead" style=" position: relative;color: white;text-align: center;"> Due at 11:59 PM on September 9th</h2>
+    </div>
+  <div style="padding: 0 50px;color: white; font-size: 20px; line-height: 35px;" class="col lead">
+    <h3 style="color: #FFD700">How does it work?</h3>
+    There will be <b><u>three</u></b> questions within the video that you must answer. You must answer <b><u>at least 2 questions</u></b> correctly to be marked present for the meeting. You are unable to skip parts of the video, and you MUST watch all of it! Once you complete watching the video, your attendance will be <b><u>automatically logged!</u></b> 
+    <h3 style="color: #FFD700"> Having issues? </h3>
+    If you are on a mobile device, feel free to rotate your device to landscape mode to log your attendance easily. If the video does not load or an error occurs, email us at sfhsbeta@gmail.com. <br><br>
+  </div>
+      <div id="_question_div" class="question_div" style="border-right:1px solid white;border-left:1px solid white;display: none;position: absolute;z-index: 1; ">
+          <section style="margin-top: 7em;padding: 0 30px;" id="_question">
+              <h1 id="question_num" style='font-size: 70px;color: #FFD700;text-align: center;'></h1>
+              <h2 id="_question_mc" style="text-align: center; font-size: 30px;"></h2>
+              <ul>
+                  <li>
+                    <input id="radio_1" checked type="radio" name="1">
+                    <label style="font-size: 25px" id="_radio_1"></label>
+                    <div class="bullet">
+                      <div class="line zero"></div>
+                      <div class="line one"></div>
+                      <div class="line two"></div>
+                      <div class="line three"></div>
+                      <div class="line four"></div>
+                      <div class="line five"></div>
+                      <div class="line six"></div>
+                      <div class="line seven"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <input id="radio_2" type="radio" name="1">
+                    <label style="font-size: 25px" id="_radio_2"></label>
+                    <div class="bullet">
+                      <div class="line zero"></div>
+                      <div class="line one"></div>
+                      <div class="line two"></div>
+                      <div class="line three"></div>
+                      <div class="line four"></div>
+                      <div class="line five"></div>
+                      <div class="line six"></div>
+                      <div class="line seven"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <input id="radio_3" type="radio" name="1">
+                    <label style="font-size: 25px" id="_radio_3"></label>
+                    <div class="bullet">
+                      <div class="line zero"></div>
+                      <div class="line one"></div>
+                      <div class="line two"></div>
+                      <div class="line three"></div>
+                      <div class="line four"></div>
+                      <div class="line five"></div>
+                      <div class="line six"></div>
+                      <div class="line seven"></div>
+                    </div>
+                  </li>
+                  <li>
+                      <input id="radio_4" type="radio" name="1">
+                      <label style="font-size: 25px" id="_radio_4"></label>
+                      <div class="bullet">
+                        <div class="line zero"></div>
+                        <div class="line one"></div>
+                        <div class="line two"></div>
+                        <div class="line three"></div>
+                        <div class="line four"></div>
+                        <div class="line five"></div>
+                        <div class="line six"></div>
+                        <div class="line seven"></div>
+                      </div>
+                    </li>
+                </ul>
+                <div style="text-align: center;">
+                    <button style="padding: 6px; font-size: 20px; background-color: #eff0bb; border: none;border-radius: 10px;cursor: pointer; padding: 10px;" onclick="rewind()"> Rewatch Section</button> &nbsp;&nbsp;&nbsp;
+                    <button style="padding: 6px; font-size: 20px; background-color: green; border: none;border-radius: 10px;cursor: pointer; padding: 10px;" id="1" class="buttonAlignTrack" onclick="submitAnswer(this.id)"> Submit Answer</button>
+                </div>
+          </section>
+      </div>
+      <div style="display: none;" id="video_js">
+          <video 
+          style="margin: auto;width: 1100px;"
+          id="my-player"
+          class="video-js vjs-matrix"
+          controls
+          preload="auto"
+          data-setup='{ "inactivityTimeout": 0 }'>
+          <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4"></source>
+          </video>
+      </div>
+      
+  
+      
+  </div><br><br><br><br>
+</body>
+
+<script src="assets/js/script.js"></script>
+    <script>
+
+const param = new URLSearchParams(window.location.search);
+const email = param.get("email") || getCookie("email");
+ 
+
+var startTimeA = 0; var startTimeB = 0; var startTimeC = 0; var correct = 0;
+var a;
+
+window.onload = (event) => {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(this.responseText);
+            console.log(data);
+            if(data.attendance.current_attendance.length == 0 || data.attendance.current_attendance[0].completed) {
+              document.getElementById("main_aa").style.display = "block";
+              //window.location.href = "dashboard.html";
+            } else {
+                // Set Up
+                document.getElementById("main_area").style.display = "block";
+                 a = data.attendance.current_attendance[0];
+                var player = videojs('my-player');
+                player.src(a.video_url);
+                startTimeA = a.questions[0].time;
+                startTimeB = a.questions[1].time;
+                startTimeC = a.questions[2].time;
+                document.getElementById("video_js").style.display = "block";
+         } 
+        } 
+    };
+    xhttp.open("POST", `${productionLink}/member-setup`, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(email);
+};
+
+
+
+    var firstQuestion = false; var secondQuestion = false; var thirdQuestion = false; 
+
+        function insertAfter(referenceNode, newNode) {
+        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+        }
+        // 3 Questions each & 2 attempts for each one & 4 options for each one
+        var player = videojs('my-player');
+        var options = {};
+        let first = false; let second = false; let third = false;
+        const answerQuestion = async(number, question, choiceA, choiceB, choiceC, choiceD, answer) => {
+            const button = document.getElementById("hey");
+            button.addEventListener('click', () => {
+                return true;
+            });
+        }
+
+        function basePlatform(num) {
+            player.pause();
+            player.controlBar.hide();
+
+            document.getElementsByClassName("buttonAlignTrack")[0].id = num;
+            document.getElementById("_question_mc").innerHTML = a.questions[num].question;
+            document.getElementById("_radio_1").innerHTML = a.questions[num].optionA;
+            document.getElementById("_radio_2").innerHTML = a.questions[num].optionB;
+            document.getElementById("_radio_3").innerHTML = a.questions[num].optionC;
+            document.getElementById("_radio_4").innerHTML = a.questions[num].optionD;
+
+            document.getElementById("question_num").innerHTML = `Question ${num+1}`;
+            document.getElementById("_question_div").style.display = "block";
+        }
+
+
+        var player = videojs('my-player', options, async function onPlayerReady() {
+            player.tech_.off('dblclick');
+            this.controlBar.progressControl.disable();
+            this.play();
+            this.on('timeupdate', function() {
+                if(this.currentTime() >= startTimeA && !firstQuestion) {
+                    basePlatform(0);
+                }
+                if(this.currentTime() >= startTimeB && !secondQuestion) {
+                    basePlatform(1);
+                }
+                if(this.currentTime() >= startTimeC && !thirdQuestion) {
+                    basePlatform(2);
+                }
+            });
+            this.on('ended', function() {
+                if(correct >= 2) {
+                    let dataABC = {
+                        "present": true,
+                        "userID": email,
+                        "init": a.init
+                    }
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let a = this.responseText;
+                            window.location = "dashboard.html";
+                        } 
+                    };
+                    xhttp.open("POST", `${productionLink}/checkAttendanceForMonth`, true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(JSON.stringify(dataABC));
+                } else {
+                    let dataABC = {
+                        "present": false,
+                        "userID": email,
+                        "init": a.init
+                    }
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let a = this.responseText;
+                            window.location = "dashboard.html";
+                        } 
+                    };
+                    xhttp.open("POST", `${productionLink}/checkAttendanceForMonth`, true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(JSON.stringify(dataABC));
+                }
+        
+            });
+        });
+
+function rewind() {
+    document.getElementById("_question_div").style.display = "none";
+    player.controlBar.show();
+    player.currentTime(player.currentTime() - 45);
+    player.play();
+}
+
+function submitAnswer(id) {
+    let checkedValue = 0;
+    if(document.getElementById("radio_1").checked) {
+        checkedValue = 1;
+    } else if(document.getElementById("radio_2").checked) {
+        checkedValue = 2;
+    } else if(document.getElementById("radio_3").checked) {
+        checkedValue = 3;
+    } else {
+        checkedValue = 4;
+    }
+
+    if(id == 0) {
+        firstQuestion = true;
+    } else if(id == 1) {
+        secondQuestion = true;
+    } else {
+        thirdQuestion = true;
+    }
+
+    if(checkedValue == a.questions[parseInt(id)].answer) {
+        correct++;
+        // Answer was correct
+        document.getElementById("_radio_" + checkedValue).style.color = "green";
+        document.getElementById("_radio_" + checkedValue).style.fontWeight = "900";
+    } else {
+        // Answer was wrong
+        document.getElementById("_radio_" + checkedValue).style.color = "red";
+        document.getElementById("_radio_" + a.questions[id].answer).style.color = "green";
+        document.getElementById("_radio_" + a.questions[id].answer).style.fontWeight = "900";
+    }
+    setTimeout(function(){ 
+        document.getElementById("_question_div").style.display = "none";
+        player.controlBar.show();
+        player.play();
+        document.getElementById("_radio_" + checkedValue).style.color = "white";
+        document.getElementById("_radio_" + a.questions[id].answer).style.color = "white";
+        document.getElementById("_radio_" + a.questions[id].answer).style.fontWeight = "normal";
+        document.getElementById("radio_1").checked = true;
+    }, 3000);
+}
+
+
+    let myBtn = document.createElement('button');
+    myBtn.onclick = function(){
+        player.currentTime(player.currentTime() - 5);
+    };
+    myBtn.innerHTML = `<i style="zoom: 150%;cursor:pointer;" class="fa fa-fast-backward" aria-hidden="true"></i>`;
+insertAfter(document.querySelector(".vjs-play-control"), myBtn);
+
+
+    </script>
+</html>
