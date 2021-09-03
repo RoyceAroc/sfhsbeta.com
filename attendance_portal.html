@@ -639,9 +639,9 @@ window.onload = (event) => {
 
         var player = videojs('my-player', options, async function onPlayerReady() {
             player.tech_.off('dblclick');
-            this.controlBar.progressControl.disable();
+            //this.controlBar.progressControl.disable();
             this.play();
-            this.on('timeupdate', function() {
+            this.on('timeupdate', function(event) {
                 if(this.currentTime() >= startTimeA && !firstQuestion) {
                     basePlatform(0);
                 }
@@ -651,8 +651,44 @@ window.onload = (event) => {
                 if(this.currentTime() >= startTimeC && !thirdQuestion) {
                     basePlatform(2);
                 }
+
+                if (this.currentTime() == this.duration()) {
+                  if(correct >= 2) {
+                    let dataABC = {
+                        "present": true,
+                        "userID": email,
+                        "init": a.init
+                    }
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let a = this.responseText;
+                            window.location = "dashboard.html";
+                        } 
+                    };
+                    xhttp.open("POST", `${productionLink}/checkAttendanceForMonth`, true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(JSON.stringify(dataABC));
+                } else {
+                    let dataABC = {
+                        "present": false,
+                        "userID": email,
+                        "init": a.init
+                    }
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            let a = this.responseText;
+                            window.location = "dashboard.html";
+                        } 
+                    };
+                    xhttp.open("POST", `${productionLink}/checkAttendanceForMonth`, true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhttp.send(JSON.stringify(dataABC));
+                }
+                }
             });
-            this.on('ended', function() {
+           /* this.on('ended', function() {
                 if(correct >= 2) {
                     let dataABC = {
                         "present": true,
@@ -687,7 +723,7 @@ window.onload = (event) => {
                     xhttp.send(JSON.stringify(dataABC));
                 }
         
-            });
+              });*/
         });
 
 function rewind() {
