@@ -639,7 +639,7 @@ window.onload = (event) => {
 
         var player = videojs('my-player', options, async function onPlayerReady() {
             player.tech_.off('dblclick');
-            //this.controlBar.progressControl.disable();
+            this.controlBar.progressControl.disable();
             this.play();
             this.on('timeupdate', function(event) {
                 if(this.currentTime() >= startTimeA && !firstQuestion) {
