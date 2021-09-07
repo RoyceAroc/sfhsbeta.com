@@ -477,7 +477,7 @@ input[type="radio"]:checked ~ .bullet .line.seven{
     </div>
   <div style="padding: 0 50px;color: white; font-size: 20px; line-height: 35px;" class="col lead">
     <h3 style="color: #FFD700">How does it work?</h3>
-    There will be <b><u>three</u></b> questions within the video that you must answer. You must answer <b><u>at least 2 questions</u></b> correctly to be marked present for the meeting. You are unable to skip parts of the video, and you MUST watch all of it! Once you complete watching the video, your attendance will be <b><u>automatically logged!</u></b> 
+    There will be <b><u>three</u></b> questions within the video that you must answer. You must answer <b><u>at least 2 questions</u></b> correctly to be marked present for the meeting. You are unable to skip parts of the video, and you MUST watch all of it! Once you complete watching the video, you will be redirected back to the dashboard page of our website! This means that your attendance has been <b><u>logged for this month</u></b>. After watching the video, if you are not redirected back to the dashboard or if you experience any problems, please contact us ASAP.  
     <h3 style="color: #FFD700"> Having issues? </h3>
     If you are on a mobile device, feel free to rotate your device to landscape mode to log your attendance easily. If the video does not load or an error occurs, email us at sfhsbeta@gmail.com. <br><br>
   </div>
@@ -651,7 +651,6 @@ window.onload = (event) => {
                 if(this.currentTime() >= startTimeC && !thirdQuestion) {
                     basePlatform(2);
                 }
-
                 if (this.currentTime() == this.duration()) {
                   if(correct >= 2) {
                     let dataABC = {
@@ -688,8 +687,8 @@ window.onload = (event) => {
                 }
                 }
             });
-           /* this.on('ended', function() {
-                if(correct >= 2) {
+            this.on('ended', function() {
+               if(correct >= 2) {
                     let dataABC = {
                         "present": true,
                         "userID": email,
@@ -722,8 +721,7 @@ window.onload = (event) => {
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhttp.send(JSON.stringify(dataABC));
                 }
-        
-              });*/
+              });
         });
 
 function rewind() {
