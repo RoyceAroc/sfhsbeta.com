@@ -206,7 +206,19 @@ function memberSetup() {
     };
 }
 
+function showSection(num) {
+    for(let i=0; i<1; i++) {
+        document.getElementById(i+"-section").style.display = "none";
+    }
+    document.getElementById(num+"-section").style.display = "block";
+}
+
+
 function adminSetup(data) {
+    document.getElementById("dashboardNav").style.display = "none";
+    document.getElementById("dashboard_img").style.display = "none";
+    document.getElementsByTagName("footer")[0].style.display = "none";
+    document.getElementById("portal").style.marginTop = "78px";
     document.getElementById("portal").innerHTML = data;
     document.getElementById("portal").style.opacity = "1";
 }
@@ -284,3 +296,35 @@ function validateNonSignatureForm() {
     return false;
 }
 
+function showCreateVolunteeringOpportunity() {
+    document.getElementById("createVoluOP").style.display = "block";
+}
+
+function closeCreateVolunteeringOpportunity() {
+    document.getElementById("createVoluOP").style.display = "none";
+}
+
+
+ function validateVolunteeringOpportunity() {
+    document.getElementById("volOPS").action = `${productionLink}/addVolunteeringOpportunity`;
+    let upload_image = document.getElementById("document_file").files.length;
+    let title = document.getElementById("title_volunteeringOP").value;
+    let description = document.getElementById("description_volunteeringOP").innerHTML;
+    let links = document.getElementById("links_volunteeringOP").innerHTML;
+    document.getElementById("d_d").value = description.replace(/(\r\n|\n|\r)/gm, "");
+    document.getElementById("l_l").value = links.replace(/(\r\n|\n|\r)/gm, "");
+    if(title == "") {
+        alert("Please type a title!");
+    } else {
+        if(description != "") {
+            if(upload_image != 0) {
+                return true;
+            } else {
+                alert("You need to upload an image!");
+            }
+        } else {
+            alert("Add a Description!");
+        }
+    }
+    return false;
+ }
