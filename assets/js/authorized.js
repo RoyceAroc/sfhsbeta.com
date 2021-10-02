@@ -113,7 +113,6 @@ function timeConvert(n) {
 
 function data_setup(obj) {
     /* Past Attendance Tab */
-    console.log(obj.attendance.past_attendance.length);
     for(let i=0; i<obj.attendance.past_attendance.length; i++) {
         let main_div = document.createElement("li");
         main_div.innerHTML = 
