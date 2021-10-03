@@ -314,7 +314,39 @@
                             <li> All members MUST print two copies of the hour log and submit one for EACH semester. </li>
                             <li> <a target="_blank" href="../web/data/content/media/client/2021-2022_BetaClubHourLog.pdf">Download the 2021-2022 Beta Club Hour Log</a></li>
                         </ul>
-                        <b>The dropbox for hour log submissions will open on 10/7/2021.</b>
+                        <hr></hr>
+                        <h1>Submit your Hour Log - First Semester</h1>
+                        <div style="display: none;" id="hide_hourLog">
+                            You have already submitted your hour log for this semester!
+                        </div>
+                        <div style="display: none;" id="show_hourLog">
+                            <ul>
+                                <li> Don't forget to add your non-signature service projects, if you have any, to the hour log as well!</li>
+                                <li> You must submit a <b>pdf</b> copy of the COMPLETED hour log through the dropbox below. Contact us if you have any questions. </li>
+                            </ul>
+                            <form id="hourLogForm" onsubmit="return validateHourLogForm()" enctype="multipart/form-data" method="post" class="lead">
+                                <input type="hidden" id="userID_hourLog" name="userID" value=""/>
+                                <div class="container">
+                                    <div class="col file-upload">
+                                        <div class="image-upload-wrap">
+                                        <input id="document_file_hourLog" name="document_file" class="file-upload-input" type='file' onchange="readURL(this);" accept=".pdf" />
+                                        <div class="drag-text">
+                                            <h3 class='lead'>Upload Hour Log</h3>
+                                        </div>
+                                        </div>
+                                        <div class="file-upload-content">
+                                            <div class="image-title-wrap">
+                                                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <button class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Hour Log</button>
+                                </div>
+                            </form>
+                        </div>
+                    
                     </section>
                     <section  style="text-align: center;display: none;" id="section-5">
                         <h1>Member Information</h1>

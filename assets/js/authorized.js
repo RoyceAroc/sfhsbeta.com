@@ -182,6 +182,18 @@ function data_setup(obj) {
         document.getElementById("past_submissions").style.marginLeft = "0px";
     }
 
+    /* Hour Log Tab*/
+    document.getElementById("hourLogForm").action = `${productionLink}/submitHourLog`;
+    if(getCookie("hourLogFirstSemester") == "true") {
+        document.getElementById("hide_hourLog").style.display = "block";
+    } else {
+        if(obj.hourLogFirstSemester == false) {
+            document.getElementById("hide_hourLog").style.display = "block";
+        } else {
+            document.getElementById("show_hourLog").style.display = "block";
+        }
+    }
+    
     /* Account Tab */
     document.getElementById("user_img").src = getCookie("picture");
     document.getElementById("user_name").innerHTML = `Name: ${getCookie("name")}`;
@@ -294,6 +306,19 @@ function validateNonSignatureForm() {
     }
     return false;
 }
+
+function validateHourLogForm() {
+    let upload_file = document.getElementById("document_file_hourLog").files.length;
+    if(upload_file != 0) {
+        document.getElementById("userID_hourLog").value = email;
+        setCookie("hourLogFirstSemester", true, 1);
+        return true;
+    } else {
+        setAlert("Incomplete field", "Upload your hour log", {"labels":["Upload hour log", 'hideAlertModal();']});
+    }
+    return false;
+}
+
 
 function showCreateVolunteeringOpportunity() {
     document.getElementById("createVoluOP").style.display = "block";
