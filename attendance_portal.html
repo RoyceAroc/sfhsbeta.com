@@ -585,14 +585,17 @@ const email = param.get("email") || getCookie("email");
 
 var startTimeA = 0; var startTimeB = 0; var startTimeC = 0; var correct = 0;
 var a;
-
+const d = new Date();
 window.onload = (event) => {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(this.responseText);
             console.log(data);
-            if(data.attendance.current_attendance.length == 0 || data.attendance.current_attendance[0].completed) {
+            if(d.getDate() == 15) {
+
+            } else {
+              if((data.attendance.current_attendance.length == 0 || data.attendance.current_attendance[0].completed)) {
               document.getElementById("main_aa").style.display = "block";
               //window.location.href = "dashboard.html";
             } else {
@@ -606,6 +609,8 @@ window.onload = (event) => {
                 startTimeC = a.questions[2].time;
                 document.getElementById("video_js").style.display = "block";
          } 
+            }
+            
         } 
     };
     xhttp.open("POST", `${productionLink}/member-setup`, true);
