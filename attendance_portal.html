@@ -592,7 +592,7 @@ window.onload = (event) => {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(this.responseText);
             console.log(data);
-            if(d.getDate() == 15) {
+            if(d.getDate() >= 15) {
 
             } else {
               if((data.attendance.current_attendance.length == 0 || data.attendance.current_attendance[0].completed)) {
