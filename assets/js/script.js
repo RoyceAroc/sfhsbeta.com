@@ -2,7 +2,6 @@ var googleAuthLink;
 var productionLink;
 var testing = false; // Set to false before deployment
 
-alert("Website under maintenance since 9 PM EST. The login system and dashboard page won't work!")
 if(testing) {
     googleAuthLink = 'https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fplus.me%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=111902926359-qrt4s7bebpvin1st81vpn6rnh1hv5n1o.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fgoogle-auth';
     productionLink = 'http://localhost:3000';
