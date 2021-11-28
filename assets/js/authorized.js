@@ -5,7 +5,8 @@ const username = param.get("name") || getCookie("name");
 const picture = param.get("picture") || getCookie("picture");
 var admin = param.get("admin") || getCookie("admin");
 const error = param.get("error") || null;
-
+var total = 0;
+var mainObj;
 if(error == undefined) {
     if(admin != undefined || getCookie("admin") != undefined) {
         if(admin == undefined) {
@@ -137,8 +138,8 @@ function data_setup(obj) {
             let main_div = document.createElement("div");
             main_div.innerHTML = 
             `
-            <div style="background-color: ${obj.nonSignatureServiceProjects[i].status == 'accepted' ? "green": (obj.nonSignatureServiceProjects[i].status == 'rejected' ? "red": "grey")}; padding: 20px; border-radius: 10px; text-align: center; color: white; margin-bottom: 30px;">
-                <h2> ${obj.nonSignatureServiceProjects[i].status == 'accepted' ? "ACCEPTED": (obj.nonSignatureServiceProjects[i].status == 'rejected' ? "REJECTED": "PENDING")}</h2>
+            <div style="background-color: ${obj.nonSignatureServiceProjects[i].status == 'approved' ? "green": (obj.nonSignatureServiceProjects[i].status == 'denied' ? "red": "grey")}; padding: 20px; border-radius: 10px; text-align: center; color: white; margin-bottom: 30px;">
+                <h2> ${obj.nonSignatureServiceProjects[i].status == 'approved' ? "APPROVED": (obj.nonSignatureServiceProjects[i].status == 'denied' ? "DENIED": "PENDING")}</h2>
                 <div style="text-align: left;">
                     <p>
                         <a style="color: white;text-decoration: none;" data-bs-toggle="collapse" href="#token${token}" role="button" aria-expanded="false" aria-controls="token${token}">
@@ -218,20 +219,264 @@ function memberSetup() {
 }
 
 function showSection(num) {
-    for(let i=0; i<1; i++) {
+    for(let i=0; i<4; i++) {
         document.getElementById(i+"-section").style.display = "none";
     }
     document.getElementById(num+"-section").style.display = "block";
 }
 
+function goBack() {
+    displayPortal();
+    document.getElementById("_groupfile").style.display = "none";
+    document.getElementById("_tabgroup").style.display = "table";
+    document.getElementById("_searchgroup").style.display = "flex";
+    document.getElementById("_groupfile").innerHTML = `
+    <button onclick="goBack()"> Go Back </button>
+    `
+}
+
+function updateProject(user_id, proj_relation, number) {
+    let approved = document.getElementById(`${number}-flexRadioDefault1`).checked;
+    let denied = document.getElementById(`${number}-flexRadioDefault2`).checked;
+    let comment = document.getElementById(`${number}-comment_textarea`).value;
+    if(!approved && !denied) {
+        alert("Choose to either approve or deny the project!")
+    } else {
+        // Send request to server
+
+        var data = {
+            "user_id": user_id,
+            "proj_relation": proj_relation,
+            "approved": "denied",
+            "comment": comment
+        };
+
+        if(approved) {
+            data = {
+                "user_id": user_id,
+                "proj_relation": proj_relation,
+                "approved": "approved",
+                "comment": comment
+            };
+        } 
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if(this.responseText == "Done!") {
+                    // Success updating it
+                    /* Update mainObj */
+                    for(let i=0; i<mainObj.nonSignatureServiceProjects.length; i++) {
+                        if(mainObj.nonSignatureServiceProjects[i].userid == user_id) {
+                            for(let m=0; m<mainObj.nonSignatureServiceProjects[i].projects.length; m++) {
+                                if(mainObj.nonSignatureServiceProjects[i].projects[m].relation == proj_relation) {
+                                    if(approved) {
+                                        mainObj.nonSignatureServiceProjects[i].projects[m].status = "approved";
+                                    } else {
+                                        mainObj.nonSignatureServiceProjects[i].projects[m].status = "denied";
+                                    }
+                                    mainObj.nonSignatureServiceProjects[i].projects[m].comment = comment;
+                                }
+                            }
+                        }
+                    }
+                    /* Update panel */
+                    if(approved) {
+                        document.getElementById(number + '-obj').innerHTML = 'approved';
+                    } else {
+                        document.getElementById(number + '-obj').innerHTML = 'denied';
+                    }
+                    let panelElem = document.getElementById(number + '-obj').nextSibling.nextSibling.childNodes;
+                    console.log(panelElem);
+                    for(let j=0; j<panelElem.length; j++) {
+                        if((panelElem[j].className == 'form-check' || panelElem[j].className == 'mb-3') || panelElem[j].tagName == 'BUTTON') {
+                            panelElem[j].remove();
+                        } 
+                    }
+                    document.getElementById(number + '-obj').classList.toggle("Aactive");
+                    document.getElementById(number + '-obj').nextSibling.nextSibling.style.display = "none";
+                } else {
+                    alert("Error! Try again!");
+                }
+            } 
+        };
+        xhttp.open("POST", `${productionLink}/admin-updateProject`, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(JSON.stringify(data));
+    }
+}
+function displayPortal() {
+    obj = mainObj;
+    document.getElementById("_tabgroup").innerHTML = "";
+    document.getElementById("_tabgroup").innerHTML = `
+    <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Grade</th>
+          <th>Pending</th>
+          <th>Approved</th>
+          <th>Denied</th>
+    </tr>
+    `;
+    var firstName = ""; var lastName = ""; var grade = 0; var pending = 0; var approved = 0; var denied = 0;
+    for(let i=0; i<obj.nonSignatureServiceProjects.length; i++) {
+        let userid = obj.nonSignatureServiceProjects[i].userid;
+        for(let m=0;m<obj.memberLogistics.length; m++) {
+            if(obj.memberLogistics[m].user_id == userid) {
+                firstName = obj.memberLogistics[m].firstName;
+                lastName = obj.memberLogistics[m].lastName;
+                if(obj.memberLogistics[m].grade == 0) {
+                    grade = 12;
+                } else if(obj.memberLogistics[m].grade == 1) {
+                    grade = 11;                    
+                } else {
+                    grade = 10;
+                }
+            }
+        }
+        for(let j=0; j<obj.nonSignatureServiceProjects[i].projects.length; j++) {
+            let status = obj.nonSignatureServiceProjects[i].projects[j].status;
+            if(status == "pending") {
+                pending++;
+            } else if(status == "denied") {
+                denied++;
+            } else {
+                approved++;
+            }
+        }
+        if(document.getElementById('name_search-ns').value == "" || (firstName.toUpperCase().includes(document.getElementById('name_search-ns').value.toUpperCase()) || lastName.toUpperCase().includes(document.getElementById('name_search-ns').value.toUpperCase()))) {
+            let gradeSearch = document.getElementById('grade_search-ns').value;
+            if(gradeSearch == 0 || ((gradeSearch == 1 && grade == 10) || ((gradeSearch == 2 && grade == 11)||(gradeSearch == 3 && grade == 12))) ) {
+                let statusSearch = document.getElementById('status_search-ns').value;
+                if((statusSearch == 3 || (statusSearch == 0 && pending != 0)) || ((statusSearch == 1 && approved !=0) || (statusSearch == 2 && denied !=0))) {
+                    const trelement = document.createElement("tr");
+                    let trobj = `
+                    <td> ${firstName} </td>
+                    <td> ${lastName} </td>
+                    <td> ${grade} </td>
+                    <td> ${pending} </td>
+                    <td> ${approved} </td>
+                    <td> ${denied} </td>
+                    `;
+                    trelement.innerHTML = trobj;
+                    trelement.onclick = function() {
+                        let user_id = obj.nonSignatureServiceProjects[i].userid;
+                        document.getElementById("_tabgroup").style.display = "none";
+                        document.getElementById("_searchgroup").style.display = "none";
+                        document.getElementById("_groupfile").innerHTML = 
+                        `
+                            <button onclick="goBack()"> Go Back </button>
+                        `
+                        let basicText = document.createElement("div");
+                        basicText.innerHTML = `
+                        Student ID: ${user_id} <br>
+                        `
+                        document.getElementById("_groupfile").appendChild(basicText);
+                        total = obj.nonSignatureServiceProjects[i].projects.length;
+                        for(let j=0; j<obj.nonSignatureServiceProjects[i].projects.length; j++) {
+                            let status = obj.nonSignatureServiceProjects[i].projects[j].status;
+                            let text = document.createElement("div");
+                            var subtext = document.createElement("div");
+                            if(status == "pending") {
+                                subtext = `
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="${j}-flexRadioDefault1" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Approved
+                                </label>
+                                </div>
+                                <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="${j}-flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Denied
+                                </label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Optional Comment</label>
+                                    <textarea class="form-control" id="${j}-comment_textarea" rows="3"></textarea>
+                                </div>
+                                <button onclick="updateProject(${user_id},'${obj.nonSignatureServiceProjects[i].projects[j].relation}', ${j})"> Approve/Deny Project </button><br><br>
+                                `
+                            } 
+                            text.innerHTML = `
+                                <button id="${j}-obj" class="accordion">${status}</button>
+                                <div class="panel">
+                                <br>
+                                <iframe style="margin: 0 auto;display: block;min-height: 300px; min-width: 300px;" src="https://docs.google.com/file/d/${obj.nonSignatureServiceProjects[i].projects[j].relation}/preview?usp=drivesdk">
+                                </iframe>
+                                <br>
+                                <b>Description: </b> ${obj.nonSignatureServiceProjects[i].projects[j].description} <br>
+                                <b>Comment: </b> ${obj.nonSignatureServiceProjects[i].projects[j].comment == "" ? "No comment added yet." : obj.nonSignatureServiceProjects[i].projects[j].comment} <br>
+                                <b>Total minutes: </b> ${obj.nonSignatureServiceProjects[i].projects[j].minutes} 
+                                ${status == "pending" ? subtext : ""}
+                                </div>
+                            `
+                            
+                            document.getElementById("_groupfile").appendChild(text);
+                            document.getElementById(j+"-obj").addEventListener("click", function() {
+                                this.classList.toggle("Aactive");
+                                var panel = this.nextElementSibling;
+                                if (panel.style.display === "block") {
+                                    panel.style.display = "none";
+                                } else {
+                                    panel.style.display = "block";
+                                }
+                            });
+                        }
+                        document.getElementById("_groupfile").style.display = "block";
+                    };
+                    
+                    document.getElementById("_tabgroup").appendChild(trelement);
+                }
+            }
+        }
+    firstName = ""; lastName = ""; grade = 0; pending = 0; approved = 0; denied = 0;
+    }
+    console.log(obj);
+}
 
 function adminSetup(data) {
+    document.getElementsByTagName("body")[0].style.backgroundColor = "lightgrey";
     document.getElementById("dashboardNav").style.display = "none";
     document.getElementById("dashboard_img").style.display = "none";
     document.getElementsByTagName("footer")[0].style.display = "none";
     document.getElementById("portal").style.marginTop = "78px";
     document.getElementById("portal").innerHTML = data;
-    document.getElementById("portal").style.opacity = "1";
+    //Get necessary data for components
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.responseText == "false") {
+                alert("Error!");
+                location.reload();
+            } else {
+                mainObj = JSON.parse(this.responseText);
+               displayPortal();
+               
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+
+                    for (i = 0; i < acc.length; i++) {
+                    acc[i].addEventListener("click", function() {
+                        this.classList.toggle("Aactive");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                        } else {
+                        panel.style.display = "block";
+                        }
+                    });
+                }
+
+               document.getElementsByTagName("body")[0].style.backgroundColor = "white";
+               document.getElementById("portal").style.opacity = "1";
+            }
+        } 
+    };
+    xhttp.open("POST", `${productionLink}/admin-data-components`, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(admin);
+
+    // Finished adding data into components
 }
 
 
