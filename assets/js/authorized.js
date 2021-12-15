@@ -168,7 +168,7 @@ function data_setup(obj) {
                     </p>
                     <div style="color: black;" class="collapse" id="tokenC${token}">
                         <div class="card card-body">
-                        ${obj.nonSignatureServiceProjects[i].comment == undefined ? "Service project is still under review": obj.nonSignatureServiceProjects[i].comment} 
+                        ${obj.nonSignatureServiceProjects[i].comment == undefined ? "No comment": obj.nonSignatureServiceProjects[i].comment} 
                         </div>
                     </div>
                 </div>
@@ -185,14 +185,10 @@ function data_setup(obj) {
 
     /* Hour Log Tab*/
     document.getElementById("hourLogForm").action = `${productionLink}/submitHourLog`;
-    if(getCookie("hourLogFirstSemester") == "true") {
-        document.getElementById("hide_hourLog").style.display = "block";
+    if(obj.hourLog.first_sem.status == "none" || obj.hourLog.first_sem.status == "denied") {
+        document.getElementById("show_hourLog").style.display = "block";
     } else {
-        if(obj.hourLogFirstSemester == false) {
-            document.getElementById("hide_hourLog").style.display = "block";
-        } else {
-            document.getElementById("show_hourLog").style.display = "block";
-        }
+        document.getElementById("hide_hourLog").style.display = "block";
     }
     
     /* Account Tab */
@@ -286,7 +282,6 @@ function updateProject(user_id, proj_relation, number) {
                         document.getElementById(number + '-obj').innerHTML = 'denied';
                     }
                     let panelElem = document.getElementById(number + '-obj').nextSibling.nextSibling.childNodes;
-                    console.log(panelElem);
                     for(let j=0; j<panelElem.length; j++) {
                         if((panelElem[j].className == 'form-check' || panelElem[j].className == 'mb-3') || panelElem[j].tagName == 'BUTTON') {
                             panelElem[j].remove();
@@ -431,7 +426,7 @@ function displayPortal() {
         }
     firstName = ""; lastName = ""; grade = 0; pending = 0; approved = 0; denied = 0;
     }
-    console.log(obj);
+   
 }
 
 function adminSetup(data) {
@@ -556,7 +551,6 @@ function validateHourLogForm() {
     let upload_file = document.getElementById("document_file_hourLog").files.length;
     if(upload_file != 0) {
         document.getElementById("userID_hourLog").value = email;
-        setCookie("hourLogFirstSemester", true, 1);
         return true;
     } else {
         setAlert("Incomplete field", "Upload your hour log", {"labels":["Upload hour log", 'hideAlertModal();']});
