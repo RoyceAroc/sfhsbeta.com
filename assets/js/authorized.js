@@ -191,6 +191,16 @@ function data_setup(obj) {
         document.getElementById("hide_hourLog").style.display = "block";
     }
     
+    /* Hour Status Tab*/
+    document.getElementById('content_firstsemhourstatus').innerHTML = `
+    <h3> First Semester</h3>
+    <h5>
+    Status: ${obj.hourLog.first_sem.status == 'pending' ? "Pending Approval" : obj.hourLog.first_sem.status} <br>
+    Note: ${obj.hourLog.first_sem.note} <br>
+    Hour Log: ${obj.hourLog.first_sem.pdf == 'none' ? "none" : `<iframe style="margin: 0 auto;display: block;min-height: 300px; min-width: 300px;" src="https://docs.google.com/file/d/${obj.hourLog.first_sem.pdf}/preview?usp=drivesdk">
+    </iframe> `}
+    `;
+
     /* Account Tab */
     document.getElementById("user_img").src = getCookie("picture");
     document.getElementById("user_name").innerHTML = `Name: ${getCookie("name")}`;
