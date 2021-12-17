@@ -190,16 +190,7 @@
             </div>      
         </div>
     </nav>
-    <nav  class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: 78px; color: black; background-color: lightyellow!important;" aria-label="dashboardNavbar">
-        <div class="container-fluid">
-         
-          
-          <div class="collapse navbar-collapse justify-content-md-center" id="dashboardNavbar">
-            <b>⚠️ Due to higher than expected traffic, certain parts of the site may load slower than others. We appreciate your patience! ⚠️</b>
-          </div>
-        </div>
-      </nav>
-    <nav id="dashboardNav" class="navbar navbar-expand-lg navbar-dark bg-dark"  aria-label="dashboardNavbar">
+    <nav id="dashboardNav" class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: 78px" aria-label="dashboardNavbar">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-expanded="false" aria-label="dashboardNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -265,7 +256,7 @@
                     <section style="display: none;" id="section-3">
                         <h1> Submit Non-Signature Service Projects</h1>
                         <hr></hr>
-                        <form id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
+                        <form style="display: none;" id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
                             <div class="mb-3">
                                 <label for="description_nonsignature" class="form-label lead">Please describe your service project below. If you donated or made items, please say what they were and how many of them you donated/produced <span style="color: red;">*</span> </label>
                                 <textarea name="description" style="resize: none;margin-top: 5px;" class="form-control lead" id="description_nonsignature" rows="5"></textarea>
@@ -318,6 +309,7 @@
                                 <button class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Service Project for Review</button>
                             </div>
                         </form>
+                        <h3>Submission dropboxes for the second semester will begin on 1/1/2021</h3> 
                         <h1 style="margin-top: 30px;">View Submissions</h1>
                         <hr></hr>
                         <p id="past_submissions" class="lead row"></p>
@@ -330,7 +322,8 @@
                             <li> <a target="_blank" href="../web/data/content/media/client/2021-2022_BetaClubHourLog.pdf">Download the 2021-2022 Beta Club Hour Log</a></li>
                         </ul>
                         <hr></hr>
-                        <h1>Submit your Hour Log - First Semester</h1>
+                        <div style="display: none;">
+                            <h1>Submit your Hour Log - Second Semester</h1>
                         <div style="display: none;" id="hide_hourLog">
                             You have already submitted your hour log for this semester!
                         </div>
@@ -363,6 +356,8 @@
                                 </div>
                             </form>
                         </div>
+                        </div>
+                        
                     
                     </section>
                     <section  style="display: none;" id="section-5">
