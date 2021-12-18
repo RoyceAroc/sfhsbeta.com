@@ -256,7 +256,7 @@
                     <section style="display: none;" id="section-3">
                         <h1> Submit Non-Signature Service Projects</h1>
                         <hr></hr>
-                        <form style="display: none;" id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
+                        <form id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
                             <div class="mb-3">
                                 <label for="description_nonsignature" class="form-label lead">Please describe your service project below. If you donated or made items, please say what they were and how many of them you donated/produced <span style="color: red;">*</span> </label>
                                 <textarea name="description" style="resize: none;margin-top: 5px;" class="form-control lead" id="description_nonsignature" rows="5"></textarea>
@@ -309,7 +309,6 @@
                                 <button class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Service Project for Review</button>
                             </div>
                         </form>
-                        <h3>Submission dropboxes for the second semester will begin on 1/1/2021</h3> 
                         <h1 style="margin-top: 30px;">View Submissions</h1>
                         <hr></hr>
                         <p id="past_submissions" class="lead row"></p>
