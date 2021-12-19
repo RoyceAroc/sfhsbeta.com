@@ -241,6 +241,16 @@ function goBack() {
     `
 }
 
+function goBack1() {
+    displayPortal1();
+    document.getElementById("_groupfile1").style.display = "none";
+    document.getElementById("_tabgroup1").style.display = "table";
+    document.getElementById("_searchgroup1").style.display = "flex";
+    document.getElementById("_groupfile1").innerHTML = `
+    <button onclick="goBack1()"> Go Back </button>
+    `
+}
+
 function updateProject(user_id, proj_relation, number) {
     let approved = document.getElementById(`${number}-flexRadioDefault1`).checked;
     let denied = document.getElementById(`${number}-flexRadioDefault2`).checked;
@@ -307,6 +317,274 @@ function updateProject(user_id, proj_relation, number) {
         xhttp.open("POST", `${productionLink}/admin-updateProject`, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send(JSON.stringify(data));
+    }
+}
+
+function updateHourLog(userid) {
+    let denied = document.getElementById(`user1-flexRadioDefault2`).checked;
+    let comment = document.getElementById(`user1-comment_textarea`).value;
+
+        // Send request to server
+
+        var data = {
+            "user_id": userid,
+            "approved": "Denied",
+            "note": comment
+        };
+
+        if(!denied) {
+            data = {
+                "user_id": userid,
+                "approved": "Approved",
+                "note": comment
+            };
+        } 
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if(this.responseText == "Done!") {
+                    // Success updating it
+                    /* Update mainObj */
+                    for(let m=0; m<obj.memberLogistics.length; m++) {
+                        if(obj.memberLogistics[m].user_id == userid) {
+                            obj.hourStatus.push({
+                                id: userid,
+                                status: data.approved,
+                                note: comment
+                            });
+                        }
+                    }
+                    goBack1();
+                } else {
+                    alert("Error! Try again!");
+                }
+            } 
+        };
+        xhttp.open("POST", `${productionLink}/admin-updateHourLog`, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(JSON.stringify(data));
+}
+
+function displayPortal1() {
+    obj = mainObj;
+    document.getElementById("_tabgroup1").innerHTML = "";
+    document.getElementById("_tabgroup1").innerHTML = `
+    <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Grade</th>
+          <th>Member</th>
+          <th>Status</th>
+    </tr>
+    `;
+    var firstName = ""; var lastName = ""; var grade = 0; var member = ""; var status = "Missing"; var note = "None"; var userID = ""; var pdf = "";
+    for(let i=0; i<obj.memberLogistics.length; i++) {
+        firstName = obj.memberLogistics[i].firstName;
+        lastName = obj.memberLogistics[i].lastName;
+        if(obj.memberLogistics[i].grade == 0) {
+            grade = 12;
+        } else if(obj.memberLogistics[i].grade == 1) {
+            grade = 11;                    
+        } else {
+            grade = 10;
+        }
+            
+        
+        for(let j=0; j<obj.newMembers.length; j++) {
+            if(grade == 12) {
+                if(obj.newMembers[0].seniors == "*") {
+                    member = "New";
+                } else if(obj.newMembers[0].seniors == "-") {
+                    member = "Old";
+                } else if(obj.newMembers[0].seniors.includes(obj.memberLogistics[i].user_id)) {
+                    member = "New"
+                } else if(!obj.newMembers[0].seniors.includes(obj.memberLogistics[i].user_id)) {
+                    member = "Old"
+                } 
+            } else if(grade == 11) {
+                if(obj.newMembers[1].juniors == "*") {
+                    member = "New";
+                } else if(obj.newMembers[1].juniors == "-") {
+                    member = "Old";
+                } else if(obj.newMembers[1].juniors.includes(obj.memberLogistics[i].user_id)) {
+                    member = "New"
+                } else if(!obj.newMembers[1].juniors.includes(obj.memberLogistics[i].user_id)) {
+                    member = "Old"
+                }  
+            } else {
+                if(obj.newMembers[2].sophomores == "*") {
+                    member = "New";
+                } else if(obj.newMembers[2].sophomores == "-") {
+                    member = "Old";
+                } else if(obj.newMembers[2].sophomores.includes(obj.memberLogistics[i].user_id)) {
+                    member = "New"
+                } else if(!newMembers[2].sophomores.includes(obj.memberLogistics[i].user_id)) {
+                    member = "Old"
+                }
+            }
+        }
+
+        for(let m=0; m<obj.hourLogs.length; m++) {
+            if(obj.hourLogs[m].name == obj.memberLogistics[i].user_id) {
+                status = "Pending";
+                pdf = obj.hourLogs[m].id;
+                break;
+            }
+        }
+
+        for(let k=0; k<obj.hourStatus.length; k++) {
+            if(obj.hourStatus[k].id == obj.memberLogistics[i].user_id) {
+                status = obj.hourStatus[k].status;
+                note = obj.hourStatus[k].note;
+                break;
+            }
+        }
+        
+        
+        if(document.getElementById('name_search-ns1').value == "" || (firstName.toUpperCase().includes(document.getElementById('name_search-ns1').value.toUpperCase()) || lastName.toUpperCase().includes(document.getElementById('name_search-ns1').value.toUpperCase()))) {
+            let gradeSearch = document.getElementById('grade_search-ns1').value;
+            if(gradeSearch == 0 || ((gradeSearch == 1 && grade == 10) || ((gradeSearch == 2 && grade == 11)||(gradeSearch == 3 && grade == 12))) ) {
+                let statusSearch = document.getElementById('status_search-ns1').value;
+                if((statusSearch == 3 && status == "Missing") || ((statusSearch == 4 || (statusSearch == 0 && status == "Pending")) || ((statusSearch == 1 && status == "Approved") || (statusSearch == 2 && status == "Denied")))) {
+                    let memberSearch = document.getElementById('member_search-ns1').value;
+                    if(memberSearch == 2 || ((memberSearch == 0 && member == "Old") || (memberSearch == 1 && member == "New"))) {
+                        const trelement = document.createElement("tr");
+                        let trobj = `
+                        <td> ${firstName} </td>
+                        <td> ${lastName} </td>
+                        <td> ${grade} </td>
+                        <td> ${member} </td>
+                        <td> ${status} </td>
+                        `;
+                        trelement.innerHTML = trobj;
+                        trelement.status = status;
+                        trelement.fName = firstName;
+                        trelement.lName = lastName;
+                        trelement.grade = grade;
+                        trelement.member = member;
+                        trelement.note = note;
+                        trelement.pdf = pdf;
+                        trelement.userid = obj.memberLogistics[i].user_id;
+                        trelement.nonSignatureServiceProjects = 0;
+                        trelement.nonSignatureServiceProjectsTotalMinutes = 0;
+                        for(let d=0; d<obj.nonSignatureServiceProjects.length; d++) {
+                            if(obj.nonSignatureServiceProjects[d].userid == trelement.userid) {
+                                trelement.nonSignatureServiceProjects = obj.nonSignatureServiceProjects[d].projects.length;
+                                for(let a=0; a< obj.nonSignatureServiceProjects[d].projects.length; a++) {
+                                    trelement.nonSignatureServiceProjectsTotalMinutes += obj.nonSignatureServiceProjects[d].projects[a].minutes;
+                                }
+                                break;
+                            }
+                        }
+                        trelement.onclick = function() {
+                            let user_id = obj.memberLogistics[i].user_id;
+                            document.getElementById("_tabgroup1").style.display = "none";
+                            document.getElementById("_searchgroup1").style.display = "none";
+                            document.getElementById("_groupfile1").innerHTML = 
+                            `
+                                <button onclick="goBack1()"> Go Back </button>
+                            `
+                            let basicText = document.createElement("div");
+                            basicText.innerHTML = `
+                            Student ID: ${user_id} <br>
+                            `
+                            document.getElementById("_groupfile").appendChild(basicText);
+                            
+                                var subtext = document.createElement("div");
+                                if(trelement.status == "Missing") {
+                                    subtext.innerHTML = `
+                                   
+                                    <br>
+                                    Name: ${trelement.fName} ${trelement.lName} <br>
+                                    Member ID: ${trelement.userid} <br>
+                                    Member Grade: ${trelement.grade} <br>
+                                    Member Age: ${trelement.member} <br>
+                                    <br>
+                                    Current Status: Missing Hour Log<br><br>
+                                    
+                                    Non-Signature Service Projects:<br>
+                                    Completed ${trelement.nonSignatureServiceProjects} project(s) for a total of ${timeConvert(trelement.nonSignatureServiceProjectsTotalMinutes)}<br><br>
+                                    
+                                    Admin Section: 
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="user1-flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Denied
+                                    </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
+                                        <textarea class="form-control" id="user1-comment_textarea" rows="3"></textarea>
+                                    </div>
+                                    <button onclick="updateHourLog(${trelement.userid})"> Deny Hour Log </button><br><br>
+                                    
+                                    `;
+                                } else if(trelement.status == "Pending") {
+                                    subtext.innerHTML = `
+                                    <br>
+                                    Name: ${trelement.fName} ${trelement.lName} <br>
+                                    Member ID: ${trelement.userid} <br>
+                                    Member Grade: ${trelement.grade} <br>
+                                    Member Age: ${trelement.member} <br>
+                                    <br>
+                                    Current Status: Pending Approval<br><br>
+                                    
+                                    <a target ="_blank" href="https://drive.google.com/drive/u/3/folders/${trelement.pdf}"> Hour Log Submission </a><br>
+
+                                    Non-Signature Service Projects: <br>
+                                    Completed ${trelement.nonSignatureServiceProjects} project(s) for a total of ${timeConvert(trelement.nonSignatureServiceProjectsTotalMinutes)}<br><br>
+                                    
+                                    Admin Section: 
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="user1-flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Approved
+                                    </label>
+                                    </div>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="user1-flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Denied
+                                    </label>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Optional Comment</label>
+                                        <textarea class="form-control" id="user1-comment_textarea" rows="3"></textarea>
+                                    </div>
+                                    <button onclick="updateHourLog(${trelement.userid})"> Approve/Deny Hour Log </button><br><br>
+                                    `;
+                                } else {
+                                    subtext.innerHTML = `
+                                    <br>
+                                    Name: ${trelement.fName} ${trelement.lName} <br>
+                                    Member ID: ${trelement.userid} <br>
+                                    Member Grade: ${trelement.grade} <br>
+                                    Member Age: ${trelement.member} <br>
+                                    <br>
+                                    Current Status: ${trelement.status}<br><br>
+                                    
+                                    <a target ="_blank" href="https://drive.google.com/drive/u/3/folders/${trelement.pdf}"> Hour Log Submission </a><br>
+
+                                    Non-Signature Service Projects: <br>
+                                    Completed ${trelement.nonSignatureServiceProjects} project(s) for a total of ${timeConvert(trelement.nonSignatureServiceProjectsTotalMinutes)}<br><br>
+                                    
+                                    Note: ${trelement.note == undefined || trelement.note == "" ? "None": trelement.note}
+                                    `;
+                                }
+                                
+                                document.getElementById("_groupfile1").appendChild(subtext);
+                           
+                            document.getElementById("_groupfile1").style.display = "block";
+                        };
+                        
+                        document.getElementById("_tabgroup1").appendChild(trelement);
+                    }
+                }
+            }
+        }
+        firstName = "";  lastName = ""; grade = 0;  member = ""; status = "Missing"; note = "None"; userID = "";
+        
     }
 }
 function displayPortal() {
@@ -455,8 +733,9 @@ function adminSetup(data) {
                 location.reload();
             } else {
                 mainObj = JSON.parse(this.responseText);
-               displayPortal();
-               
+                console.log(mainObj);
+                displayPortal();
+                displayPortal1();
                 var acc = document.getElementsByClassName("accordion");
                 var i;
 

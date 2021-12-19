@@ -35,6 +35,27 @@
     color: #FFD700;
     cursor:pointer;
 }
+#_tabgroup1 {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #3d4042;
+}
+
+#_tabgroup1 td,th {
+    border: 2px solid #FFD700;
+    text-align: left;
+    padding: 8px;
+}
+
+#_tabgroup1 th {
+    background-color: #3d4042!important;
+    color: #FFD700;
+}
+#_tabgroup1 tr:hover {
+    background-color: #6a7175!important;
+    color: #FFD700;
+    cursor:pointer;
+}
 .accordion {
     background-color: #eee;
     color: #444;
