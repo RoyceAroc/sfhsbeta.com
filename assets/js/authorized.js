@@ -472,7 +472,9 @@ function displayPortal1() {
                             if(obj.nonSignatureServiceProjects[d].userid == trelement.userid) {
                                 trelement.nonSignatureServiceProjects = obj.nonSignatureServiceProjects[d].projects.length;
                                 for(let a=0; a< obj.nonSignatureServiceProjects[d].projects.length; a++) {
-                                    trelement.nonSignatureServiceProjectsTotalMinutes += obj.nonSignatureServiceProjects[d].projects[a].minutes;
+                                    if(obj.nonSignatureServiceProjects[d].projects[a].status == "approved") {
+                                        trelement.nonSignatureServiceProjectsTotalMinutes += obj.nonSignatureServiceProjects[d].projects[a].minutes;
+                                    }
                                 }
                                 break;
                             }
