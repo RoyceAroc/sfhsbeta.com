@@ -113,14 +113,21 @@ function timeConvert(n) {
 }
 
 function data_setup(obj) {
+    console.log(obj);
     /* Past Attendance Tab */
     for(let i=0; i<obj.attendance.past_attendance.length; i++) {
         let main_div = document.createElement("li");
         main_div.innerHTML = 
         `
-        ${obj.attendance.past_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for ${obj.attendance.past_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
+        ${obj.attendance.past_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for the ${obj.attendance.past_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
         `;
        document.getElementById("p_attendance").appendChild(main_div);
+       if(obj.attendance.past_attendance[i].type == "January" && !obj.attendance.past_attendance[i].completed) {
+           document.getElementById("monthly_video").style.display = "block";
+       } else if(obj.attendance.past_attendance[i].type == "January" && obj.attendance.past_attendance[i].completed) {
+        document.getElementById("completed_video").style.display = "block";
+       }
+        
     }
     for(let i=0; i<obj.attendance.current_attendance.length; i++) {
         let main_div = document.createElement("li");
@@ -207,6 +214,11 @@ function data_setup(obj) {
     document.getElementById("user_email").innerHTML = `Email: ${getCookie("email")}`;
     document.getElementById("user_id").innerHTML = `Member ID: ${getCookie("id")}`;
 
+
+    /* COMPLETED */
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("dashboardNav").style.display = "block";
+    document.getElementById("section-1").style.display = "block";
 }
 
 function memberSetup() {
@@ -882,3 +894,40 @@ function closeCreateVolunteeringOpportunity() {
     }
     return false;
  }
+
+
+function completedAttendance(correct) {
+    if(correct >= 2) {
+        let dataABC = {
+            "present": true,
+            "userID": email,
+            "init": 4
+        }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let a = this.responseText;
+                window.location = "dashboard.html";
+            } 
+        };
+        xhttp.open("POST", `${productionLink}/checkAttendanceForMonth`, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(JSON.stringify(dataABC));
+    } else {
+        let dataABC = {
+            "present": false,
+            "userID": email,
+            "init": 4
+        }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let a = this.responseText;
+                window.location = "dashboard.html";
+            } 
+        };
+        xhttp.open("POST", `${productionLink}/checkAttendanceForMonth`, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(JSON.stringify(dataABC));
+    }
+}

@@ -79,3 +79,8 @@
     background-color: white;
     overflow: hidden;
   }
+
+  #main_video {
+    width: 100%;
+   }
+   

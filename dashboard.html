@@ -26,6 +26,7 @@
         <script src="modules/bootstrap.min.js"></script>
         <script src="modules/jquery-canvas-sparkles.js"></script>
         <script src="modules/jquery-canvas-sparkles.min.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
         <script src="assets/js/script.js"></script>
         <script src="assets/js/authorized.js"></script>
         <script src="modules/aos.js"></script>
@@ -143,6 +144,163 @@
             border: 0;
             transition: all .2s ease;
             }
+
+            .container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: calc(1.3rem + .6vw);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark { 
+    margin-top: 11px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  zoom: 90%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input[type=radio] ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input[type=radio]:checked ~ .checkmark {
+  background-color: #FFD700;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input[type=radio]:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.spinner {
+  -webkit-animation: rotator 1.4s linear infinite;
+          animation: rotator 1.4s linear infinite;
+}
+
+@-webkit-keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+.path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+          animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@-webkit-keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
         </style>
     </head>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -190,7 +348,7 @@
             </div>      
         </div>
     </nav>
-    <nav id="dashboardNav" class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: 78px" aria-label="dashboardNavbar">
+    <nav id="dashboardNav" class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: 78px; display: none;" aria-label="dashboardNavbar">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardNavbar" aria-controls="dashboardNavbar" aria-expanded="false" aria-label="dashboardNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -238,10 +396,234 @@
         <div id="content"> 
             <div id="portal">
                   <div id="portal-content" style="padding: 20px; position: relative;" class="container">
-                    <section style="display: block;" id="section-1">
+                    <center><svg id="loader" style="margin-top: 100px;zoom: 200%;" class="spinner" width="65px" height="155px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                     </svg></center>
+                    <section style="display: none;" id="section-1">
                         <h1 >Log Attendance</h1>
                         <hr></hr>
-                        <h5>The next meeting will be posted on January 6th!</h5>
+                        <div style="display: none;" id="completed_video">
+                            You have watched this month's meeting and completed your attendance for the month of January!
+                        </div>
+                        <div id="monthly_video" style="display: none;">
+                            <div style="background-color: #212529;opacity: 0.8;top:0; width: 100%;text-align: center; z-index: 10; padding: 1.1%; position: relative;">
+                                <button onclick="play();" id="play-button" style="left: 15px; position:absolute; background-color: transparent; border: none;"><i style=" background-color: none!important; color: #FFD700;" class="fa fa-play"></i></button>  
+                                <p id="video_" style="display: inline-block;color: white; height: 3px;"></p>
+                                <button onclick="sound();" id="sound-button" style="right: 15px; position:absolute; background-color: transparent; border: none;"><i style="font-size: 25px;background-color: none!important; color: #FFD700;" class="fas fa-volume-up"></i></button>
+                            </div>
+                            <div style="position: relative;" >
+                                <video style="outline: none;" id="main_video" controls>
+                                    <source src="https://dl.dropboxusercontent.com/s/sg2eix2g5l7rnbr/video.mp4" type="video/mp4">
+                                </video>
+                                <sect style="position: absolute; bottom: 150px;" id="bookmark"></sect>
+                            </div>
+                            <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white; display: none;" id="question-1">
+                                <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 1</h1>
+                                <h3> How many spring hours must be submitted this semester? </h3>
+                                <form> <label id="text_radio_1" class="container"> Five
+                                    <input id="radio_1" type="radio" checked="checked" name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label id="text_radio_2" class="container">Six
+                                    <input id="radio_2" type="radio" name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label id="text_radio_3" class="container">Seven
+                                    <input id="radio_3" type="radio" name="radio">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label id="text_radio_4" class="container">Eight
+                                    <input id="radio_4" type="radio" name="radio">
+                                    <span class="checkmark"></span>
+                                </label></form>
+                                <button onclick="questionone()" style="margin:auto; display: flex;justify-content: center;align-items: center; border-radius: 15px; background-color: #FFD700;"> Submit </button>
+                            </div>   
+                            <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-2">
+                                <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 2</h1>
+                                <h3> Which of the following is NOT a guideline when writing cards for our local senior centers? </h3>
+                                <form>
+                                    <label id="text_radio_5" class="container"> Handwriting is large and readable
+                                    
+                                        <input id="radio_5" type="radio" checked name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label id="text_radio_6" class="container">Put a date or an address
+                                        <input id="radio_6" type="radio" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label id="text_radio_7" class="container">Be KIND with your words
+                                        <input id="radio_7" type="radio" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label id="text_radio_8" class="container">Share your story :)
+                                        <input id="radio_8" type="radio" name="radio">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </form>
+                                
+                                <button onclick="questiontwo()" style="margin:auto; display: flex;justify-content: center;align-items: center; border-radius: 15px; background-color: #FFD700;"> Submit </button>
+                            </div>
+                            <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-3">
+                                <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 3</h1>
+                                <h3> Would you like to receive additional communication from crew leaders regarding Beta Club Information? </h3>
+                                <form><label id="text_radio_9" class="container">Yes, I will share my phone number so I can be added to the GroupMe. My name is
+                                    <input id="radio_9" type="radio" checked name="radio">
+                                    <span class="checkmark"></span>
+                                    <input id="text_9" style="background-color: white;"></input> and my number is <input id="text_10" style="background-color: white;"></input> 
+                                </label>
+                                <label id="text_radio_10" class="container">No
+                                    <input id="radio_10" type="radio" name="radio">
+                                    <span class="checkmark"></span>
+                                </label></form>
+                                
+                                <button onclick="questionthree()" style="margin:auto; display: flex;justify-content: center;align-items: center; border-radius: 15px; background-color: #FFD700;"> Submit </button>
+                            </div>   
+                        </div>
+                        <script>
+                            var timeOut; 
+                            var paused = false; var clicked = false;  var done = false;
+                            var question1 = false; var question2 = false; var question3 = false; var correct = 0;
+                            function play() {
+                                if(!paused) {
+                                    if(document.getElementById("play-button").innerHTML.includes("fa-play")) {
+                                        document.getElementById("main_video").play();
+                                        document.getElementById("play-button").innerHTML = `<i style="background-color: none!important; color: #FFD700;" class="fa fa-pause"></i>`;
+                                        timeOut = setInterval(changeTime, 1000);
+                                    } else {
+                                        document.getElementById("main_video").pause();
+                                        document.getElementById("play-button").innerHTML = `<i style="background-color: none!important; color: #FFD700;" class="fa fa-play"></i>`;
+                                        clearTimeout(timeOut);
+                                    }
+                                }
+                            }
+                            function sound() {
+                                if(document.getElementById("sound-button").innerHTML.includes("fa-volume-up")) {
+                                    document.getElementById("main_video").muted = true;
+                                    document.getElementById("sound-button").innerHTML = `<i style="font-size: 25px;background-color: none!important; color: #FFD700;" class="fas fa-volume-mute"></i>`;
+                                } else {
+                                    document.getElementById("main_video").muted = false;
+                                    document.getElementById("sound-button").innerHTML = `<i style="font-size: 25px;background-color: none!important; color: #FFD700;" class="fas fa-volume-up"></i>`;
+                                }
+                            }   
+
+                            function changeTime() {
+                                document.getElementById("video_").innerHTML = `${convertMS(document.getElementById("main_video").currentTime)}/${convertMS(document.getElementById("main_video").duration)}`;
+                                if(document.getElementById("main_video").currentTime >= 147 && question1 == false) {
+                                    document.getElementById("main_video").pause();
+                                    if(!paused) {
+                                        document.getElementById("question-1").style.display = "block";
+                                        document.querySelector('#bookmark').scrollIntoView({ 
+                                            behavior: 'smooth' 
+                                        });
+                                    }
+                                    paused = true;
+                                } else if(document.getElementById("main_video").currentTime >= 352 && question2 == false) {
+                                    document.getElementById("main_video").pause();
+                                    if(!paused) {
+                                        document.getElementById("question-2").style.display = "block";
+                                        document.querySelector('#bookmark').scrollIntoView({ 
+                                            behavior: 'smooth' 
+                                        });
+                                    }
+                                    paused = true;
+                                } else if(document.getElementById("main_video").currentTime >= 703 && question3 == false) {
+                                    document.getElementById("main_video").pause();
+                                    if(!paused) {
+                                        document.getElementById("question-3").style.display = "block";
+                                        document.querySelector('#bookmark').scrollIntoView({ 
+                                            behavior: 'smooth' 
+                                        });
+                                    }
+                                    paused = true;
+                                } else if(document.getElementById("main_video").currentTime >= 780 && done == false) {
+                                    completedAttendance(correct);
+                                    done = true;
+                                }
+                            }
+
+                            function questionone() {
+                                if(!clicked) {
+                                    for(let i=1; i<=4; i++) {
+                                        if(document.getElementById(`radio_${i}`).checked) {
+                                            document.getElementById(`text_radio_${i}`).style.color = "red";
+                                        }
+                                    }
+                                    document.getElementById("text_radio_3").style.color = "green";
+                                    if( document.getElementById("radio_3").checked) {correct++;}
+                                    setTimeout(function() {
+                                        question1 = true;
+                                        document.getElementById("question-1").style.display = "none";
+                                        document.querySelector('#dashboardNav').scrollIntoView({ 
+                                            behavior: 'smooth' 
+                                        });
+                                        document.getElementById("main_video").play();
+                                        paused = false; clicked = false;
+                                    }, 3000)
+                                }
+                                clicked = true;
+                            }
+
+                           
+                            function questiontwo() {
+                                if(!clicked) {
+                                    for(let i=5; i<=8; i++) {
+                                        if(document.getElementById(`radio_${i}`).checked) {
+                                            document.getElementById(`text_radio_${i}`).style.color = "red";
+                                        }
+                                    }
+                                    document.getElementById("text_radio_6").style.color = "green";
+                                    if( document.getElementById("radio_6").checked) {correct++;}
+                                    setTimeout(function() {
+                                        question2 = true;
+                                        document.getElementById("question-2").style.display = "none";
+                                        document.querySelector('#dashboardNav').scrollIntoView({ 
+                                            behavior: 'smooth' 
+                                        });
+                                        document.getElementById("main_video").play();
+                                        paused = false; clicked = false;
+                                    }, 3000)
+                                }
+                                clicked = true;
+                            }
+
+                            function questionthree() {
+                                if(!clicked) {
+                                    if(document.getElementById("radio_9").checked) {
+                                        var xhttp = new XMLHttpRequest();
+                                        let obj = {
+                                            "name": document.getElementById("text_9").value,
+                                            "number": document.getElementById("text_10").value
+                                        }
+                                        xhttp.onreadystatechange = function() {};
+                                        xhttp.open("POST", `${productionLink}/add-number`, true);
+                                        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                        xhttp.send(JSON.stringify(obj));
+                                    } 
+                                    correct++;
+                                    setTimeout(function() {
+                                        question3 = true;
+                                        document.getElementById("question-3").style.display = "none";
+                                        document.querySelector('#dashboardNav').scrollIntoView({ 
+                                            behavior: 'smooth' 
+                                        });
+                                        document.getElementById("main_video").play();
+                                        paused = false; clicked = false;
+                                    }, 3000)
+                                }
+                                clicked = true;
+                                
+                            }
+
+                            function convertMS(value) {
+                                const sec = parseInt(value, 10); 
+                                let hours   = Math.floor(sec / 3600);
+                                let minutes = Math.floor((sec - (hours * 3600)) / 60); 
+                                let seconds = sec - (hours * 3600) - (minutes * 60);
+                                if (minutes < 10) {minutes = "0"+minutes;}
+                                if (seconds < 10) {seconds = "0"+seconds;}
+                                return minutes+':'+seconds;
+                            }
+                        </script>
                       
                     </section>
                     <section style="display: none;" id="section-2">
@@ -381,7 +763,7 @@
             </div>  
         </div>
             <img id="dashboard_img" src="assets/images/intro-hp.png" style="width: 100%"></img>
-        <footer>
+        <footer style="position: relative; bottom:0;">
             <div class="row">
                 <div class="col-0 col-sm-0 col-md-1"></div>
                 <div class="col-12 col-sm-12 col-md-5" style="padding-right: 50px;">
