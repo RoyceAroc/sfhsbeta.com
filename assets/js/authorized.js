@@ -219,6 +219,9 @@ function data_setup(obj) {
     document.getElementById("loader").style.display = "none";
     document.getElementById("dashboardNav").style.display = "block";
     document.getElementById("section-1").style.display = "block";
+    if(document.getElementById("main_video")) {
+        document.getElementById("main_video").controls = false;
+    }
 }
 
 function memberSetup() {
