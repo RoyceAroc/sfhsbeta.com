@@ -638,8 +638,7 @@
                     <section style="display: none;" id="section-3">
                         <h1> Submit Non-Signature Service Projects - Second Semester </h1>
                         <hr></hr>
-                        <h3> Submission Dropboxes will open in January</h3>
-                        <form style="display: none;" id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
+                        <form id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
                             <div class="mb-3">
                                 <label for="description_nonsignature" class="form-label lead">Please describe your service project below. If you donated or made items, please say what they were and how many of them you donated/produced <span style="color: red;">*</span> </label>
                                 <textarea name="description" style="resize: none;margin-top: 5px;" class="form-control lead" id="description_nonsignature" rows="5"></textarea>
@@ -692,9 +691,9 @@
                                 <button class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Service Project for Review</button>
                             </div>
                         </form>
-                        <h1  style="display: none;" style="margin-top: 30px;">View Submissions</h1>
-                        <hr  style="display: none;"></hr>
-                        <p style="display: none;" id="past_submissions" class="lead row"></p>
+                        <h1  style="margin-top: 30px;">View Submissions</h1>
+                        <hr ></hr>
+                        <p  id="past_submissions" class="lead row"></p>
                     </section>
                     <section  style="display: none;" id="section-4" class="lead">
                         <h1>Hour Log</h1>
