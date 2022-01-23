@@ -395,6 +395,7 @@ function displayPortal1() {
     `;
     var firstName = ""; var lastName = ""; var grade = 0; var member = ""; var status = "Missing"; var note = "None"; var userID = ""; var pdf = "";
     for(let i=0; i<obj.memberLogistics.length; i++) {
+        
         firstName = obj.memberLogistics[i].firstName;
         lastName = obj.memberLogistics[i].lastName;
         if(obj.memberLogistics[i].grade == 0) {
@@ -488,7 +489,7 @@ function displayPortal1() {
                                 trelement.nonSignatureServiceProjects = obj.nonSignatureServiceProjects[d].projects.length;
                                 for(let a=0; a< obj.nonSignatureServiceProjects[d].projects.length; a++) {
                                     if(obj.nonSignatureServiceProjects[d].projects[a].status == "approved") {
-                                        trelement.nonSignatureServiceProjectsTotalMinutes += obj.nonSignatureServiceProjects[d].projects[a].minutes;
+                                        trelement.nonSignatureServiceProjectsTotalMinutes += parseInt(obj.nonSignatureServiceProjects[d].projects[a].minutes);
                                     }
                                 }
                                 break;
