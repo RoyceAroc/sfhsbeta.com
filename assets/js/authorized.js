@@ -203,10 +203,26 @@ function data_setup(obj) {
     <h3> First Semester</h3>
     <h5>
     Status: ${obj.hourLog.first_sem.status == 'pending' ? "Pending Approval" : obj.hourLog.first_sem.status} <br>
-    Note: ${obj.hourLog.first_sem.note} <br>
+    Note: ${obj.hourLog.first_sem.note == undefined ? "None" : obj.hourLog.first_sem.note} <br>
     Hour Log: ${obj.hourLog.first_sem.pdf == 'none' ? "none" : `<iframe style="margin: 0 auto;display: block;min-height: 300px; min-width: 300px;" src="https://docs.google.com/file/d/${obj.hourLog.first_sem.pdf}/preview?usp=drivesdk">
     </iframe> `}
     `;
+    /*
+    "make_up": {
+                            "total": 0,
+                            "missed_meetings": 0,
+                            "partial_hours": 0
+                        }
+                        */
+    if(obj.hourLog.make_up.total == 0) {
+        document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: green;"><b>You do not need to make up any hours this semester </b></h4>`
+    } else if(obj.hourLog.make_up.partial_hours != 0) {
+        document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: red;"><b> You need to make up a total of <b> ${obj.hourLog.make_up.total} hours </b>. This is since you only logged ${7-obj.hourLog.make_up.partial_hours} hours last semester and missed ${obj.hourLog.make_up.missed_meetings} meetings.`
+    } else if(obj.hourLog.make_up.partial_hours == 0) {
+        document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: red;"><b> You need to make up a total of <b> ${obj.hourLog.make_up.total} hours </b>. This is since you missed ${obj.hourLog.make_up.missed_meetings} meetings.`
+    }
+    
+
 
     /* Account Tab */
     document.getElementById("user_img").src = getCookie("picture");
