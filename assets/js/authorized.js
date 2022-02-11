@@ -122,14 +122,14 @@ function data_setup(obj) {
         ${obj.attendance.past_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for the ${obj.attendance.past_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
         `;
        document.getElementById("p_attendance").appendChild(main_div);
-       if(obj.attendance.current_attendance[i]) {
+       /*if(obj.attendance.current_attendance[i]) {
         if(obj.attendance.current_attendance[i].type == "February" && !obj.attendance.current_attendance[i].completed) {
             document.getElementById("monthly_video").style.display = "block";
         } else {
             document.getElementById("completed_video").style.display = "block";
         }
        }
-      
+      */
         
     }
     for(let i=0; i<obj.attendance.current_attendance.length; i++) {
