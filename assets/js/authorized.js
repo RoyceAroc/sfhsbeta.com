@@ -122,14 +122,14 @@ function data_setup(obj) {
         ${obj.attendance.past_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for the ${obj.attendance.past_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
         `;
        document.getElementById("p_attendance").appendChild(main_div);
-       if(obj.attendance.current_attendance[i]) {
+       /*if(obj.attendance.current_attendance[i]) {
         if(obj.attendance.current_attendance[i].type == "March" && !obj.attendance.current_attendance[i].completed) {
             document.getElementById("monthly_video").style.display = "block";
         } else {
             document.getElementById("completed_video").style.display = "block";
         }
        }
-        
+        */
     }
     for(let i=0; i<obj.attendance.current_attendance.length; i++) {
         let main_div = document.createElement("li");
@@ -209,13 +209,9 @@ function data_setup(obj) {
     Hour Log: ${obj.hourLog.first_sem.pdf == 'none' ? "none" : `<iframe style="margin: 0 auto;display: block;min-height: 300px; min-width: 300px;" src="https://docs.google.com/file/d/${obj.hourLog.first_sem.pdf}/preview?usp=drivesdk">
     </iframe> `}
     `;
-    /*
-    "make_up": {
-                            "total": 0,
-                            "missed_meetings": 0,
-                            "partial_hours": 0
-                        }
-                        */
+
+
+
     if(obj.hourLog.make_up.total == 0) {
         document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: green;"><b>You do not need to make up any hours this semester </b></h4>`
     } else if(obj.hourLog.make_up.partial_hours != 0) {
