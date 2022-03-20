@@ -194,19 +194,19 @@ function data_setup(obj) {
 
     /* Hour Log Tab*/
     document.getElementById("hourLogForm").action = `${productionLink}/submitHourLog`;
-    if(obj.hourLog.first_sem.status == "none" || obj.hourLog.first_sem.status == "denied") {
+    if(obj.hourLog.second_sem.status == "none" || obj.hourLog.second_sem.status == "denied") {
         document.getElementById("show_hourLog").style.display = "block";
     } else {
         document.getElementById("hide_hourLog").style.display = "block";
     }
     
     /* Hour Status Tab*/
-    document.getElementById('content_firstsemhourstatus').innerHTML = `
-    <h3> First Semester</h3>
+    document.getElementById('content_secondsemhourstatus').innerHTML = `
+    <h3> Second Semester</h3>
     <h5>
-    Status: ${obj.hourLog.first_sem.status == 'pending' ? "Pending Approval" : obj.hourLog.first_sem.status} <br>
-    Note: ${obj.hourLog.first_sem.note == undefined ? "None" : obj.hourLog.first_sem.note} <br>
-    Hour Log: ${obj.hourLog.first_sem.pdf == 'none' ? "none" : `<iframe style="margin: 0 auto;display: block;min-height: 300px; min-width: 300px;" src="https://docs.google.com/file/d/${obj.hourLog.first_sem.pdf}/preview?usp=drivesdk">
+    Status: ${obj.hourLog.second_sem.status == 'pending' ? "Pending Approval" : obj.hourLog.second_sem.status} <br>
+    Note: ${obj.hourLog.second_sem.note == undefined ? "None" : obj.hourLog.second_sem.note} <br>
+    Hour Log: ${obj.hourLog.second_sem.pdf == 'none' ? "none" : `<iframe style="margin: 0 auto;display: block;min-height: 300px; min-width: 300px;" src="https://docs.google.com/file/d/${obj.hourLog.second_sem.pdf}/preview?usp=drivesdk">
     </iframe> `}
     `;
 
