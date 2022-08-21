@@ -363,10 +363,7 @@
                 <a class="nav-link" onclick="switchSect(2)" id="2">Past Attendance</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="switchSect(3)" id="3">Non-Signature Service Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="switchSect(4)" id="4">Hour Log</a>
+                <a class="nav-link" onclick="switchSect(3)" id="3">Service Project Submissions</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" onclick="switchSect(5)" id="5">Hour Status</a>
@@ -399,7 +396,11 @@
                     <center><img id="loader" style="margin-top: 300px;zoom: 50%;" src="assets/images/loader.gif"/></center>
                     <section style="display: none;" id="section-1">
                         <h1 >Log Attendance</h1>
+                       
                         <hr></hr>
+                        <div >
+                            First meeting will be released September 1st!
+                        </div>
                         <div style="display: none;" id="completed_video">
                             You have watched this month's meeting and completed your attendance for the month of April!
                         </div>
@@ -638,114 +639,15 @@
                          </p>
                     </section>
                     <section style="display: none;" id="section-3">
-                        <h1> Submit Non-Signature Service Projects - Second Semester </h1>
+                        <h1> Service Project Submissions Form </h1>
                         <hr></hr>
-                        <form id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
-                            <div class="mb-3">
-                                <label for="description_nonsignature" class="form-label lead">Please describe your service project below. If you donated or made items, please say what they were and how many of them you donated/produced <span style="color: red;">*</span> </label>
-                                <textarea name="description" style="resize: none;margin-top: 5px;" class="form-control lead" id="description_nonsignature" rows="5"></textarea>
-                            </div>
-                            <label class="lead">If you participated in a virtual service opportunity or a donation drive, how many hours did you earn? <span style="color: red;">*</span></label>
-                            <input type="hidden" id="userID" name="userID" value=""/>
-                            <div style="max-width: 500px; margin-top: 5px;" class="row g-3">
-                                <div class="col">
-                                    <select id="s_hours" name="hours" style="width: 200px;" class="form-select">
-                                        <option selected value="0">0 Hours</option>
-                                        <option value="1">One Hour</option>
-                                        <option value="2">Two Hours</option>
-                                        <option value="3">Three Hours</option>
-                                        <option value="4">Four Hours</option>
-                                        <option value="5">Five Hours</option>
-                                        <option value="6">Six Hours</option>
-                                        <option value="7">Seven Hours</option>
-                                        <option value="8">Eight Hours</option>
-                                        <option value="9">Nine Hours</option>
-                                        <option value="10">Ten Hours</option>
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <select id="s_minutes" name="minutes" style="width: 200px;" class="form-select">
-                                        <option selected value="1">0 Minutes</option>
-                                        <option value="2">15 Minutes</option>
-                                        <option value="3">30 Minutes</option>
-                                        <option value="4">45 Minutes</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <label style="margin-top: 20px;" class="lead"> Please upload some sort of proof that you participated in your service project/opportunity (Accepted files: images & pdf)  <span style="color: red;">*</span></label>
-                            <div class="container">
-                                <div class="col file-upload">
-                                    <div class="image-upload-wrap">
-                                    <input id="document_file" name="document_file" class="file-upload-input" type='file' onchange="readURL(this);" accept=".jpeg,.jpg,.png,.pdf" />
-                                    <div class="drag-text">
-                                        <h3 class='lead'>Upload document (Max File Size: 8 MB)</h3>
-                                    </div>
-                                    </div>
-                                    <div class="file-upload-content">
-                                    <img id="uploaded_img" class="file-upload-image" src="#" alt="your image"></img>
-                                    <div class="image-title-wrap">
-                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="text-align: center; margin-top: 10px;">
-                                <button class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Service Project for Review</button>
-                            </div>
-                        </form>
-                        <h1  style="margin-top: 30px;">View Submissions</h1>
-                        <hr ></hr>
-                        <p  id="past_submissions" class="lead row"></p>
+                        Form will be available for submissions starting September 1st.
                     </section>
-                    <section  style="display: none;" id="section-4" class="lead">
-                        <h1>Hour Log</h1>
-                        <hr></hr>
-                        <ul>
-                            <li> All members MUST print two copies of the hour log and submit one for EACH semester. </li>
-                            <li> <a target="_blank" href="../web/data/content/media/client/2021-2022_BetaClubHourLog.pdf">Download the 2021-2022 Beta Club Hour Log</a></li>
-                        </ul>
-                        <hr></hr>
-                        <div >
-                            <h1>Submit your Hour Log - Second Semester</h1>
-                        <div style="display: none;" id="hide_hourLog">
-                            You have already submitted your hour log for this semester!
-                        </div>
-                        <div style="display: none;" id="show_hourLog">
-                            <ul>
-                                <li> ALL Members have to submit an hour log this semester. </li>
-                                <li> Don't forget to add your non-signature service projects, if you have any, to the hour log as well!</li>
-                                <li> You must submit a <b>pdf</b> copy of the COMPLETED hour log through the dropbox below. Contact us if you have any questions. </li>
-                                <li> New members HAVE to submit the hour log this semester! </li>
-                            </ul>
-                            <form id="hourLogForm" onsubmit="return validateHourLogForm()" enctype="multipart/form-data" method="post" class="lead">
-                                <input type="hidden" id="userID_hourLog" name="userID" value=""/>
-                                <div class="container">
-                                    <div class="col file-upload">
-                                        <div class="image-upload-wrap">
-                                        <input id="document_file_hourLog" name="document_file" class="file-upload-input" type='file' onchange="readURL(this);" accept=".pdf" />
-                                        <div class="drag-text">
-                                            <h3 class='lead'>Upload Hour Log (Max File Size: 8 MB)</h3>
-                                        </div>
-                                        </div>
-                                        <div class="file-upload-content">
-                                            <div class="image-title-wrap">
-                                                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="text-align: center; margin-top: 10px;">
-                                    <button class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Hour Log</button>
-                                </div>
-                            </form>
-                        </div>
-                        </div>
-                        
-                    
-                    </section>
+                  
                     <section  style="display: none;" id="section-5">
                         <h1>Hour Status</h1>
                         <hr></hr>
+                        Hour Status will be available starting September 1st.
                         <div style="display: none;" id="content_makeupstatus"></div>
                         <div id="content_secondsemhourstatus"> </div> 
                     </section>

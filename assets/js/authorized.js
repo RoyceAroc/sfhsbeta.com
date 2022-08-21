@@ -139,7 +139,7 @@ function data_setup(obj) {
         `;
        document.getElementById("p_attendance").appendChild(main_div);
     }
-    /* NonSignatureService Project Tab */
+    /* NonSignatureService Project Tab 
     document.getElementById("nonSignatureForm").action = `${productionLink}/submitNonSignatureServiceProject`;
     let token = 0; 
     if(obj.nonSignatureServiceProjects.length > 0) {
@@ -191,16 +191,16 @@ function data_setup(obj) {
         document.getElementById("past_submissions").innerHTML = "You haven't submitted any non-signature projects yet!";
         document.getElementById("past_submissions").style.marginLeft = "0px";
     }
-
-    /* Hour Log Tab*/
+*/
+    /* Hour Log Tab
     document.getElementById("hourLogForm").action = `${productionLink}/submitHourLog`;
     if(obj.hourLog.second_sem.status == "none" || obj.hourLog.second_sem.status == "denied") {
         document.getElementById("show_hourLog").style.display = "block";
     } else {
         document.getElementById("hide_hourLog").style.display = "block";
-    }
+    }*/
     
-    /* Hour Status Tab*/
+    /* Hour Status Tab
     document.getElementById('content_secondsemhourstatus').innerHTML = `
     <h3> Second Semester</h3>
     <h5>
@@ -220,7 +220,7 @@ function data_setup(obj) {
         document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: red;"><b> You need to make up a total of <b> ${obj.hourLog.make_up.total} hours </b>. This is since you missed ${obj.hourLog.make_up.missed_meetings} meetings.`
     }
     
-
+   */
 
     /* Account Tab */
     document.getElementById("user_img").src = getCookie("picture");
@@ -751,9 +751,9 @@ function displayPortal() {
 
 function adminSetup(data) {
     document.getElementsByTagName("body")[0].style.backgroundColor = "lightgrey";
-    document.getElementById("dashboardNav").style.display = "none";
-    document.getElementById("dashboard_img").style.display = "none";
-    document.getElementsByTagName("footer")[0].style.display = "none";
+   // document.getElementById("dashboardNav").style.display = "none";
+   // document.getElementById("dashboard_img").style.display = "none";
+   // document.getElementsByTagName("footer")[0].style.display = "none";
     document.getElementById("portal").style.marginTop = "78px";
     document.getElementById("portal").innerHTML = data;
     //Get necessary data for components
