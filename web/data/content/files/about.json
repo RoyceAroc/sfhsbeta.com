@@ -113,7 +113,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/swetha.jpg",
+                                                "src": "web/data/content/media/client/christina.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -131,42 +131,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Swetha Pendela",
-                                                "styles": {
-                                                    "margin-top": "-8px",
-                                                    "color": "#FFD700"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "div",
-                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
-                                        "styles": {
-                                            "padding-top": "30px"
-                                        },
-                                        "children": [
-                                            {
-                                                "type": "img",
-                                                "src": "web/data/content/media/client/tarita.JPG",
-                                                "styles": {
-                                                    "border-radius": "10px",
-                                                    "width": "350px",
-                                                    "object-fit": "cover"
-                                                },
-                                                "classes": ["img-fluid", "img-officers"]
-                                            },
-                                            {
-                                                "type": "h5",
-                                                "text": "Vice President",
-                                                "styles": {
-                                                    "margin-top": "11px",
-                                                    "color": "white"
-                                                }
-                                            },
-                                            {
-                                                "type": "h3",
-                                                "text": "Tarita Jakobs",
+                                                "text": "Christina Huang",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -193,7 +158,7 @@
                                             },
                                             {
                                                 "type": "h5",
-                                                "text": "Secretary",
+                                                "text": "Vice President",
                                                 "styles": {
                                                     "margin-top": "11px",
                                                     "color": "white"
@@ -218,7 +183,42 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/shree.JPG",
+                                                "src": "web/data/content/media/client/katelyn.JPG",
+                                                "styles": {
+                                                    "border-radius": "10px",
+                                                    "width": "350px",
+                                                    "object-fit": "cover"
+                                                },
+                                                "classes": ["img-fluid", "img-officers"]
+                                            },
+                                            {
+                                                "type": "h5",
+                                                "text": "Secretary",
+                                                "styles": {
+                                                    "margin-top": "11px",
+                                                    "color": "white"
+                                                }
+                                            },
+                                            {
+                                                "type": "h3",
+                                                "text": "Katelyn Kwak",
+                                                "styles": {
+                                                    "margin-top": "-8px",
+                                                    "color": "#FFD700"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "div",
+                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-3"],
+                                        "styles": {
+                                            "padding-top": "30px"
+                                        },
+                                        "children": [
+                                            {
+                                                "type": "img",
+                                                "src": "web/data/content/media/client/hailey.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -236,7 +236,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Shree Delwadia",
+                                                "text": "Hailey Brakke",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -259,7 +259,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/maya.JPG",
+                                                "src": "web/data/content/media/client/rachel.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -277,7 +277,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Maya Muniganti",
+                                                "text": "Rachel Wang",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -294,7 +294,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/sristi.JPG",
+                                                "src": "web/data/content/media/client/prakhar.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -312,7 +312,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Sristi Karamchandani",
+                                                "text": "Prakhar Gupta",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -329,7 +329,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/elisabeth.JPG",
+                                                "src": "web/data/content/media/client/maggie.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -347,7 +347,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Elisabeth Moreau",
+                                                "text": "Maggie Craig",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -364,7 +364,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/kaylan.JPG",
+                                                "src": "web/data/content/media/client/jocelyn.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -382,7 +382,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Kaylan Son",
+                                                "text": "Jocelyn Wang",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -405,7 +405,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/stephanie.JPG",
+                                                "src": "web/data/content/media/client/ria.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -423,7 +423,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Stephanie Cummings",
+                                                "text": "Ria Kotwani",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -440,7 +440,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/christina.JPG",
+                                                "src": "web/data/content/media/client/yash.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -458,7 +458,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Christina Huang",
+                                                "text": "Yash Panchal",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -475,7 +475,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/annabelle.JPG",
+                                                "src": "web/data/content/media/client/ritisha.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -493,7 +493,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Annabelle Irwin",
+                                                "text": "Ritisha Lingampally",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -510,7 +510,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/neeti.JPG",
+                                                "src": "web/data/content/media/client/ellie.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -528,7 +528,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Neeti Jain",
+                                                "text": "Ellie Lahey",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
@@ -551,7 +551,7 @@
                                         "children": [
                                             {
                                                 "type": "img",
-                                                "src": "web/data/content/media/client/donovan.JPG",
+                                                "src": "web/data/content/media/client/sritha.JPG",
                                                 "styles": {
                                                     "border-radius": "10px",
                                                     "width": "350px",
@@ -569,77 +569,7 @@
                                             },
                                             {
                                                 "type": "h3",
-                                                "text": "Donovan D’Silva",
-                                                "styles": {
-                                                    "margin-top": "-8px",
-                                                    "color": "#FFD700"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "div",
-                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-4"],
-                                        "styles": {
-                                            "padding-top": "30px"
-                                        },
-                                        "children": [
-                                            {
-                                                "type": "img",
-                                                "src": "web/data/content/media/client/sree.JPG",
-                                                "styles": {
-                                                    "border-radius": "10px",
-                                                    "width": "350px",
-                                                    "object-fit": "cover"
-                                                },
-                                                "classes": ["img-fluid", "img-officers"]
-                                            },
-                                            {
-                                                "type": "h5",
-                                                "text": "Service Project Manager",
-                                                "styles": {
-                                                    "margin-top": "11px",
-                                                    "color": "white"
-                                                }
-                                            },
-                                            {
-                                                "type": "h3",
-                                                "text": "Sree Pamulapati",
-                                                "styles": {
-                                                    "margin-top": "-8px",
-                                                    "color": "#FFD700"
-                                                }
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "div",
-                                        "classes": ["col-12", "col-sm-6", "col-md-6", "col-xl-4"],
-                                        "styles": {
-                                            "padding-top": "30px"
-                                        },
-                                        "children": [
-                                            {
-                                                "type": "img",
-                                                "src": "web/data/content/media/client/nina.JPG",
-                                                "styles": {
-                                                    "border-radius": "10px",
-                                                    "width": "350px",
-                                                    "object-fit": "cover"
-                                                },
-                                                "classes": ["img-fluid", "img-officers"]
-                                            },
-                                            {
-                                                "type": "h5",
-                                                "text": "Service Project Manager",
-                                                "styles": {
-                                                    "margin-top": "11px",
-                                                    "color": "white"
-                                                }
-                                            },
-                                            {
-                                                "type": "h3",
-                                                "text": "Nina Thakur",
+                                                "text": "Sritha Neeli",
                                                 "styles": {
                                                     "margin-top": "-8px",
                                                     "color": "#FFD700"
