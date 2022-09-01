@@ -142,7 +142,7 @@ function data_setup(obj) {
 
     }
     
-    document.getElementById("nonSignatureForm").action = `${productionLink}/submitNonSignatureServiceProject`;
+    document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;
     let token = 0; 
     if(obj.nonSignatureServiceProjects.length > 0) {
         for(let i=0; i<obj.nonSignatureServiceProjects.length; i++) {
