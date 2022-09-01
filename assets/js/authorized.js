@@ -123,13 +123,7 @@ function data_setup(obj) {
         ${obj.attendance.past_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for the ${obj.attendance.past_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.past_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
         `;
        document.getElementById("p_attendance").appendChild(main_div);
-       if(obj.attendance.current_attendance[i]) {
-        if(obj.attendance.current_attendance[i].type == "April" && !obj.attendance.current_attendance[i].completed) {
-            document.getElementById("monthly_video").style.display = "block";
-        } else {
-            document.getElementById("completed_video").style.display = "block";
-        }
-       }
+      
     }
     for(let i=0; i<obj.attendance.current_attendance.length; i++) {
         let main_div = document.createElement("li");
@@ -138,8 +132,16 @@ function data_setup(obj) {
         ${obj.attendance.current_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for ${obj.attendance.current_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.current_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.current_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
         `;
        document.getElementById("p_attendance").appendChild(main_div);
+
+       if(obj.attendance.current_attendance[i].type == "September" && !obj.attendance.current_attendance[i].completed) {
+        document.getElementById("monthly_video").style.display = "block";
+    } else if(obj.attendance.current_attendance[i].type == "September" && obj.attendance.current_attendance[i].completed) {
+        document.getElementById("monthly_video").style.display = "none";
+        document.getElementById("completed_video").style.display = "block";
     }
-    /* NonSignatureService Project Tab 
+
+    }
+    
     document.getElementById("nonSignatureForm").action = `${productionLink}/submitNonSignatureServiceProject`;
     let token = 0; 
     if(obj.nonSignatureServiceProjects.length > 0) {
@@ -188,40 +190,21 @@ function data_setup(obj) {
            document.getElementById("past_submissions").appendChild(main_div);
         }
     } else {
-        document.getElementById("past_submissions").innerHTML = "You haven't submitted any non-signature projects yet!";
+        document.getElementById("past_submissions").innerHTML = "You haven't submitted service projects yet!";
         document.getElementById("past_submissions").style.marginLeft = "0px";
     }
-*/
-    /* Hour Log Tab
-    document.getElementById("hourLogForm").action = `${productionLink}/submitHourLog`;
-    if(obj.hourLog.second_sem.status == "none" || obj.hourLog.second_sem.status == "denied") {
-        document.getElementById("show_hourLog").style.display = "block";
+    /* Hour Status Tab */
+    if(obj.makeUpHours > 0) {
+        document.getElementById("content_makeupstatus").innerHTML = `
+        <span style="background-color: #FF7F7F;">You have to make up an additional ${obj.makeUpHours} hours this semester due to incomplete hours from last year. </span>
+        <br> All members are required to submit 7 hours of service this semester, in addition to watching all videos to maintain active status. Once your hours are verified, they will appear below.
+        `;
     } else {
-        document.getElementById("hide_hourLog").style.display = "block";
-    }*/
-    
-    /* Hour Status Tab
-    document.getElementById('content_secondsemhourstatus').innerHTML = `
-    <h3> Second Semester</h3>
-    <h5>
-    Status: ${obj.hourLog.second_sem.status == 'pending' ? "Pending Approval" : obj.hourLog.second_sem.status} <br>
-    Note: ${obj.hourLog.second_sem.note == undefined ? "None" : obj.hourLog.second_sem.note} <br>
-    Hour Log: ${obj.hourLog.second_sem.pdf == 'none' ? "none" : `<iframe style="margin: 0 auto;display: block;min-height: 300px; min-width: 300px;" src="https://docs.google.com/file/d/${obj.hourLog.second_sem.pdf}/preview?usp=drivesdk">
-    </iframe> `}
-    `;
-
-
-
-    if(obj.hourLog.make_up.total == 0) {
-        document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: green;"><b>You do not need to make up any hours this semester </b></h4>`
-    } else if(obj.hourLog.make_up.partial_hours != 0) {
-        document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: red;"><b> You need to make up a total of <b> ${obj.hourLog.make_up.total} hours </b>. This is since you only logged ${7-obj.hourLog.make_up.partial_hours} hours last semester and missed ${obj.hourLog.make_up.missed_meetings} meetings.`
-    } else if(obj.hourLog.make_up.partial_hours == 0) {
-        document.getElementById('content_makeupstatus').innerHTML = `<h4 style="color: red;"><b> You need to make up a total of <b> ${obj.hourLog.make_up.total} hours </b>. This is since you missed ${obj.hourLog.make_up.missed_meetings} meetings.`
+        document.getElementById("content_makeupstatus").innerHTML = `
+        <span style="background-color: #50C878;">Congrats on being an active member! You do not have any hours that you have to make up this year. </span>
+        <br> All members are required to submit 7 hours of service this semester, in addition to watching all videos to maintain active status. Once your hours are verified, they will appear below.
+        `;
     }
-    
-   */
-
     /* Account Tab */
     document.getElementById("user_img").src = getCookie("picture");
     document.getElementById("user_name").innerHTML = `Name: ${getCookie("name")}`;
@@ -234,17 +217,19 @@ function data_setup(obj) {
     document.getElementById("dashboardNav").style.display = "block";
     document.getElementById("section-1").style.display = "block";
     if(document.getElementById("main_video")) {
-        document.getElementById("main_video").controls = false;
+       // document.getElementById("main_video").controls = false;
     }
 }
 
 function memberSetup() {
+   
     window.onload = (event) => {
         document.getElementById("portal").style.opacity = "1";
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 data_setup(JSON.parse(this.responseText));
+                
             } 
         };
         xhttp.open("POST", `${productionLink}/member-setup`, true);
@@ -919,7 +904,7 @@ function completedAttendance(correct) {
         let dataABC = {
             "present": true,
             "userID": email,
-            "init": 7
+            "init": 0
         }
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {

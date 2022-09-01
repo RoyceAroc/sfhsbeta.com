@@ -398,13 +398,11 @@
                         <h1 >Log Attendance</h1>
                        
                         <hr></hr>
-                        <div >
-                            First meeting will be released September 1st!
-                        </div>
+
                         <div style="display: none;" id="completed_video">
-                            You have watched this month's meeting and completed your attendance for the month of April!
+                            You have watched this month's meeting and completed your attendance for the month of September!
                         </div>
-                        <div id="monthly_video" style="display: none;">
+                        <div id="monthly_video">
                             <h4> You must answer at least two of the three questions found in the video correctly to be marked present for the month! After answering the last question, you must continue to watch the entirety of the video to be marked present! </h4>
                             <div style="background-color: #212529;opacity: 0.8;top:0; width: 100%;text-align: center; z-index: 10; padding: 1.1%; position: relative;">
                                 <button onclick="play();" id="play-button" style="left: 15px; position:absolute; background-color: transparent; border: none;"><i style=" background-color: none!important; color: #FFD700;" class="fa fa-play"></i></button>  
@@ -412,27 +410,27 @@
                                 <button onclick="sound();" id="sound-button" style="right: 15px; position:absolute; background-color: transparent; border: none;"><i style="font-size: 25px;background-color: none!important; color: #FFD700;" class="fas fa-volume-up"></i></button>
                             </div>
                             <div style="position: relative;" >
-                                <video playsinline  id="main_video" >
-                                    <source src="https://dl.dropboxusercontent.com/s/jackrelxkpq3n3k/MzhjMjNlZTY2OTBhNTk1OTkwNjIwMmU1ZGZjZTQxMTk.highres.mp4" type="video/mp4">
+                                <video playsinline id="main_video" >
+                                    <source src="https://dl.dropboxusercontent.com/s/w4ku7on4vvph48p/September%202022%20Meeting.mp4" type="video/mp4">
                                 </video>
                                 <sect style="position: absolute; bottom: 150px;" id="bookmark"></sect>
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white; display: none;" id="question-1">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 1</h1>
-                                <h3> When are hour logs due for Sophomores and Juniors? </h3>
-                                <form> <label id="text_radio_1" class="container"> April 19th
+                                <h3>When will the BETA convention informational meeting take place? </h3>
+                                <form> <label id="text_radio_1" class="container"> September 10th at 8 am
                                     <input id="radio_1" type="radio" checked="checked" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_2" class="container"> April 20th
+                                <label id="text_radio_2" class="container"> September 13th at 8 am
                                     <input id="radio_2" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_3" class="container"> April 21st
+                                <label id="text_radio_3" class="container"> September 13th at 3:50 pm
                                     <input id="radio_3" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_4" class="container"> April 22nd
+                                <label id="text_radio_4" class="container"> September 17th at 5:15 pm
                                     <input id="radio_4" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label></form>
@@ -440,21 +438,21 @@
                             </div>   
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-2">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 2</h1>
-                                <h3> Which of the following is NOT a way to volunteer with NGF? </h3>
+                                <h3> Who should you contact for Next Generation Focus? </h3>
                                 <form>
-                                    <label id="text_radio_5" class="container"> Donating 1 laptop/chromebook for 3 hours
+                                    <label id="text_radio_5" class="container"> Ms. Amy
                                         <input id="radio_5" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_6" class="container"> Donating non-visa gift cards for $5 an hour (2 hours max)
+                                    <label id="text_radio_6" class="container"> Ms. Cook
                                         <input id="radio_6" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_7" class="container"> Volunteer Tutors from 4:30-5:30 PM Mon-Thu
+                                    <label id="text_radio_7" class="container"> Ms. Short
                                         <input id="radio_7" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_8" class="container"> Donating healthy snacks for homeless middle schoolers
+                                    <label id="text_radio_8" class="container"> Ms. Smith
                                         <input id="radio_8" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -464,22 +462,22 @@
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-3">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 3</h1>
-                                <h3> Who are your communication officers for the upcoming 2022-2023 school year?</h3>
+                                <h3> What games can you donate to the Wellroot Donation Drive?</h3>
                                 <form>
-                                    <label id="text_radio_9" class="container"> Prakhar and Yash
+                                    <label id="text_radio_9" class="container"> Exploding Kittens
                                     
                                         <input id="radio_9" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_10" class="container"> Sritha and Jocelyn
+                                    <label id="text_radio_10" class="container"> Charades
                                         <input id="radio_10" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_11" class="container"> Maggie and Prakhar
+                                    <label id="text_radio_11" class="container"> Battleship
                                         <input id="radio_11" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_12" class="container"> Katelyn and Maggie
+                                    <label id="text_radio_12" class="container"> All of the Above
                                         <input id="radio_12" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -517,7 +515,7 @@
 
                             function changeTime() {
                                 document.getElementById("video_").innerHTML = `${convertMS(document.getElementById("main_video").currentTime)}/${convertMS(document.getElementById("main_video").duration)}`;
-                                if(document.getElementById("main_video").currentTime >= 146 && question1 == false) {
+                                if(document.getElementById("main_video").currentTime >= 228 && question1 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-1").style.display = "block";
@@ -526,7 +524,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 389 && question2 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 405 && question2 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-2").style.display = "block";
@@ -535,7 +533,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 699 && question3 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 629 && question3 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-3").style.display = "block";
@@ -544,7 +542,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 710 && done == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 666 && done == false) {
                                     completedAttendance(correct);
                                     done = true;
                                 }
@@ -557,8 +555,8 @@
                                             document.getElementById(`text_radio_${i}`).style.color = "red";
                                         }
                                     }
-                                    document.getElementById("text_radio_1").style.color = "green";
-                                    if( document.getElementById("radio_1").checked) {correct++;}
+                                    document.getElementById("text_radio_3").style.color = "green";
+                                    if( document.getElementById("radio_3").checked) {correct++;}
                                     setTimeout(function() {
                                         question1 = true;
                                         document.getElementById("question-1").style.display = "none";
@@ -580,8 +578,8 @@
                                             document.getElementById(`text_radio_${i}`).style.color = "red";
                                         }
                                     }
-                                    document.getElementById("text_radio_8").style.color = "green";
-                                    if( document.getElementById("radio_8").checked) {correct++;}
+                                    document.getElementById("text_radio_5").style.color = "green";
+                                    if( document.getElementById("radio_5").checked) {correct++;}
                                     setTimeout(function() {
                                         question2 = true;
                                         document.getElementById("question-2").style.display = "none";
@@ -602,8 +600,8 @@
                                             document.getElementById(`text_radio_${i}`).style.color = "red";
                                         }
                                     }
-                                    document.getElementById("text_radio_11").style.color = "green";
-                                    if( document.getElementById("radio_11").checked) {correct++;}
+                                    document.getElementById("text_radio_12").style.color = "green";
+                                    if( document.getElementById("radio_12").checked) {correct++;}
                                     setTimeout(function() {
                                         question3 = true;
                                         document.getElementById("question-3").style.display = "none";
@@ -641,14 +639,68 @@
                     <section style="display: none;" id="section-3">
                         <h1> Service Project Submissions Form </h1>
                         <hr></hr>
-                        Form will be available for submissions starting September 1st.
+                        <form id="nonSignatureForm" onsubmit="return validateNonSignatureForm()" enctype="multipart/form-data" method="post" class="lead">
+                            <div class="mb-3">
+                                <label for="description_nonsignature" class="form-label lead">Please describe your service project below. If you donated or made items, please say what they were and how many of them you donated/produced <span style="color: red;">*</span> </label>
+                                <textarea name="description" style="resize: none;margin-top: 5px;" class="form-control lead" id="description_nonsignature" rows="5"></textarea>
+                            </div>
+                            <label class="lead">If you participated in a virtual service opportunity or a donation drive, how many hours did you earn? <span style="color: red;">*</span></label>
+                            <input type="hidden" id="userID" name="userID" value=""/>
+                            <div style="max-width: 500px; margin-top: 5px;" class="row g-3">
+                                <div class="col">
+                                    <select id="s_hours" name="hours" style="width: 200px;" class="form-select">
+                                        <option selected value="0">0 Hours</option>
+                                        <option value="1">One Hour</option>
+                                        <option value="2">Two Hours</option>
+                                        <option value="3">Three Hours</option>
+                                        <option value="4">Four Hours</option>
+                                        <option value="5">Five Hours</option>
+                                        <option value="6">Six Hours</option>
+                                        <option value="7">Seven Hours</option>
+                                        <option value="8">Eight Hours</option>
+                                        <option value="9">Nine Hours</option>
+                                        <option value="10">Ten Hours</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <select id="s_minutes" name="minutes" style="width: 200px;" class="form-select">
+                                        <option selected value="1">0 Minutes</option>
+                                        <option value="2">15 Minutes</option>
+                                        <option value="3">30 Minutes</option>
+                                        <option value="4">45 Minutes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label style="margin-top: 20px;" class="lead"> Please upload some sort of proof that you participated in your service project/opportunity (Accepted files: images & pdf).<br> If you are submitting a signature, submit it as an image or pdf.  <span style="color: red;">*</span></label>
+                            <div class="container">
+                                <div class="col file-upload">
+                                    <div class="image-upload-wrap">
+                                    <input id="document_file" name="document_file" class="file-upload-input" type='file' onchange="readURL(this);" accept=".jpeg,.jpg,.png,.pdf" />
+                                    <div class="drag-text">
+                                        <h3 class='lead'>Upload document (Max File Size: 8 MB)</h3>
+                                    </div>
+                                    </div>
+                                    <div class="file-upload-content">
+                                    <img id="uploaded_img" class="file-upload-image" src="#" alt="your image"></img>
+                                    <div class="image-title-wrap">
+                                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 10px;">
+                                <button onclick="submitServiceProjectSubmissionForm()" class="btn btn-lg px-4 me-sm-3" style="background-color:#FFD700">Submit Service Project for Review</button>
+                            </div>
+                        </form>
+                        <h1 style="margin-top: 30px;">View Submissions</h1>
+                        <hr ></hr>
+                        <p  id="past_submissions" class="lead row"></p>
                     </section>
                   
                     <section  style="display: none;" id="section-5">
                         <h1>Hour Status</h1>
                         <hr></hr>
-                        Hour Status will be available starting September 1st.
-                        <div style="display: none;" id="content_makeupstatus"></div>
+                        <div id="content_makeupstatus"></div>
                         <div id="content_secondsemhourstatus"> </div> 
                     </section>
                     <section  style="text-align: center;display: none;" id="section-6">
