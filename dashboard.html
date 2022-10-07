@@ -398,10 +398,9 @@
                         <h1 >Log Attendance</h1>
                         
                         <hr></hr>
-                        The October meeting will be released on Thursday, October 6th.
-                       <!--
+                       
                         <div style="display: none;" id="completed_video">
-                            You have watched this month's meeting and completed your attendance for the month of September!
+                            You have watched this month's meeting and completed your attendance for the month of October!
                         </div>
                         <div id="monthly_video">
                             <h4> You must answer at least two of the three questions found in the video correctly to be marked present for the month! After answering the last question, you must continue to watch the entirety of the video to be marked present! </h4>
@@ -411,27 +410,27 @@
                                 <button onclick="sound();" id="sound-button" style="right: 15px; position:absolute; background-color: transparent; border: none;"><i style="font-size: 25px;background-color: none!important; color: #FFD700;" class="fas fa-volume-up"></i></button>
                             </div>
                             <div style="position: relative;" >
-                                <video playsinline id="main_video" >
-                                    <source src="https://dl.dropboxusercontent.com/s/w4ku7on4vvph48p/September%202022%20Meeting.mp4" type="video/mp4">
+                                <video playsinline id="main_video" controls>
+                                    <source src="https://dl.dropboxusercontent.com/s/cnstwe3nk4rlgac/October%20Meeting.mp4" type="video/mp4">
                                 </video>
                                 <sect style="position: absolute; bottom: 150px;" id="bookmark"></sect>
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white; display: none;" id="question-1">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 1</h1>
-                                <h3>When will the BETA convention informational meeting take place? </h3>
-                                <form> <label id="text_radio_1" class="container"> September 10th at 8 am
+                                <h3>Where do you submit your hours? </h3>
+                                <form> <label id="text_radio_1" class="container"> Signature Form Submission on Itslearning
                                     <input id="radio_1" type="radio" checked="checked" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_2" class="container"> September 13th at 8 am
+                                <label id="text_radio_2" class="container"> Service Project Submissions on the Beta Website
                                     <input id="radio_2" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_3" class="container"> September 13th at 3:50 pm
+                                <label id="text_radio_3" class="container"> Service Project Submissions on Itslearning
                                     <input id="radio_3" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_4" class="container"> September 17th at 5:15 pm
+                                <label id="text_radio_4" class="container"> Picture Form Submissions on the Beta Website
                                     <input id="radio_4" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label></form>
@@ -439,21 +438,21 @@
                             </div>   
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-2">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 2</h1>
-                                <h3> Who should you contact for Next Generation Focus? </h3>
+                                <h3> Who is the Felt Initiative Tutoring aimed to tutor? </h3>
                                 <form>
-                                    <label id="text_radio_5" class="container"> Ms. Amy
+                                    <label id="text_radio_5" class="container"> Foreign Students
                                         <input id="radio_5" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_6" class="container"> Ms. Cook
+                                    <label id="text_radio_6" class="container"> Teachers
                                         <input id="radio_6" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_7" class="container"> Ms. Short
+                                    <label id="text_radio_7" class="container"> Freshman
                                         <input id="radio_7" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_8" class="container"> Ms. Smith
+                                    <label id="text_radio_8" class="container"> Peers
                                         <input id="radio_8" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -463,22 +462,22 @@
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-3">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 3</h1>
-                                <h3> What games can you donate to the Wellroot Donation Drive?</h3>
+                                <h3>For Agape Hospice Cards what is maximum number of cards you can write?</h3>
                                 <form>
-                                    <label id="text_radio_9" class="container"> Exploding Kittens
+                                    <label id="text_radio_9" class="container"> One Card
                                     
                                         <input id="radio_9" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_10" class="container"> Charades
+                                    <label id="text_radio_10" class="container"> Three Cards
                                         <input id="radio_10" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_11" class="container"> Battleship
+                                    <label id="text_radio_11" class="container"> Four Cards
                                         <input id="radio_11" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_12" class="container"> All of the Above
+                                    <label id="text_radio_12" class="container"> Six Cards
                                         <input id="radio_12" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -516,7 +515,7 @@
 
                             function changeTime() {
                                 document.getElementById("video_").innerHTML = `${convertMS(document.getElementById("main_video").currentTime)}/${convertMS(document.getElementById("main_video").duration)}`;
-                                if(document.getElementById("main_video").currentTime >= 228 && question1 == false) {
+                                if(document.getElementById("main_video").currentTime >= 82 && question1 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-1").style.display = "block";
@@ -525,7 +524,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 405 && question2 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 302 && question2 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-2").style.display = "block";
@@ -534,7 +533,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 629 && question3 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 590 && question3 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-3").style.display = "block";
@@ -543,7 +542,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 666 && done == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 763 && done == false) {
                                     completedAttendance(correct);
                                     done = true;
                                 }
@@ -556,8 +555,8 @@
                                             document.getElementById(`text_radio_${i}`).style.color = "red";
                                         }
                                     }
-                                    document.getElementById("text_radio_3").style.color = "green";
-                                    if( document.getElementById("radio_3").checked) {correct++;}
+                                    document.getElementById("text_radio_2").style.color = "green";
+                                    if( document.getElementById("radio_2").checked) {correct++;}
                                     setTimeout(function() {
                                         question1 = true;
                                         document.getElementById("question-1").style.display = "none";
@@ -601,8 +600,8 @@
                                             document.getElementById(`text_radio_${i}`).style.color = "red";
                                         }
                                     }
-                                    document.getElementById("text_radio_12").style.color = "green";
-                                    if( document.getElementById("radio_12").checked) {correct++;}
+                                    document.getElementById("text_radio_11").style.color = "green";
+                                    if( document.getElementById("radio_11").checked) {correct++;}
                                     setTimeout(function() {
                                         question3 = true;
                                         document.getElementById("question-3").style.display = "none";
@@ -627,7 +626,7 @@
                                 return minutes+':'+seconds;
                             }
                         </script>
-                    -->
+                    
                     </section>
 
                     <section style="display: none;" id="section-2">

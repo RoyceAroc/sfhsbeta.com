@@ -133,12 +133,12 @@ function data_setup(obj) {
         `;
        document.getElementById("p_attendance").appendChild(main_div);
 
-       /*if(obj.attendance.current_attendance[i].type == "September" && !obj.attendance.current_attendance[i].completed) {
+       if(obj.attendance.current_attendance[i].type == "October" && !obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "block";
-    } else if(obj.attendance.current_attendance[i].type == "September" && obj.attendance.current_attendance[i].completed) {
+    } else if(obj.attendance.current_attendance[i].type == "October" && obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "none";
         document.getElementById("completed_video").style.display = "block";
-    }*/
+    }
 
     }
     
@@ -669,7 +669,7 @@ function completedAttendance(correct) {
         let dataABC = {
             "present": true,
             "userID": email,
-            "init": 0
+            "init": 1
         }
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -685,7 +685,7 @@ function completedAttendance(correct) {
         let dataABC = {
             "present": false,
             "userID": email,
-            "init": 7
+            "init": 1
         }
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
