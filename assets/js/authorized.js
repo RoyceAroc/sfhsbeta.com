@@ -133,12 +133,12 @@ function data_setup(obj) {
         `;
        document.getElementById("p_attendance").appendChild(main_div);
 
-      if(obj.attendance.current_attendance[i].type == "November" && !obj.attendance.current_attendance[i].completed) {
+   /*   if(obj.attendance.current_attendance[i].type == "November" && !obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "block";
     } else if(obj.attendance.current_attendance[i].type == "November" && obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "none";
         document.getElementById("completed_video").style.display = "block";
-    }
+    }*/
 
     }
     
