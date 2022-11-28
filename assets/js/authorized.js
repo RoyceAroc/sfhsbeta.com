@@ -499,6 +499,7 @@ function displayPortal() {
     }
    
 }
+let dds = ""; let mdds = 0;
 
 function adminSetup(data) {
     document.getElementsByTagName("body")[0].style.backgroundColor = "lightgrey";
@@ -532,7 +533,38 @@ function adminSetup(data) {
                         }
                     });
                 }
+                // Edit Vol Op
+                let urlA = "https://raw.githubusercontent.com/RoyceAroc/sfhsbeta.com/main/web/data/content/files/volunteeringOpportunities.json";
 
+let settings = { method: "Get" };
+
+fetch(urlA, settings)
+    .then(res => res.json())
+    .then((json) => {
+        let a = json;
+        for(let i=0; i<a.length; ++i) {
+            if(a[i] != null) {
+                let test = document.createElement("option");
+                test.value = i;
+                test.innerHTML = a[i].title;
+                document.getElementById("editOp").appendChild(test);
+            }
+    
+        }
+        while(true) {
+            let m = 0;
+            m++;
+            if(a[m] != null) {
+                updateOP(m, a);
+                break;
+            }
+            if(m == a.length - 1) {break;}
+        }
+        document.getElementById("editOp").addEventListener("change", function() {
+           updateOP(document.getElementById("editOp").value, a);
+        });
+    });
+                // 
                document.getElementsByTagName("body")[0].style.backgroundColor = "white";
                document.getElementById("portal").style.opacity = "1";
             }
@@ -545,6 +577,58 @@ function adminSetup(data) {
     // Finished adding data into components
 }
 
+function updateVOP() {
+
+    let dataABC = {
+        title: document.getElementById("op1").value,
+        description: document.getElementById("op2").innerHTML,
+        links: document.getElementById("oldOP").innerHTML,
+        image: dds,
+        value: mdds
+    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let a = this.responseText;
+            window.location = "dashboard.html";
+        } 
+    };
+    xhttp.open("POST", `${productionLink}/updateVOP`, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(JSON.stringify(dataABC));
+}
+
+
+function deleteVOP() {
+    let dataABC = {
+        value: mdds
+    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            let a = this.responseText;
+            window.location = "dashboard.html";
+        } 
+    };
+    xhttp.open("POST", `${productionLink}/deleteVOP`, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(JSON.stringify(dataABC));
+}
+
+function updateOP(val, op) {
+    mdds = val;
+    dds = op[val].image;
+    document.getElementById("oldOP").innerHTML = "";
+    document.getElementById("op1").value = op[val].title;
+    document.getElementById("op2").innerHTML = op[val].body;
+    
+    for(let i=0; i<op[val].links.length; i++) {
+        document.getElementById("oldOP").innerHTML +=
+        `<b> Link ${i+1} </b> <br>
+        Title: ${op[val].links[i].title} <br>
+        Link: ${op[val].links[i].href} <br><br>`;
+    }
+}
 
 function SetVolume(val)
 {
@@ -632,6 +716,14 @@ function validateHourLogForm() {
 
 function showCreateVolunteeringOpportunity() {
     document.getElementById("createVoluOP").style.display = "block";
+}
+
+function showEditVolunteeringOpportunity() {
+    document.getElementById("editVoluOP").style.display = "block";
+}
+
+function closeEditVolunteeringOpportunity() {
+    document.getElementById("editVoluOP").style.display = "none";
 }
 
 function closeCreateVolunteeringOpportunity() {
