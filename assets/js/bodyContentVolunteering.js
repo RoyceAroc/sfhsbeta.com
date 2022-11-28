@@ -1,19 +1,21 @@
 function updateBody(path) {
     $.getJSON(path, function(json) {
         for(let i=json.length-1; i>=0; i--) {
-           let a = document.createElement("div");
-           let listClassesMain = ['row', 'flex-lg-row-reverse', 'align-items-center', 'g-5', 'py-5'];
-           for(let j=0; j<listClassesMain.length; j++) {
-               a.classList.add(listClassesMain[j]);
-           }
-           if(i%2==0) {
-                a.appendChild(createImageHolder(json[i]));
-                a.appendChild(createBodyHolder(json[i]));
-           } else {
-                a.appendChild(createBodyHolder(json[i]));
-                a.appendChild(createImageHolder(json[i]));
-           }
-           document.getElementById("volunteeringOpportunitiesContainer").appendChild(a);
+            if(json[i] != null) {
+                let a = document.createElement("div");
+                let listClassesMain = ['row', 'flex-lg-row-reverse', 'align-items-center', 'g-5', 'py-5'];
+                for(let j=0; j<listClassesMain.length; j++) {
+                    a.classList.add(listClassesMain[j]);
+                }
+                if(i%2==0) {
+                        a.appendChild(createImageHolder(json[i]));
+                        a.appendChild(createBodyHolder(json[i]));
+                } else {
+                        a.appendChild(createBodyHolder(json[i]));
+                        a.appendChild(createImageHolder(json[i]));
+                }
+                document.getElementById("volunteeringOpportunitiesContainer").appendChild(a);
+            }
         }
     });
 }
@@ -54,15 +56,18 @@ function createBodyHolder(json) {
         d.classList.add(listClassesSub[j]);
     }
     for(let m=0; m<json.links.length; m++) {
-        let e = document.createElement("a");
-        let listClassesSubSub = ['btn', 'btn-lg', 'px-4', 'me-sm-3', 'btn-main-elem'];
-        for(let j=0; j<listClassesSubSub.length; j++) {
-            e.classList.add(listClassesSubSub[j]);
+        if(json.links[0].title != "") {
+            let e = document.createElement("a");
+            let listClassesSubSub = ['btn', 'btn-lg', 'px-4', 'me-sm-3', 'btn-main-elem'];
+            for(let j=0; j<listClassesSubSub.length; j++) {
+                e.classList.add(listClassesSubSub[j]);
+            }
+            e.innerHTML = json.links[m].title;
+            e.href = json.links[m].href;
+            e.setAttribute("target", "_blank");
+            d.appendChild(e);
         }
-        e.innerHTML = json.links[m].title;
-        e.href = json.links[m].href;
-        e.setAttribute("target", "_blank");
-        d.appendChild(e);
+       
     }
     a.appendChild(b);
     a.appendChild(c);
