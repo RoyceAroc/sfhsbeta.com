@@ -398,10 +398,8 @@
                         <h1 >Log Attendance</h1>
                         
                         <hr></hr>
-                        The December meeting will be posted on December 1st
-                        <!--
                         <div style="display: none;" id="completed_video">
-                            You have watched this month's meeting and completed your attendance for the month of November!
+                            You have watched this month's meeting and completed your attendance for the month of December!
                         </div>
                        <div id="monthly_video">
                             <h4> You must answer at least two of the three questions found in the video correctly to be marked present for the month! After answering the last question, you must continue to watch the entirety of the video to be marked present! </h4>
@@ -412,26 +410,26 @@
                             </div>
                             <div style="position: relative;" >
                                 <video playsinline id="main_video">
-                                    <source src="https://dl.dropboxusercontent.com/s/iijuwkblvcrpjof/November%20Meeting.mp4" type="video/mp4">
+                                    <source src="https://dl.dropboxusercontent.com/s/yh4pobrp7kdalsb/December%20Meeting.mp4" type="video/mp4">
                                 </video>
                                 <sect style="position: absolute; bottom: 150px;" id="bookmark"></sect>
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white; display: none;" id="question-1">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 1</h1>
-                                <h3>How many hours of service do you need per semester? </h3>
-                                <form> <label id="text_radio_1" class="container"> 2 Hours
+                                <h3>How many absences are you allowed per semester? </h3>
+                                <form> <label id="text_radio_1" class="container"> 0
                                     <input id="radio_1" type="radio" checked="checked" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_2" class="container"> 7 Hours
+                                <label id="text_radio_2" class="container"> 1
                                     <input id="radio_2" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_3" class="container"> 9 Hours
+                                <label id="text_radio_3" class="container"> 3
                                     <input id="radio_3" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_4" class="container"> 14 Hours
+                                <label id="text_radio_4" class="container"> 7
                                     <input id="radio_4" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label></form>
@@ -439,21 +437,21 @@
                             </div>   
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-2">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 2</h1>
-                                <h3>What can you do at Meals By Grace? </h3>
+                                <h3>How much do you need to donate to receive one hour of service for Make a Wish?</h3>
                                 <form>
-                                    <label id="text_radio_5" class="container"> Kitchen Prep
+                                    <label id="text_radio_5" class="container"> $5
                                         <input id="radio_5" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_6" class="container"> Pantry Stocking
+                                    <label id="text_radio_6" class="container"> $12
                                         <input id="radio_6" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_7" class="container"> Meal Delivery
+                                    <label id="text_radio_7" class="container"> $20
                                         <input id="radio_7" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_8" class="container"> All of the Above
+                                    <label id="text_radio_8" class="container"> None of the above
                                         <input id="radio_8" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -463,22 +461,22 @@
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-3">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 3</h1>
-                                <h3> What is the maximum number of cards that you can write for Agape Hospice Cards?</h3>
+                                <h3> What does Next Generation Focus do?</h3>
                                 <form>
-                                    <label id="text_radio_9" class="container"> 1 Card
+                                    <label id="text_radio_9" class="container"> Local organization
                                     
                                         <input id="radio_9" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_10" class="container"> 3 Cards
+                                    <label id="text_radio_10" class="container"> Provides language assistance
                                         <input id="radio_10" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_11" class="container"> 5 Cards
+                                    <label id="text_radio_11" class="container"> Tutor college students
                                         <input id="radio_11" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_12" class="container"> None of the Above
+                                    <label id="text_radio_12" class="container"> None of the above
                                         <input id="radio_12" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -516,7 +514,7 @@
 
                             function changeTime() {
                                 document.getElementById("video_").innerHTML = `${convertMS(document.getElementById("main_video").currentTime)}/${convertMS(document.getElementById("main_video").duration)}`;
-                                if(document.getElementById("main_video").currentTime >= 132 && question1 == false) {
+                                if(document.getElementById("main_video").currentTime >= 48 && question1 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-1").style.display = "block";
@@ -525,7 +523,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 309 && question2 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 222 && question2 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-2").style.display = "block";
@@ -534,7 +532,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 477 && question3 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 435 && question3 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-3").style.display = "block";
@@ -543,7 +541,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 524 && done == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 560 && done == false) {
                                     completedAttendance(correct);
                                     done = true;
                                 }
@@ -627,7 +625,7 @@
                                 return minutes+':'+seconds;
                             }
                         </script>
-                    -->
+                    
                     </section>
 
                     <section style="display: none;" id="section-2">
