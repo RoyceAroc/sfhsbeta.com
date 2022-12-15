@@ -142,7 +142,7 @@ function data_setup(obj) {
 
     }
     
-    document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;
+   /* document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;
     let token = 0; 
     if(obj.nonSignatureServiceProjects.length > 0) {
         for(let i=0; i<obj.nonSignatureServiceProjects.length; i++) {
@@ -193,6 +193,7 @@ function data_setup(obj) {
         document.getElementById("past_submissions").innerHTML = "You haven't submitted service projects yet!";
         document.getElementById("past_submissions").style.marginLeft = "0px";
     }
+    */
     /* Hour Status Tab */
     if(obj.makeUpHours > 0) {
         document.getElementById("content_makeupstatus").innerHTML = `
