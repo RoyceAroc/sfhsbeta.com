@@ -215,7 +215,7 @@ function data_setup(obj) {
         If you are a new member, skip the next section since you didn't have to submit any hours first semester and you have active status!
         <br>
         <h4> <b> Old Members - How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
-        Your fall status was calculated by the formula as follows: <br><br> <center> [make up hours] + [10 hours this semester] - [fall hours] - [attendance - 1 hour buffer] </center> <br> 
+        Your fall status was calculated by the formula as follows: <br><br> <center> [make up hours] + [7 hours this semester] - [fall hours] + [missed meeting attendance with buffer] </center> <br> 
         In other words, you had to submit a minimum of 10 hours plus your make up hours from last year through watching the meetings and submitting hours to the 'Service Project Submissions' form. 
         With that being said, you met all the requirements!!
         <br> 
@@ -230,12 +230,9 @@ function data_setup(obj) {
         <span style="background-color: #FF7F7F;">You have to make up an additional ${obj.hourStatus.fall_status} hour(s) this semester.</span>
         <br>
         <h4> <b> How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
-        Your fall status was calculated by the formula as follows: <br><br> <center> [make up hours] + [10 hours this semester] - [fall hours] - [attendance - 1 hour buffer] </center> <br> 
+        Your fall status was calculated by the formula as follows: <br><br> <center>  [make up hours] + [7 hours this semester] - [fall hours] + [missed meeting attendance with buffer] </center> <br> 
         In other words, you had to submit a minimum of 10 hours plus your make up hours from last year through watching the meetings and submitting hours to the 'Service Project Submissions' form. 
         <br>
-        <h4> <b> Computing your hours </b> <br>
-        ${obj.hourStatus.make_up} + 10 - ${obj.hourStatus.fall_hours} - (${obj.hourStatus.fall_attendance} - 1) = ${obj.hourStatus.fall_status} hour(s) that you have to make up this semester. 
-        <br> 
         <h4> <b> What's next? </b> <br> 
         Once again, all members are required to submit 7 hours of service during second semester, in addition to watching all videos to maintain active status.
         <br>
