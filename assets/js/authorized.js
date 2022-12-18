@@ -195,7 +195,7 @@ function data_setup(obj) {
     }
     */
     /* Hour Status Tab */
-    if(obj.makeUpHours > 0) {
+    /*if(obj.makeUpHours > 0) {
         document.getElementById("content_makeupstatus").innerHTML = `
         <span style="background-color: #FF7F7F;">You have to make up an additional ${obj.makeUpHours} hours this semester due to incomplete hours from last year. </span>
         <br> All members are required to submit 7 hours of service this semester, in addition to watching all videos to maintain active status. Once your hours are verified, they will appear below.
@@ -204,6 +204,40 @@ function data_setup(obj) {
         document.getElementById("content_makeupstatus").innerHTML = `
         <span style="background-color: #50C878;">Congrats on being an active member! You do not have any hours that you have to make up this year. </span>
         <br> All members are required to submit 7 hours of service this semester, in addition to watching all videos to maintain active status. Once your hours are verified, they will appear below.
+        `;
+    }*/
+    console.log(obj.hourStatus);
+    if(obj.hourStatus.fall_status == 0) {
+        document.getElementById("content_hourstatus").innerHTML = `
+        <span style="background-color: #50C878;">Congrats on being an active member!</span>
+        <br>
+        <h4> <b> How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
+        Your fall status was calculated by the formula as follows: <br><br> <center> [make up hours] + [10 hours this semester] - [fall hours] - [attendance - 1 hour buffer] </center> <br> 
+        In other words, you had to submit a minimum of 10 hours plus your make up hours from last year through watching the meetings and submitting hours to the 'Service Project Submissions' form. 
+        With that being said, you met all the requirements!!
+        <br> 
+        <h4> <b> What's next? </b> <br> 
+        Once again, all members are required to submit 7 hours of service during second semester, in addition to watching all videos to maintain active status.
+        <br>
+        <h4> <b> Any questions/concerns? </b> <br>
+        Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
+        `;
+    } else {
+        document.getElementById("content_hourstatus").innerHTML = `
+        <span style="background-color: #FF7F7F;">You have to make up an additional ${obj.hourStatus.fall_status} hour(s) this semester.</span>
+        <br>
+        <h4> <b> How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
+        Your fall status was calculated by the formula as follows: <br><br> <center> [make up hours] + [10 hours this semester] - [fall hours] - [attendance - 1 hour buffer] </center> <br> 
+        In other words, you had to submit a minimum of 10 hours plus your make up hours from last year through watching the meetings and submitting hours to the 'Service Project Submissions' form. 
+        <br>
+        <h4> <b> Computing your hours </b> <br>
+        ${obj.hourStatus.make_up} + 10 - ${obj.hourStatus.fall_hours} - (${obj.hourStatus.fall_attendance} - 1) = ${obj.hourStatus.fall_status} hour(s) that you have to make up this semester. 
+        <br> 
+        <h4> <b> What's next? </b> <br> 
+        Once again, all members are required to submit 7 hours of service during second semester, in addition to watching all videos to maintain active status.
+        <br>
+        <h4> <b> Any questions/concerns? </b> <br>
+        Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
         `;
     }
     /* Account Tab */
