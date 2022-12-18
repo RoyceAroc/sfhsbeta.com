@@ -211,7 +211,10 @@ function data_setup(obj) {
         document.getElementById("content_hourstatus").innerHTML = `
         <span style="background-color: #50C878;">Congrats on being an active member!</span>
         <br>
-        <h4> <b> How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
+        <h4> <b> Note </b> <br>
+        If you are a new member, skip the next section since you didn't have to submit any hours first semester and you have active status!
+        <br>
+        <h4> <b> Old Members - How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
         Your fall status was calculated by the formula as follows: <br><br> <center> [make up hours] + [10 hours this semester] - [fall hours] - [attendance - 1 hour buffer] </center> <br> 
         In other words, you had to submit a minimum of 10 hours plus your make up hours from last year through watching the meetings and submitting hours to the 'Service Project Submissions' form. 
         With that being said, you met all the requirements!!
