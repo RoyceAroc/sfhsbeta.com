@@ -7,7 +7,6 @@ var admin = param.get("admin") || getCookie("admin");
 const error = param.get("error") || null;
 var total = 0;
 var mainObj;
-let productLink = "https://sfhsbetabackend.roycea.repl.co";
 
 if(error == undefined) {
     if(admin != undefined || getCookie("admin") != undefined) {
@@ -629,7 +628,7 @@ function updateVOP() {
             window.location = "dashboard.html";
         } 
     };
-    xhttp.open("POST", `${productLink}/updateVOP`, true);
+    xhttp.open("POST", `${productionLink}/updateVOP`, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(JSON.stringify(dataABC));
 }
@@ -646,7 +645,7 @@ function deleteVOP() {
             window.location = "dashboard.html";
         } 
     };
-    xhttp.open("POST", `${productLink}/deleteVOP`, true);
+    xhttp.open("POST", `${productionLink}/deleteVOP`, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(JSON.stringify(dataABC));
 }
@@ -768,7 +767,7 @@ function closeCreateVolunteeringOpportunity() {
 
 
  function validateVolunteeringOpportunity() {
-    document.getElementById("volOPS").action = `${productLink}/addVolunteeringOpportunity`;
+    document.getElementById("volOPS").action = `${productionLink}addVolunteeringOpportunity`;
     let upload_image = document.getElementById("document_file").files.length;
     let title = document.getElementById("title_volunteeringOP").value;
     let description = document.getElementById("description_volunteeringOP").innerHTML;
