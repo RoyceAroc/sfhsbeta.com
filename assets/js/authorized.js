@@ -768,7 +768,7 @@ function closeCreateVolunteeringOpportunity() {
 
 
  function validateVolunteeringOpportunity() {
-    document.getElementById("volOPS").action = `${productLink}addVolunteeringOpportunity`;
+    document.getElementById("volOPS").action = `${productLink}/addVolunteeringOpportunity`;
     let upload_image = document.getElementById("document_file").files.length;
     let title = document.getElementById("title_volunteeringOP").value;
     let description = document.getElementById("description_volunteeringOP").innerHTML;
