@@ -143,7 +143,7 @@ function data_setup(obj) {
 */
     }
     
-   /* document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;
+    document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;
     let token = 0; 
     if(obj.nonSignatureServiceProjects.length > 0) {
         for(let i=0; i<obj.nonSignatureServiceProjects.length; i++) {
@@ -194,20 +194,8 @@ function data_setup(obj) {
         document.getElementById("past_submissions").innerHTML = "You haven't submitted service projects yet!";
         document.getElementById("past_submissions").style.marginLeft = "0px";
     }
-    */
-    /* Hour Status Tab */
-    /*if(obj.makeUpHours > 0) {
-        document.getElementById("content_makeupstatus").innerHTML = `
-        <span style="background-color: #FF7F7F;">You have to make up an additional ${obj.makeUpHours} hours this semester due to incomplete hours from last year. </span>
-        <br> All members are required to submit 7 hours of service this semester, in addition to watching all videos to maintain active status. Once your hours are verified, they will appear below.
-        `;
-    } else {
-        document.getElementById("content_makeupstatus").innerHTML = `
-        <span style="background-color: #50C878;">Congrats on being an active member! You do not have any hours that you have to make up this year. </span>
-        <br> All members are required to submit 7 hours of service this semester, in addition to watching all videos to maintain active status. Once your hours are verified, they will appear below.
-        `;
-    }*/
-    console.log(obj.hourStatus);
+    
+
     if(obj.hourStatus.fall_status == 0) {
         document.getElementById("content_hourstatus").innerHTML = `
         <span style="background-color: #50C878;">Congrats on being an active member!</span>
