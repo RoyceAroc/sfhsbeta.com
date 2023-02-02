@@ -397,11 +397,10 @@
                     <section style="display: none;" id="section-1">
                         <h1 >Log Attendance</h1>
                         <hr></hr>
-                        The February meeting will be released on February 2nd. 
                     
-                    <!--
+                    
                        <div style="display: none;" id="completed_video">
-                            You have watched this month's meeting and completed your attendance for the month of January!
+                            You have watched this month's meeting and completed your attendance for the month of February!
                         </div>
                        <div id="monthly_video">
                             <h4> ALL Members must watch the meeting. You must answer at least two of the three questions found in the video correctly to be marked present for the month! After answering the last question, you must continue to watch the entirety of the video to be marked present! </h4>
@@ -412,26 +411,26 @@
                             </div>
                             <div style="position: relative;" >
                                 <video playsinline id="main_video">
-                                    <source src="https://dl.dropboxusercontent.com/s/hjet2v6mq55a1nw/January%20Meeting.mp4" type="video/mp4">
+                                    <source src="https://dl.dropboxusercontent.com/s/uubm8as28km8biw/February%20Meeting.mp4" type="video/mp4">
                                 </video>
                                 <sect style="position: absolute; bottom: 150px;" id="bookmark"></sect>
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white; display: none;" id="question-1">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 1</h1>
-                                <h3>How long will you have to watch the meeting? </h3>
-                                <form> <label id="text_radio_1" class="container"> One week
+                                <h3>When is the meeting due? </h3>
+                                <form> <label id="text_radio_1" class="container"> February 9th
                                     <input id="radio_1" type="radio" checked="checked" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_2" class="container"> Two weeks
+                                <label id="text_radio_2" class="container"> February 10th
                                     <input id="radio_2" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_3" class="container"> Three weeks
+                                <label id="text_radio_3" class="container"> February 11th
                                     <input id="radio_3" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label id="text_radio_4" class="container"> Forever
+                                <label id="text_radio_4" class="container"> February 12th
                                     <input id="radio_4" type="radio" name="radio">
                                     <span class="checkmark"></span>
                                 </label></form>
@@ -439,21 +438,21 @@
                             </div>   
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-2">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 2</h1>
-                                <h3>What is the Junior Remind Code?</h3>
+                                <h3>When is the deadline for BETA Officer Applications?</h3>
                                 <form>
-                                    <label id="text_radio_5" class="container"> @893b97
+                                    <label id="text_radio_5" class="container"> Friday, March 8
                                         <input id="radio_5" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_6" class="container"> @83b937
+                                    <label id="text_radio_6" class="container"> Friday, March 10
                                         <input id="radio_6" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_7" class="container"> @83b397
+                                    <label id="text_radio_7" class="container"> Thursday, March 9
                                         <input id="radio_7" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_8" class="container"> @839b97
+                                    <label id="text_radio_8" class="container"> Thursday, March 11
                                         <input id="radio_8" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -463,22 +462,22 @@
                             </div>
                             <div style="width: 100%; padding: 10px; background-color:#323132;  position: relative; color: white;display: none; " id="question-3">
                                 <h1 style="color: #FFD700;margin:auto; display: flex;justify-content: center; padding-bottom: 8px;">Question 3</h1>
-                                <h3>What elementary school is hosting Math or STEM nights?</h3>
+                                <h3>What calendar replaced the Roman calendar?</h3>
                                 <form>
-                                    <label id="text_radio_9" class="container"> Coal Valley Elementary
+                                    <label id="text_radio_9" class="container"> The Roman Calendar
                                     
                                         <input id="radio_9" type="radio" checked name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_10" class="container"> New Faith Elementary
+                                    <label id="text_radio_10" class="container"> The Lunar Calendar
                                         <input id="radio_10" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_11" class="container"> Shiloh Point Elementary
+                                    <label id="text_radio_11" class="container"> The Julian Calendar
                                         <input id="radio_11" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label id="text_radio_12" class="container"> Matt Elementary
+                                    <label id="text_radio_12" class="container"> The Mayan Calendar
                                         <input id="radio_12" type="radio" name="radio">
                                         <span class="checkmark"></span>
                                     </label>
@@ -516,7 +515,7 @@
 
                             function changeTime() {
                                 document.getElementById("video_").innerHTML = `${convertMS(document.getElementById("main_video").currentTime)}/${convertMS(document.getElementById("main_video").duration)}`;
-                                if(document.getElementById("main_video").currentTime >= 60 && question1 == false) {
+                                if(document.getElementById("main_video").currentTime >= 45 && question1 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-1").style.display = "block";
@@ -525,7 +524,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 144 && question2 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 249 && question2 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-2").style.display = "block";
@@ -534,7 +533,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 315 && question3 == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 551 && question3 == false) {
                                     document.getElementById("main_video").pause();
                                     if(!paused) {
                                         document.getElementById("question-3").style.display = "block";
@@ -543,7 +542,7 @@
                                         });
                                     }
                                     paused = true;
-                                } else if(document.getElementById("main_video").currentTime >= 572 && done == false) {
+                                } else if(document.getElementById("main_video").currentTime >= 563 && done == false) {
                                     completedAttendance(correct);
                                     done = true;
                                 }
@@ -579,8 +578,8 @@
                                             document.getElementById(`text_radio_${i}`).style.color = "red";
                                         }
                                     }
-                                    document.getElementById("text_radio_7").style.color = "green";
-                                    if( document.getElementById("radio_7").checked) {correct++;}
+                                    document.getElementById("text_radio_6").style.color = "green";
+                                    if( document.getElementById("radio_6").checked) {correct++;}
                                     setTimeout(function() {
                                         question2 = true;
                                         document.getElementById("question-2").style.display = "none";
@@ -601,8 +600,8 @@
                                             document.getElementById(`text_radio_${i}`).style.color = "red";
                                         }
                                     }
-                                    document.getElementById("text_radio_12").style.color = "green";
-                                    if( document.getElementById("radio_12").checked) {correct++;}
+                                    document.getElementById("text_radio_11").style.color = "green";
+                                    if( document.getElementById("radio_11").checked) {correct++;}
                                     setTimeout(function() {
                                         question3 = true;
                                         document.getElementById("question-3").style.display = "none";
@@ -627,7 +626,7 @@
                                 return minutes+':'+seconds;
                             }
                         </script>
-                    -->
+                    
                     </section>
 
                     <section style="display: none;" id="section-2">
