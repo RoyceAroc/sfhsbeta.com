@@ -139,8 +139,8 @@ function data_setup(obj) {
     } else if(obj.attendance.current_attendance[i].type == "March" && obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "none";
         document.getElementById("completed_video").style.display = "block";
-    }
-*/
+    }*/
+
     }
     
     document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;
@@ -195,40 +195,77 @@ function data_setup(obj) {
         document.getElementById("past_submissions").style.marginLeft = "0px";
     }
     
-
-    if(obj.hourStatus.fall_status == 0) {
-        document.getElementById("content_hourstatus").innerHTML = `
-        <span style="background-color: #50C878;">Congrats on being an active member!</span>
+    let dek = obj.hourStatus;
+    let mac = 7 + dek.make_up + dek.spring_attendance - dek.spring_hours; 
+    if(dek.grade == "s") {
+        if(mac <= 0) {
+            document.getElementById("content_hourstatus").innerHTML = `
+        <span style="background-color: #50C878;">🎓 🎓 WOHOOO!! Congrats on being an active senior! Your current hour status is 0 hours and you are eligible to receive a cord!! 🎓 🎓</span>
         <br>
-        <h4> <b> Note </b> <br>
-        If you are a new member, skip the next section since you didn't have to submit any hours first semester and you have active status!
+        <h4> <b> How does the math work? </b> 
         <br>
-        <h4> <b> Old Members - How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
-        Your fall status was calculated by the formula as follows: <br><br> <center> [make up hours] + [7 hours this semester] - [fall hours] + [missed meeting attendance with buffer] </center> <br> 
-        In other words, you had to submit a minimum of 10 hours plus your make up hours from last year through watching the meetings and submitting hours to the 'Service Project Submissions' form. 
-        With that being said, you met all the requirements!!
-        <br> 
+        You had to make up ${dek.fall_status} hour(s) from last semester. You have ${dek.spring_hours} approved hour(s) this semester. Your spring status (current status) is calculated by the formula below:
+        <br>
+     <br> <center>  [make up hours] + [7 hours this semester] + [missed spring meeting attendance with buffer] - [spring hours]  </center> <br> 
+        
         <h4> <b> What's next? </b> <br> 
-        Once again, all members are required to submit 7 hours of service during second semester, in addition to watching all videos to maintain active status.
+        Further information about cords will be sent soon via ITS and Remind.  
         <br>
         <h4> <b> Any questions/concerns? </b> <br>
         Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
         `;
+        } else {
+            document.getElementById("content_hourstatus").innerHTML = `
+        <span style="background-color: #FF7F7F;">Your current hour status is -${mac} hour(s). As a senior, you have until <b>Wednesday, 3/22 at 6 PM</b> to submit ${mac} hour(s) and reach 0 hours to become eligible to receive a cord. 
+        <br>
+        <h4> <b> How does the math work? </b> 
+        <br>
+        You had to make up ${dek.fall_status} hour(s) from last semester. You have ${dek.spring_hours} approved hour(s) this semester. Your spring status (current status) is calculated by the formula below:
+        <br>
+     <br> <center>  [make up hours] + [7 hours this semester] + [missed spring meeting attendance with buffer] - [spring hours]  </center> <br> 
+        
+        <h4> <b> What's next? </b> <br> 
+        You have until 3/22 at 6 PM to submit additional hours to reach 0 hours to become eligible to receive a cord. 
+        <br>
+        <h4> <b> Any questions/concerns? </b> <br>
+        Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
+        `;
+        }
     } else {
-        document.getElementById("content_hourstatus").innerHTML = `
-        <span style="background-color: #FF7F7F;">You have to make up an additional ${obj.hourStatus.fall_status} hour(s) this semester.</span>
+        if(mac <= 0) {
+            document.getElementById("content_hourstatus").innerHTML = `
+        <span style="background-color: #50C878;">Your current hour status is ${mac} hour(s) </span>
         <br>
-        <h4> <b> How the math works? </b> <br> You had to make up ${obj.hourStatus.make_up} hour(s) from the last school year. You submitted ${obj.hourStatus.fall_hours} hour(s) this semester and completed ${obj.hourStatus.fall_attendance} hour(s) in meeting attendance. 
-        Your fall status was calculated by the formula as follows: <br><br> <center>  [make up hours] + [7 hours this semester] - [fall hours] + [missed meeting attendance with buffer] </center> <br> 
-        In other words, you had to submit a minimum of 10 hours plus your make up hours from last year through watching the meetings and submitting hours to the 'Service Project Submissions' form. 
+        <h4> <b> How does the math work? </b> 
         <br>
+        You had to make up ${dek.fall_status} hour(s) from last semester. You have ${dek.spring_hours} approved hour(s) this semester. Your spring status (current status) wis calculated by the formula below:
+        <br>
+     <br> <center>  [make up hours] + [7 hours this semester] + [missed spring meeting attendance with buffer] - [spring hours]  </center> <br> 
+        
         <h4> <b> What's next? </b> <br> 
-        Once again, all members are required to submit 7 hours of service during second semester, in addition to watching all videos to maintain active status.
+        As a sophomore or junior, you must get to 0 hours by the end of this semester's hour deadline. Note: Your current meeting hour attendance is subject to change as additional meetings are added.
         <br>
         <h4> <b> Any questions/concerns? </b> <br>
         Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
         `;
+        } else {
+            document.getElementById("content_hourstatus").innerHTML = `
+        <span style="background-color: #FF7F7F;">Your current hour status is -${mac} hour(s)
+        <br>
+        <h4> <b> How does the math work? </b> 
+        <br>
+        You had to make up ${dek.fall_status} hour(s) from last semester. You have ${dek.spring_hours} approved hour(s) this semester. Your spring status (current status) is calculated by the formula below:
+        <br>
+     <br> <center>  [make up hours] + [7 hours this semester] + [missed spring meeting attendance with buffer] - [spring hours]  </center> <br> 
+     <h4> <b> What's next? </b> <br> 
+     As a sophomore or junior, you must get to 0 hours by the end of this semester's hour deadline. Note: Your current meeting hour attendance is subject to change as additional meetings are added.
+     <br>
+     <h4> <b> Any questions/concerns? </b> <br>
+     Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
+        `;
+        }
     }
+   
     /* Account Tab */
     document.getElementById("user_img").src = getCookie("picture");
     document.getElementById("user_name").innerHTML = `Name: ${getCookie("name")}`;
