@@ -196,7 +196,7 @@ function data_setup(obj) {
     }
     
     let dek = obj.hourStatus;
-    let mac = 7 + dek.make_up + dek.spring_attendance - dek.spring_hours; 
+    let mac = 7 + dek.fall_status + dek.spring_attendance - dek.spring_hours; 
     if(dek.grade == "s") {
         if(mac <= 0) {
             document.getElementById("content_hourstatus").innerHTML = `
