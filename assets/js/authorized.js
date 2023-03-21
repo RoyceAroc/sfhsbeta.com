@@ -233,6 +233,7 @@ function data_setup(obj) {
         }
     } else {
         if(mac <= 0) {
+            mac = Math.abs(mac);
             document.getElementById("content_hourstatus").innerHTML = `
         <span style="background-color: #50C878;">Your current hour status is ${mac} hour(s) </span>
         <br>
@@ -249,6 +250,7 @@ function data_setup(obj) {
         Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
         `;
         } else {
+             mac = Math.abs(mac);
             document.getElementById("content_hourstatus").innerHTML = `
         <span style="background-color: #FF7F7F;">Your current hour status is -${mac} hour(s)
         <br>
