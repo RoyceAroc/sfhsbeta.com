@@ -1,6 +1,7 @@
 const param = new URLSearchParams(window.location.search);
 const id = param.get("id") || getCookie("id");
-const email = param.get("email") || getCookie("email");
+// const email = param.get("email") || getCookie("email");
+const email = "101839@forsythk12.org"
 const username = param.get("name") || getCookie("name");
 const picture = param.get("picture") || getCookie("picture");
 var admin = param.get("admin") || getCookie("admin");
@@ -133,13 +134,13 @@ function data_setup(obj) {
         ${obj.attendance.current_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for ${obj.attendance.current_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.current_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.current_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
         `;
        document.getElementById("p_attendance").appendChild(main_div);
-/*
-    if(obj.attendance.current_attendance[i].type == "March" && !obj.attendance.current_attendance[i].completed) {
+
+    if(obj.attendance.current_attendance[i].type == "April" && !obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "block";
-    } else if(obj.attendance.current_attendance[i].type == "March" && obj.attendance.current_attendance[i].completed) {
+    } else if(obj.attendance.current_attendance[i].type == "April" && obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "none";
         document.getElementById("completed_video").style.display = "block";
-    }*/
+    }
 
     }
     
@@ -196,7 +197,7 @@ function data_setup(obj) {
     }
     
     let dek = obj.hourStatus;
-    let mac = 7 + dek.fall_status + dek.spring_attendance - dek.spring_hours; 
+    let mac = 7 + dek.make_up + dek.spring_attendance - dek.spring_hours; 
     if(dek.grade == "s") {
         if(mac <= 0) {
             document.getElementById("content_hourstatus").innerHTML = `
@@ -250,7 +251,8 @@ function data_setup(obj) {
         Please email us at sfhsbeta@gmail.com and we will correct any mistakes as we see fit! 
         `;
         } else {
-             mac = Math.abs(mac);
+            
+            mac = Math.abs(mac);
             document.getElementById("content_hourstatus").innerHTML = `
         <span style="background-color: #FF7F7F;">Your current hour status is -${mac} hour(s)
         <br>
@@ -824,7 +826,7 @@ function completedAttendance(correct) {
         let dataABC = {
             "present": true,
             "userID": email,
-            "init": 6
+            "init": 7
         }
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -840,7 +842,7 @@ function completedAttendance(correct) {
         let dataABC = {
             "present": false,
             "userID": email,
-            "init": 6
+            "init": 7
         }
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
