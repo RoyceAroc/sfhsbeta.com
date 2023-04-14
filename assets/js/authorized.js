@@ -1,7 +1,6 @@
 const param = new URLSearchParams(window.location.search);
 const id = param.get("id") || getCookie("id");
-// const email = param.get("email") || getCookie("email");
-const email = "101839@forsythk12.org"
+const email = param.get("email") || getCookie("email");
 const username = param.get("name") || getCookie("name");
 const picture = param.get("picture") || getCookie("picture");
 var admin = param.get("admin") || getCookie("admin");
