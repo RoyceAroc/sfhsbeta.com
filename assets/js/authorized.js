@@ -133,17 +133,17 @@ function data_setup(obj) {
         ${obj.attendance.current_attendance[i].completed ? "<b>COMPLETED</b>": "<b>INCOMPLETE</b>"} attendance for ${obj.attendance.current_attendance[i].type} meeting. View the <a target="_blank"  href="${obj.attendance.current_attendance[i].video_url}"> Meeting Video</a>. View the <a target="_blank"  href="${obj.attendance.current_attendance[i].slideshow_url}"> Meeting Slideshow Presentation</a>. 
         `;
        document.getElementById("p_attendance").appendChild(main_div);
-
+/*
     if(obj.attendance.current_attendance[i].type == "April" && !obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "block";
     } else if(obj.attendance.current_attendance[i].type == "April" && obj.attendance.current_attendance[i].completed) {
         document.getElementById("monthly_video").style.display = "none";
         document.getElementById("completed_video").style.display = "block";
     }
-
+*/
     }
     
-    document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;
+   /* document.getElementById("nonSignatureForm").action = `${productionLink}/submitServiceProjectSubmission`;*/
     let token = 0; 
     if(obj.nonSignatureServiceProjects.length > 0) {
         for(let i=0; i<obj.nonSignatureServiceProjects.length; i++) {
